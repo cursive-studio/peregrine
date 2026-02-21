@@ -1,0 +1,80 @@
+---
+import Container from "./Container.astro";
+---
+
+<footer id="contact" class="bg-[#22384A] py-20 text-white md:py-28" aria-label="Footer">
+  <Container>
+    <div class="grid gap-16 md:grid-cols-2 md:gap-12">
+      <!-- Left column: brand & info -->
+      <div class="flex flex-col justify-between">
+        <div>
+          <!-- Logo -->
+          <a href="/" class="mb-8 flex items-center gap-2">
+            <svg
+              class="h-6 w-6"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M12 2C6.48 2 2 6 2 11c0 3 2 6 5 8l5 3 5-3c3-2 5-5 5-8 0-5-4.48-9-10-9z" />
+              <path d="M12 2c-1 2-1.5 4-1.5 6s.5 4 1.5 6c1-2 1.5-4 1.5-6S13 4 12 2z" />
+            </svg>
+            <span class="text-sm tracking-wider">PeregrineCreative</span>
+          </a>
+
+          <p class="mb-10 max-w-sm text-sm leading-relaxed text-white/60">
+            A design-led partner in sustainable manufacturing, industrial design, and premium
+            nutrition. We build products that balance quality, responsibility, and scale.
+          </p>
+        </div>
+
+        <div class="mt-auto">
+          <p class="mb-3 text-xs text-white/40">
+            &copy; {new Date().getFullYear()} Peregrine Creative Group. All rights reserved.
+          </p>
+          <p class="text-xs text-white/30">
+            Reusable packaging&nbsp;&nbsp;&bull;&nbsp;&nbsp;Responsible textiles&nbsp;&nbsp;&bull;&nbsp;&nbsp;Premium nutrition
+          </p>
+        </div>
+      </div>
+
+      <!-- Right column: contact form -->
+      <div>
+        <h2 class="mb-8 text-2xl font-light md:text-3xl">Get in Touch</h2>
+        <form class="flex flex-col gap-4" action="#" method="POST">
+          <input
+            type="text"
+            name="name"
+            placeholder="Name"
+            required
+            class="rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder-white/40 outline-none transition-colors focus:border-white/30"
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            required
+            class="rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder-white/40 outline-none transition-colors focus:border-white/30"
+          />
+          <textarea
+            name="message"
+            placeholder="Message"
+            rows="5"
+            required
+            class="resize-none rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder-white/40 outline-none transition-colors focus:border-white/30"
+          ></textarea>
+          <button
+            type="submit"
+            class="mt-2 w-full rounded-lg bg-white px-6 py-3 text-xs font-semibold tracking-[0.15em] text-[#22384A] uppercase transition-opacity hover:opacity-90"
+          >
+            Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </Container>
+</footer>

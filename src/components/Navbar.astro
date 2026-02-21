@@ -1,0 +1,99 @@
+---
+import Container from "./Container.astro";
+
+interface Props {
+  variant?: "overlay" | "solid";
+}
+
+const { variant = "overlay" } = Astro.props;
+
+const isOverlay = variant === "overlay";
+---
+
+<header class:list={[
+  "fixed top-0 left-0 z-50 w-full transition-colors duration-300",
+  isOverlay ? "bg-transparent" : "border-b border-neutral-200 bg-white",
+]}>
+  <Container>
+    <nav
+      class:list={[
+        "flex items-center justify-between py-5 text-sm font-light",
+        isOverlay ? "text-white" : "text-neutral-800",
+      ]}
+      aria-label="Main navigation"
+    >
+      <!-- Logo -->
+      <a href="/" class="flex items-center gap-2 tracking-wide">
+        <svg
+          class="h-6 w-6"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <path d="M12 2C6.48 2 2 6 2 11c0 3 2 6 5 8l5 3 5-3c3-2 5-5 5-8 0-5-4.48-9-10-9z" />
+          <path d="M12 2c-1 2-1.5 4-1.5 6s.5 4 1.5 6c1-2 1.5-4 1.5-6S13 4 12 2z" />
+        </svg>
+        <span class="text-sm tracking-wider">PeregrineCreative</span>
+      </a>
+
+      <!-- Desktop links -->
+      <ul class="hidden items-center gap-10 md:flex" role="list">
+        <li>
+          <a href="/reusable-bottles" class="transition-opacity hover:opacity-70">Reusable Bottles</a>
+        </li>
+        <li>
+          <a href="/textiles" class="transition-opacity hover:opacity-70">Textiles</a>
+        </li>
+        <li>
+          <a href="/olive-oil-supplements" class="transition-opacity hover:opacity-70">Olive Oil &amp; Supplements</a>
+        </li>
+      </ul>
+
+      <!-- Contact link -->
+      <a
+        href="/#contact"
+        class="hidden transition-opacity hover:opacity-70 md:inline-block"
+      >
+        Contact
+      </a>
+
+      <!-- Mobile hamburger -->
+      <button
+        class="flex flex-col gap-1.5 md:hidden"
+        aria-label="Toggle menu"
+        id="mobile-menu-toggle"
+      >
+        <span class:list={["block h-px w-6", isOverlay ? "bg-white" : "bg-neutral-800"]}></span>
+        <span class:list={["block h-px w-6", isOverlay ? "bg-white" : "bg-neutral-800"]}></span>
+        <span class:list={["block h-px w-6", isOverlay ? "bg-white" : "bg-neutral-800"]}></span>
+      </button>
+    </nav>
+
+    <!-- Mobile menu -->
+    <div
+      id="mobile-menu"
+      class:list={[
+        "hidden flex-col gap-4 pb-6 text-sm font-light md:hidden",
+        isOverlay ? "text-white" : "text-neutral-800",
+      ]}
+    >
+      <a href="/reusable-bottles" class="transition-opacity hover:opacity-70">Reusable Bottles</a>
+      <a href="/textiles" class="transition-opacity hover:opacity-70">Textiles</a>
+      <a href="/olive-oil-supplements" class="transition-opacity hover:opacity-70">Olive Oil &amp; Supplements</a>
+      <a href="/#contact" class="transition-opacity hover:opacity-70">Contact</a>
+    </div>
+  </Container>
+</header>
+
+<script>
+  const toggle = document.getElementById("mobile-menu-toggle");
+  const menu = document.getElementById("mobile-menu");
+  toggle?.addEventListener("click", () => {
+    menu?.classList.toggle("hidden");
+    menu?.classList.toggle("flex");
+  });
+</script>

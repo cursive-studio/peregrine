@@ -1,0 +1,49 @@
+---
+import Container from "./Container.astro";
+
+interface Props {
+  backgroundImage?: string;
+}
+
+const {
+  backgroundImage = "https://images.unsplash.com/photo-1565043666747-69f6646db940?auto=format&fit=crop&w=1920&q=80",
+} = Astro.props;
+---
+
+<section class="relative min-h-[85vh] w-full overflow-hidden md:min-h-screen" aria-label="Hero">
+  <!-- Background image -->
+  <img
+    src={backgroundImage}
+    alt=""
+    class="absolute inset-0 h-full w-full object-cover"
+    loading="eager"
+  />
+
+  <!-- Dark overlay -->
+  <div class="absolute inset-0 bg-black/45"></div>
+
+  <!-- Content -->
+  <Container class="relative z-10 flex h-full min-h-[85vh] flex-col justify-end pb-16 md:min-h-screen md:pb-20">
+    <div class="flex flex-col gap-10 md:flex-row md:items-end md:justify-between">
+      <!-- Headline -->
+      <div class="max-w-3xl">
+        <h1 class="text-3xl leading-tight font-light text-white md:text-5xl lg:text-6xl">
+          Designing, Manufacturing &amp;&nbsp;Delivering<br class="hidden md:block" />
+          Sustainable Products at Scale
+        </h1>
+      </div>
+
+      <!-- Stats -->
+      <div class="flex gap-12 text-white md:gap-16">
+        <div>
+          <span class="block text-4xl font-light md:text-5xl">30+</span>
+          <span class="mt-1 block text-xs tracking-wide text-white/70">years experience</span>
+        </div>
+        <div>
+          <span class="block text-4xl font-light md:text-5xl">10+</span>
+          <span class="mt-1 block text-xs tracking-wide text-white/70">global partners</span>
+        </div>
+      </div>
+    </div>
+  </Container>
+</section>

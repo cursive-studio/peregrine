@@ -1,0 +1,106 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Navbar from "../components/Navbar.astro";
+import Container from "../components/Container.astro";
+import FooterContact from "../components/FooterContact.astro";
+---
+
+<BaseLayout title="Olive Oil & Supplements — Peregrine Creative Group" description="Premium olive oil and nutritional supplements sourced and distributed globally.">
+  <Navbar variant="solid" />
+
+  <main class="pt-16">
+    <!-- Page Hero -->
+    <section class="relative overflow-hidden py-24 md:py-32">
+      <Container>
+        <p class="mb-6 text-[11px] font-medium tracking-[0.2em] text-neutral-400 uppercase">
+          Services
+        </p>
+        <h1 class="max-w-3xl text-4xl font-light text-neutral-900 md:text-5xl lg:text-6xl">
+          Olive Oil &amp; Supplements
+        </h1>
+        <p class="mt-6 max-w-xl text-base leading-relaxed text-neutral-500 md:text-lg">
+          We source, package, and distribute premium extra-virgin olive oil and nutritional supplements — connecting Mediterranean producers with global markets.
+        </p>
+      </Container>
+    </section>
+
+    <!-- Hero image -->
+    <section class="px-6 md:px-10">
+      <div class="mx-auto max-w-7xl overflow-hidden rounded-2xl">
+        <img
+          src="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&w=1600&q=80"
+          alt="Olive oil production"
+          class="aspect-[21/9] w-full object-cover"
+          loading="eager"
+        />
+      </div>
+    </section>
+
+    <!-- Details -->
+    <section class="py-24 md:py-32">
+      <Container>
+        <div class="grid gap-16 md:grid-cols-12">
+          <div class="md:col-span-5">
+            <h2 class="text-2xl font-light text-neutral-800 md:text-3xl">
+              From Grove to Shelf
+            </h2>
+          </div>
+          <div class="md:col-span-6 md:col-start-7">
+            <p class="text-base leading-relaxed text-neutral-600 md:text-lg">
+              Our olive oil is cold-pressed within hours of harvest at family-run estates across Greece and Southern Europe. We handle the full chain — from sourcing and quality control through branding, bottling, and international distribution — so your customers receive a product that's traceable, authentic, and exceptional.
+            </p>
+          </div>
+        </div>
+      </Container>
+    </section>
+
+    <!-- Capabilities -->
+    <section class="border-t border-neutral-200 py-24 md:py-32">
+      <Container>
+        <p class="mb-16 text-[11px] font-medium tracking-[0.2em] text-neutral-400 uppercase">
+          Capabilities
+        </p>
+        <div class="grid gap-12 md:grid-cols-3">
+          <div>
+            <h3 class="mb-3 text-lg font-medium text-neutral-900">Sourcing &amp; Quality</h3>
+            <p class="text-sm leading-relaxed text-neutral-500">
+              Direct relationships with producers ensure every batch meets our acidity, polyphenol, and freshness benchmarks. Full lab testing on every shipment.
+            </p>
+          </div>
+          <div>
+            <h3 class="mb-3 text-lg font-medium text-neutral-900">Private Label &amp; Branding</h3>
+            <p class="text-sm leading-relaxed text-neutral-500">
+              We offer white-label and custom-branded solutions — designing packaging, labels, and marketing assets that position your product at the premium end of shelf.
+            </p>
+          </div>
+          <div>
+            <h3 class="mb-3 text-lg font-medium text-neutral-900">Global Distribution</h3>
+            <p class="text-sm leading-relaxed text-neutral-500">
+              Warehousing, logistics, and regulatory compliance handled end-to-end. We ship to retail, wholesale, and direct-to-consumer channels across Europe, the US, and Asia.
+            </p>
+          </div>
+        </div>
+      </Container>
+    </section>
+
+    <!-- CTA -->
+    <section class="border-t border-neutral-200 py-24 md:py-32">
+      <Container>
+        <div class="flex flex-col items-center text-center">
+          <h2 class="mb-4 text-2xl font-light text-neutral-800 md:text-3xl">Ready to get started?</h2>
+          <p class="mb-8 max-w-md text-sm leading-relaxed text-neutral-500">
+            Whether you're launching a new product line or expanding an existing range, we'll help you source, brand, and ship with confidence.
+          </p>
+          <a
+            href="/#contact"
+            class="rounded-lg bg-[#22384A] px-8 py-3 text-xs font-semibold tracking-[0.15em] text-white uppercase transition-opacity hover:opacity-90"
+          >
+            Get in Touch
+          </a>
+        </div>
+      </Container>
+    </section>
+  </main>
+
+  <FooterContact />
+</BaseLayout>

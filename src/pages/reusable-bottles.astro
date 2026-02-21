@@ -1,0 +1,106 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Navbar from "../components/Navbar.astro";
+import Container from "../components/Container.astro";
+import FooterContact from "../components/FooterContact.astro";
+---
+
+<BaseLayout title="Reusable Bottles — Peregrine Creative Group" description="Custom-designed reusable bottles manufactured sustainably at scale.">
+  <Navbar variant="solid" />
+
+  <main class="pt-16">
+    <!-- Page Hero -->
+    <section class="relative overflow-hidden py-24 md:py-32">
+      <Container>
+        <p class="mb-6 text-[11px] font-medium tracking-[0.2em] text-neutral-400 uppercase">
+          Services
+        </p>
+        <h1 class="max-w-3xl text-4xl font-light text-neutral-900 md:text-5xl lg:text-6xl">
+          Reusable Bottles
+        </h1>
+        <p class="mt-6 max-w-xl text-base leading-relaxed text-neutral-500 md:text-lg">
+          Designed for longevity, engineered for sustainability. We manufacture premium reusable bottles that reduce single-use waste without compromising on form or function.
+        </p>
+      </Container>
+    </section>
+
+    <!-- Hero image -->
+    <section class="px-6 md:px-10">
+      <div class="mx-auto max-w-7xl overflow-hidden rounded-2xl">
+        <img
+          src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=1600&q=80"
+          alt="Reusable bottle collection"
+          class="aspect-[21/9] w-full object-cover"
+          loading="eager"
+        />
+      </div>
+    </section>
+
+    <!-- Details -->
+    <section class="py-24 md:py-32">
+      <Container>
+        <div class="grid gap-16 md:grid-cols-12">
+          <div class="md:col-span-5">
+            <h2 class="text-2xl font-light text-neutral-800 md:text-3xl">
+              Why Reusable?
+            </h2>
+          </div>
+          <div class="md:col-span-6 md:col-start-7">
+            <p class="text-base leading-relaxed text-neutral-600 md:text-lg">
+              Over 500 billion plastic bottles are produced globally each year, with the majority ending up in landfill or the ocean. Our reusable bottles are designed to replace hundreds of single-use alternatives over their lifetime — built from food-grade stainless steel, BPA-free polymers, and recycled materials.
+            </p>
+          </div>
+        </div>
+      </Container>
+    </section>
+
+    <!-- Capabilities -->
+    <section class="border-t border-neutral-200 py-24 md:py-32">
+      <Container>
+        <p class="mb-16 text-[11px] font-medium tracking-[0.2em] text-neutral-400 uppercase">
+          Capabilities
+        </p>
+        <div class="grid gap-12 md:grid-cols-3">
+          <div>
+            <h3 class="mb-3 text-lg font-medium text-neutral-900">Custom Design</h3>
+            <p class="text-sm leading-relaxed text-neutral-500">
+              Full industrial design services — from initial concept sketches and 3D modelling through to production-ready CAD files and prototyping.
+            </p>
+          </div>
+          <div>
+            <h3 class="mb-3 text-lg font-medium text-neutral-900">Material Sourcing</h3>
+            <p class="text-sm leading-relaxed text-neutral-500">
+              We source responsibly. Every material is vetted for durability, safety, and environmental impact, with full traceability across the supply chain.
+            </p>
+          </div>
+          <div>
+            <h3 class="mb-3 text-lg font-medium text-neutral-900">Manufacturing at Scale</h3>
+            <p class="text-sm leading-relaxed text-neutral-500">
+              From 1,000 to 1,000,000 units. Our factory partnerships across Asia and Europe ensure consistent quality at any volume.
+            </p>
+          </div>
+        </div>
+      </Container>
+    </section>
+
+    <!-- CTA -->
+    <section class="border-t border-neutral-200 py-24 md:py-32">
+      <Container>
+        <div class="flex flex-col items-center text-center">
+          <h2 class="mb-4 text-2xl font-light text-neutral-800 md:text-3xl">Ready to get started?</h2>
+          <p class="mb-8 max-w-md text-sm leading-relaxed text-neutral-500">
+            Tell us about your project and we'll put together a proposal tailored to your brand, volume, and timeline.
+          </p>
+          <a
+            href="/#contact"
+            class="rounded-lg bg-[#22384A] px-8 py-3 text-xs font-semibold tracking-[0.15em] text-white uppercase transition-opacity hover:opacity-90"
+          >
+            Get in Touch
+          </a>
+        </div>
+      </Container>
+    </section>
+  </main>
+
+  <FooterContact />
+</BaseLayout>
