@@ -1,18 +1,19 @@
 ---
 import Container from "./Container.astro";
 
-interface Props {
-  image?: string;
-}
-
-const {
-  image = "https://images.unsplash.com/photo-1532601224476-15c79f2f7a51?auto=format&fit=crop&w=1200&q=80",
-} = Astro.props;
-
 const values = [
-  { text: "Always think outside the box", bold: false },
-  { text: "Minimise the impact on the environment", bold: false },
-  { text: "High quality does not necessarily mean high price", bold: true },
+  {
+    text: "Always think outside the box",
+    image: "https://images.unsplash.com/photo-1532601224476-15c79f2f7a51?auto=format&fit=crop&w=1200&q=80",
+  },
+  {
+    text: "Minimise the impact on the environment",
+    image: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=1200&q=80",
+  },
+  {
+    text: "High quality does not necessarily mean high price",
+    image: "https://images.unsplash.com/photo-1497440001374-f26997328c1b?auto=format&fit=crop&w=1200&q=80",
+  },
 ];
 ---
 
@@ -21,7 +22,6 @@ const values = [
     <div class="grid gap-12 md:grid-cols-12 md:gap-8">
       <!-- Left content -->
       <div class="flex flex-col justify-center md:col-span-5">
-        <!-- Eyebrow -->
         <p class="mb-8 text-[11px] font-medium tracking-[0.2em] text-neutral-400 uppercase">
           Values
         </p>
@@ -35,14 +35,18 @@ const values = [
         </p>
 
         <!-- Values list -->
-        <ul class="divide-y divide-neutral-200" role="list">
-          {values.map((item) => (
-            <li class="py-4 first:pt-0 last:pb-0">
+        <ul class="divide-y divide-neutral-200" role="list" id="ethos-list">
+          {values.map((item, i) => (
+            <li
+              class="group cursor-pointer py-4 first:pt-0 last:pb-0"
+              data-index={i}
+              data-image={item.image}
+            >
               <p class:list={[
-                "text-sm md:text-base",
-                item.bold
+                "text-sm transition-colors duration-200 md:text-base",
+                i === 0
                   ? "font-semibold text-neutral-900"
-                  : "font-normal text-neutral-600",
+                  : "font-normal text-neutral-400",
               ]}>
                 {item.text}
               </p>
@@ -52,14 +56,59 @@ const values = [
       </div>
 
       <!-- Right image -->
-      <div class="md:col-span-7">
-        <img
-          src={image}
-          alt="Wind turbines representing sustainable values"
-          class="aspect-[4/3] w-full rounded-2xl object-cover"
-          loading="lazy"
-        />
+      <div class="relative md:col-span-7">
+        {values.map((item, i) => (
+          <img
+            src={item.image}
+            alt={item.text}
+            class:list={[
+              "aspect-[4/3] w-full rounded-2xl object-cover transition-opacity duration-500 ease-in-out",
+              i === 0 ? "relative opacity-100" : "absolute inset-0 opacity-0",
+            ]}
+            data-ethos-img={i}
+            loading={i === 0 ? "eager" : "lazy"}
+          />
+        ))}
       </div>
     </div>
   </Container>
 </section>
+
+<script>
+  const list = document.getElementById("ethos-list");
+  if (list) {
+    const items = list.querySelectorAll<HTMLLIElement>("li[data-index]");
+    const images = document.querySelectorAll<HTMLImageElement>("[data-ethos-img]");
+    let active = 0;
+
+    function setActive(index: number) {
+      if (index === active) return;
+      items.forEach((li, i) => {
+        const p = li.querySelector("p");
+        if (!p) return;
+        if (i === index) {
+          p.classList.replace("font-normal", "font-semibold");
+          p.classList.replace("text-neutral-400", "text-neutral-900");
+        } else {
+          p.classList.remove("font-semibold", "text-neutral-900");
+          p.classList.add("font-normal", "text-neutral-400");
+        }
+      });
+      images.forEach((img, i) => {
+        if (i === index) {
+          img.classList.replace("opacity-0", "opacity-100");
+        } else {
+          img.classList.replace("opacity-100", "opacity-0");
+        }
+      });
+      active = index;
+    }
+
+    items.forEach((li) => {
+      li.addEventListener("mouseenter", () => {
+        const idx = Number(li.dataset.index);
+        setActive(idx);
+      });
+    });
+  }
+</script>
