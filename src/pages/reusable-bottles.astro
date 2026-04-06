@@ -3,36 +3,74 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Navbar from "../components/Navbar.astro";
 import Container from "../components/Container.astro";
 import FooterContact from "../components/FooterContact.astro";
+import EthosSplit from "../components/EthosSplit.astro";
 ---
 
-<BaseLayout title="Reusable Bottles — Peregrine Creative Group" description="Custom-designed reusable bottles manufactured sustainably at scale.">
+<BaseLayout
+  title="Reusable Bottles — Peregrine Creative Group"
+  description="Custom-designed reusable bottles manufactured sustainably at scale."
+>
   <Navbar variant="solid" />
 
   <main class="pt-16">
     <!-- Page Hero -->
     <section class="relative overflow-hidden py-24 md:py-32">
       <Container>
-        <p class="mb-6 text-[11px] font-medium tracking-[0.2em] text-neutral-400 uppercase">
+        <p
+          class="mb-6 text-[11px] font-medium tracking-[0.2em] text-neutral-400 uppercase"
+        >
           Services
         </p>
-        <h1 class="max-w-3xl text-4xl font-light text-neutral-900 md:text-5xl lg:text-6xl">
-          Reusable Bottles
+        <h1
+          class="max-w-3xl text-4xl font-light text-neutral-900 md:text-5xl lg:text-6xl"
+        >
+          Creative drinkware and packaging, designed to stand out.
         </h1>
-        <p class="mt-6 max-w-xl text-base leading-relaxed text-neutral-500 md:text-lg">
-          Designed for longevity, engineered for sustainability. We manufacture premium reusable bottles that reduce single-use waste without compromising on form or function.
+        <p
+          class="mt-6 max-w-xl text-base leading-relaxed text-neutral-500 md:text-lg"
+        >
+          We design and manufacture reusable cups, custom slush yards, bottles,
+          and branded beverage vessels that turn packaging into a real marketing
+          asset.
         </p>
+
+        <!-- cta buttons -->
+        <div class="flex gap-4 pt-8">
+          <a href="/#contact" class="bg-white text-black px-4 py-2"
+            >Get in touch</a
+          >
+          <a href="/#services" class="bg-white text-black px-4 py-2"
+            >View our work</a
+          >
+        </div>
       </Container>
     </section>
 
     <!-- Hero image -->
-    <section class="px-6 md:px-10">
-      <div class="mx-auto max-w-7xl overflow-hidden rounded-2xl">
+    <section
+      class="px-6 md:px-10 gap-16 py-24 md:py-32 flex flex-row mx-auto max-w-7xl items-start justify-between"
+    >
+      <div class="overflow-hidden rounded-2xl">
         <img
           src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=1600&q=80"
           alt="Reusable bottle collection"
           class="aspect-[21/9] w-full object-cover"
           loading="eager"
         />
+      </div>
+
+      <div class="flex flex-col gap-4 max-w-xl mx-auto">
+        <h2 class="text-2xl font-light text-neutral-800 md:text-3xl">
+          Packaging that people remember
+        </h2>
+        <p class="text-base leading-relaxed text-neutral-600 md:text-lg">
+          Most food and drink packaging is forgettable. Peregrine helps brands
+          create eye-catching, functional products that customers actually want
+          to keep — from reusable cinema cups and custom molded vessels to
+          inventive slush yards and collectible promotional drinkware. Their
+          approach is to “redefine by redesign,” using packaging as a brand
+          identifier rather than just a container.
+        </p>
       </div>
     </section>
 
@@ -42,41 +80,143 @@ import FooterContact from "../components/FooterContact.astro";
         <div class="grid gap-16 md:grid-cols-12">
           <div class="md:col-span-5">
             <h2 class="text-2xl font-light text-neutral-800 md:text-3xl">
-              Why Reusable?
+              From concept to finished product
             </h2>
           </div>
           <div class="md:col-span-6 md:col-start-7">
             <p class="text-base leading-relaxed text-neutral-600 md:text-lg">
-              Over 500 billion plastic bottles are produced globally each year, with the majority ending up in landfill or the ocean. Our reusable bottles are designed to replace hundreds of single-use alternatives over their lifetime — built from food-grade stainless steel, BPA-free polymers, and recycled materials.
+              Peregrine offers an end-to-end service spanning concept
+              development, industrial design, 3D proto-renders, physical
+              samples, production, and marketing support. With more than 30
+              years of combined industry knowledge, they position themselves as
+              more than a manufacturer: they help clients shape products,
+              visuals, and market opportunities holistically.
+            </p>
+          </div>
+        </div>
+
+        <!-- list of services -->
+        <div class="pt-16">
+          <ul class="text-xl font-light text-black/60 flex flex-col gap-4">
+            <li>Reusable promotional cups</li>
+            <li>Custom beverage vessels</li>
+            <li>Slush yards</li>
+            <li>Industrial design</li>
+            <li>3D rendering</li>
+            <li>Label illustration and design</li>
+          </ul>
+        </div>
+      </Container>
+    </section>
+
+    <!-- Ethos section -->
+    <EthosSplit />
+
+    <!-- Capabilities -->
+    <section class="border-t border-neutral-200 py-24 md:py-32">
+      <Container>
+        <p
+          class="mb-16 text-[11px] font-medium tracking-[0.2em] text-neutral-400 uppercase"
+        >
+          Signature products
+        </p>
+        <div class="grid gap-12 md:grid-cols-3">
+          <div>
+            <h3 class="mb-3 text-lg font-medium text-neutral-900">
+              Reusable Cups
+            </h3>
+            <p class="text-sm leading-relaxed text-neutral-500">
+              Durable, dishwasher-safe, 360° printable cups for cinemas,
+              stadiums, festivals, theme parks, and events — designed to
+              function as souvenirs as well as drinkware.
+            </p>
+          </div>
+          <div>
+            <h3 class="mb-3 text-lg font-medium text-neutral-900">
+              Custom Vessels
+            </h3>
+            <p class="text-sm leading-relaxed text-neutral-500">
+              Custom bottles and molded drinkware designed around a client’s
+              concept, shape, or branded world.
+            </p>
+          </div>
+          <div>
+            <h3 class="mb-3 text-lg font-medium text-neutral-900">
+              Slush Yards
+            </h3>
+            <p class="text-sm leading-relaxed text-neutral-500">
+              Creative, high-impact slush yard designs including signature
+              shapes like the Twister Cup, branded flagship forms, and bespoke
+              molded concepts.
             </p>
           </div>
         </div>
       </Container>
     </section>
 
-    <!-- Capabilities -->
+    <!-- Why Peregrine -->
     <section class="border-t border-neutral-200 py-24 md:py-32">
       <Container>
-        <p class="mb-16 text-[11px] font-medium tracking-[0.2em] text-neutral-400 uppercase">
-          Capabilities
-        </p>
-        <div class="grid gap-12 md:grid-cols-3">
+        <h2
+          class="mb-16 text-2xl font-light text-neutral-800 md:mb-20 md:text-3xl"
+        >
+          Why Peregrine?
+        </h2>
+        <div class="grid gap-12 md:grid-cols-3 md:gap-8">
           <div>
-            <h3 class="mb-3 text-lg font-medium text-neutral-900">Custom Design</h3>
+            <h3 class="mb-3 text-lg font-medium text-neutral-900">
+              High quality, strong value
+            </h3>
             <p class="text-sm leading-relaxed text-neutral-500">
-              Full industrial design services — from initial concept sketches and 3D modelling through to production-ready CAD files and prototyping.
+              In-house production oversight from 3D drafts to mold creation and
+              final output.
             </p>
           </div>
           <div>
-            <h3 class="mb-3 text-lg font-medium text-neutral-900">Material Sourcing</h3>
+            <h3 class="mb-3 text-lg font-medium text-neutral-900">
+              Creative thinking
+            </h3>
             <p class="text-sm leading-relaxed text-neutral-500">
-              We source responsibly. Every material is vetted for durability, safety, and environmental impact, with full traceability across the supply chain.
+              A focus on pushing packaging beyond standard forms through new
+              technology, updated machinery, and close collaboration between
+              design and product teams.
             </p>
           </div>
           <div>
-            <h3 class="mb-3 text-lg font-medium text-neutral-900">Manufacturing at Scale</h3>
+            <h3 class="mb-3 text-lg font-medium text-neutral-900">
+              Lower environmental impact
+            </h3>
             <p class="text-sm leading-relaxed text-neutral-500">
-              From 1,000 to 1,000,000 units. Our factory partnerships across Asia and Europe ensure consistent quality at any volume.
+              Reusable, refillable, recyclable, and increasingly biodegradable
+              solutions designed to reduce waste and reliance on disposables.
+            </p>
+          </div>
+        </div>
+      </Container>
+    </section>
+
+    <!-- Sustainability -->
+    <section class="border-t border-neutral-200 py-24 md:py-32">
+      <Container>
+        <div class="grid gap-12 md:grid-cols-12 md:gap-8">
+          <div class="md:col-span-5">
+            <p
+              class="mb-6 text-[11px] font-medium tracking-[0.2em] text-neutral-400 uppercase"
+            >
+              Sustainability
+            </p>
+            <h2 class="text-3xl font-light text-neutral-800 md:text-4xl">
+              Pere<span class="font-semibold text-green-600">GREEN</span>
+            </h2>
+          </div>
+          <div class="md:col-span-6 md:col-start-7">
+            <p class="text-base leading-relaxed text-neutral-600 md:text-lg">
+              Sustainability is an operating principle, not an add-on. We use
+              fully recyclable PET and recycled R-PET across our product lines,
+              alongside reusable and refillable options designed to replace
+              single-use alternatives. Our waste-management practices reduce
+              production waste while improving efficiency, and our biodegradable
+              cups and straws mark the next step in a greener product direction.
             </p>
           </div>
         </div>
@@ -87,9 +227,12 @@ import FooterContact from "../components/FooterContact.astro";
     <section class="border-t border-neutral-200 py-24 md:py-32">
       <Container>
         <div class="flex flex-col items-center text-center">
-          <h2 class="mb-4 text-2xl font-light text-neutral-800 md:text-3xl">Ready to get started?</h2>
+          <h2 class="mb-4 text-2xl font-light text-neutral-800 md:text-3xl">
+            Ready to get started?
+          </h2>
           <p class="mb-8 max-w-md text-sm leading-relaxed text-neutral-500">
-            Tell us about your project and we'll put together a proposal tailored to your brand, volume, and timeline.
+            Tell us about your project and we'll put together a proposal
+            tailored to your brand, volume, and timeline.
           </p>
           <a
             href="/#contact"
