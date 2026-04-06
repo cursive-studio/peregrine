@@ -5,22 +5,42 @@ import Container from "../components/Container.astro";
 import FooterContact from "../components/FooterContact.astro";
 ---
 
-<BaseLayout title="Olive Oil & Supplements — Peregrine Creative Group" description="Premium olive oil and nutritional supplements sourced and distributed globally.">
+<BaseLayout
+  title="Olive Oil & Supplements — Peregrine Creative Group"
+  description="Premium olive oil and nutritional supplements sourced and distributed globally."
+>
   <Navbar variant="solid" />
 
   <main class="pt-16">
     <!-- Page Hero -->
     <section class="relative overflow-hidden py-24 md:py-32">
       <Container>
-        <p class="mb-6 text-[11px] font-medium tracking-[0.2em] text-neutral-400 uppercase">
-          Services
+        <p
+          class="mb-6 text-[11px] font-medium tracking-[0.2em] text-neutral-400 uppercase"
+        >
+          Olive Oil
         </p>
-        <h1 class="max-w-3xl text-4xl font-light text-neutral-900 md:text-5xl lg:text-6xl">
-          Olive Oil &amp; Supplements
+        <h1
+          class="max-w-3xl text-4xl font-light text-neutral-900 md:text-5xl lg:text-6xl"
+        >
+          Premium olive oil, thoughtfully sourced and delivered.
         </h1>
-        <p class="mt-6 max-w-xl text-base leading-relaxed text-neutral-500 md:text-lg">
-          We source, package, and distribute premium extra-virgin olive oil and nutritional supplements — connecting Mediterranean producers with global markets.
+        <p
+          class="mt-6 max-w-xl text-base leading-relaxed text-neutral-500 md:text-lg"
+        >
+          Distributed by Peregrine Creative Group — specialists in bringing
+          high-quality, distinctive products to market.
         </p>
+
+        <!-- cta buttons -->
+        <div class="flex flex-wrap gap-4 pt-8">
+          <a href="/#contact" class="group inline-flex items-center overflow-hidden rounded-xl bg-neutral-900 text-white transition-opacity hover:opacity-90">
+            <span class="px-6 py-4 text-sm font-medium tracking-wide uppercase">View product on Amazon</span>
+            <span class="flex h-full items-center border-l border-white/20 px-4 py-4">
+              <svg class="h-4 w-4 transition-transform group-hover:translate-x-0.5" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5" /></svg>
+            </span>
+          </a>
+        </div>
       </Container>
     </section>
 
@@ -42,13 +62,245 @@ import FooterContact from "../components/FooterContact.astro";
         <div class="grid gap-16 md:grid-cols-12">
           <div class="md:col-span-5">
             <h2 class="text-2xl font-light text-neutral-800 md:text-3xl">
-              From Grove to Shelf
+              About
             </h2>
           </div>
           <div class="md:col-span-6 md:col-start-7">
             <p class="text-base leading-relaxed text-neutral-600 md:text-lg">
-              Our olive oil is cold-pressed within hours of harvest at family-run estates across Greece and Southern Europe. We handle the full chain — from sourcing and quality control through branding, bottling, and international distribution — so your customers receive a product that's traceable, authentic, and exceptional.
+              This extra virgin olive oil is crafted from carefully selected
+              olives and cold-pressed to preserve its natural flavour, aroma,
+              and nutritional value. The result is a clean, balanced oil suited
+              for everyday cooking as well as finishing dishes.
             </p>
+
+            <p
+              class="text-base leading-relaxed text-neutral-600 mt-4 md:text-lg"
+            >
+              Designed for quality-conscious consumers, it delivers both
+              versatility and consistency — whether used in salads, cooking, or
+              dipping.
+            </p>
+          </div>
+        </div>
+      </Container>
+    </section>
+
+    <!-- Why it exists -->
+    <section class="border-t border-neutral-200 py-24 md:py-32">
+      <Container>
+        <div class="grid items-center gap-12 md:grid-cols-12 md:gap-8">
+          <div class="md:col-span-5">
+            <h2
+              class="mb-6 text-3xl font-light tracking-tight text-neutral-800 md:text-4xl"
+            >
+              Simple, high-quality essentials
+            </h2>
+            <p class="text-base leading-relaxed text-neutral-500 md:text-lg">
+              This product focuses on doing one thing well — delivering
+              reliable, high-quality olive oil without unnecessary complexity.
+              It's built for everyday use, with a standard that holds up across
+              cooking and serving.
+            </p>
+          </div>
+          <div class="md:col-span-6 md:col-start-7">
+            <img
+              src="https://images.unsplash.com/photo-1510627498534-cf7e9002facc?auto=format&fit=crop&w=900&q=80"
+              alt="Olive oil in everyday use"
+              class="aspect-[4/3] w-full rounded-2xl object-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </Container>
+    </section>
+
+    <!-- Product highlights -->
+    <section class="bg-stone-100 py-24 md:py-32">
+      <Container>
+        <h2
+          class="mb-16 text-center text-3xl font-medium tracking-tight text-neutral-800 md:mb-20 md:text-4xl"
+        >
+          What makes it stand out
+        </h2>
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div class="flex flex-col items-center text-center">
+            <div
+              class="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-stone-200"
+            >
+              <svg
+                class="h-8 w-8 text-green-800"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2z"
+                ></path>
+                <path d="M12 6v12M8 10l4-4 4 4"></path>
+              </svg>
+            </div>
+            <h3 class="mb-2 text-base font-semibold text-neutral-900">
+              Extra Virgin Quality
+            </h3>
+            <p class="max-w-[200px] text-sm leading-relaxed text-neutral-500">
+              Cold-pressed to retain natural characteristics
+            </p>
+          </div>
+          <div class="flex flex-col items-center text-center">
+            <div
+              class="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-stone-200"
+            >
+              <svg
+                class="h-8 w-8 text-green-800"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M12 22c-4-3-8-6-8-11a8 8 0 0116 0c0 5-4 8-8 11z"
+                ></path>
+                <circle cx="12" cy="11" r="3"></circle>
+              </svg>
+            </div>
+            <h3 class="mb-2 text-base font-semibold text-neutral-900">
+              Pure &amp; Natural
+            </h3>
+            <p class="max-w-[200px] text-sm leading-relaxed text-neutral-500">
+              Made from high-quality olives
+            </p>
+          </div>
+          <div class="flex flex-col items-center text-center">
+            <div
+              class="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-stone-200"
+            >
+              <svg
+                class="h-8 w-8 text-green-800"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M12 3v18M3 12h18M7.5 7.5l9 9M16.5 7.5l-9 9"></path>
+              </svg>
+            </div>
+            <h3 class="mb-2 text-base font-semibold text-neutral-900">
+              Versatile Use
+            </h3>
+            <p class="max-w-[200px] text-sm leading-relaxed text-neutral-500">
+              Ideal for cooking, dressing, and finishing
+            </p>
+          </div>
+          <div class="flex flex-col items-center text-center">
+            <div
+              class="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-stone-200"
+            >
+              <svg
+                class="h-8 w-8 text-green-800"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M12 22V8M5 12l7-4 7 4"></path>
+                <path d="M5 16l7-4 7 4"></path>
+              </svg>
+            </div>
+            <h3 class="mb-2 text-base font-semibold text-neutral-900">
+              Balanced Flavour
+            </h3>
+            <p class="max-w-[200px] text-sm leading-relaxed text-neutral-500">
+              Smooth profile suitable for everyday use
+            </p>
+          </div>
+        </div>
+      </Container>
+    </section>
+
+    <!-- Distributed by Peregrine -->
+    <section class="bg-[#22384A] py-28 text-white md:py-36">
+      <Container>
+        <div class="grid gap-16 md:grid-cols-12 md:gap-8">
+          <!-- Left: title & copy -->
+          <div class="md:col-span-6">
+            <p
+              class="mb-6 text-[11px] font-medium tracking-[0.2em] uppercase text-white/40"
+            >
+              Our Role
+            </p>
+            <h2
+              class="mb-8 text-3xl font-medium leading-tight tracking-tight md:text-5xl"
+            >
+              Distributed by Peregrine
+            </h2>
+            <p
+              class="max-w-md text-base leading-relaxed text-white/60 md:text-lg"
+            >
+              Peregrine Creative Group works with brands and producers to bring
+              distinctive products to market — from concept through to
+              distribution.
+            </p>
+            <p class="mt-6 text-sm leading-relaxed text-white/40">
+              This means you're not just buying a product — you're buying
+              through a trusted distribution partner.
+            </p>
+          </div>
+
+          <!-- Right: key points -->
+          <div
+            class="flex flex-col justify-center md:col-span-5 md:col-start-8"
+          >
+            <p
+              class="mb-8 text-[11px] font-medium tracking-[0.2em] uppercase text-white/40"
+            >
+              For this product, Peregrine ensures
+            </p>
+            <ul class="space-y-6">
+              <li class="flex items-start gap-4">
+                <span
+                  class="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-amber-400/40 text-sm text-amber-400"
+                  >01</span
+                >
+                <span class="text-base font-medium text-white md:text-lg"
+                  >Reliable sourcing and supply</span
+                >
+              </li>
+              <li class="flex items-start gap-4">
+                <span
+                  class="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-amber-400/40 text-sm text-amber-400"
+                  >02</span
+                >
+                <span class="text-base font-medium text-white md:text-lg"
+                  >Quality consistency</span
+                >
+              </li>
+              <li class="flex items-start gap-4">
+                <span
+                  class="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-amber-400/40 text-sm text-amber-400"
+                  >03</span
+                >
+                <span class="text-base font-medium text-white md:text-lg"
+                  >Efficient distribution and delivery</span
+                >
+              </li>
+              <li class="flex items-start gap-4">
+                <span
+                  class="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-amber-400/40 text-sm text-amber-400"
+                  >04</span
+                >
+                <span class="text-base font-medium text-white md:text-lg"
+                  >A direct link between producer and customer</span
+                >
+              </li>
+            </ul>
           </div>
         </div>
       </Container>
@@ -57,45 +309,127 @@ import FooterContact from "../components/FooterContact.astro";
     <!-- Capabilities -->
     <section class="border-t border-neutral-200 py-24 md:py-32">
       <Container>
-        <p class="mb-16 text-[11px] font-medium tracking-[0.2em] text-neutral-400 uppercase">
+        <p
+          class="mb-16 text-[11px] font-medium tracking-[0.2em] text-neutral-400 uppercase"
+        >
           Capabilities
         </p>
         <div class="grid gap-12 md:grid-cols-3">
           <div>
-            <h3 class="mb-3 text-lg font-medium text-neutral-900">Sourcing &amp; Quality</h3>
+            <h3 class="mb-3 text-lg font-medium text-neutral-900">
+              Sourcing &amp; Quality
+            </h3>
             <p class="text-sm leading-relaxed text-neutral-500">
-              Direct relationships with producers ensure every batch meets our acidity, polyphenol, and freshness benchmarks. Full lab testing on every shipment.
+              Direct relationships with producers ensure every batch meets our
+              acidity, polyphenol, and freshness benchmarks. Full lab testing on
+              every shipment.
             </p>
           </div>
           <div>
-            <h3 class="mb-3 text-lg font-medium text-neutral-900">Private Label &amp; Branding</h3>
+            <h3 class="mb-3 text-lg font-medium text-neutral-900">
+              Private Label &amp; Branding
+            </h3>
             <p class="text-sm leading-relaxed text-neutral-500">
-              We offer white-label and custom-branded solutions — designing packaging, labels, and marketing assets that position your product at the premium end of shelf.
+              We offer white-label and custom-branded solutions — designing
+              packaging, labels, and marketing assets that position your product
+              at the premium end of shelf.
             </p>
           </div>
           <div>
-            <h3 class="mb-3 text-lg font-medium text-neutral-900">Global Distribution</h3>
+            <h3 class="mb-3 text-lg font-medium text-neutral-900">
+              Global Distribution
+            </h3>
             <p class="text-sm leading-relaxed text-neutral-500">
-              Warehousing, logistics, and regulatory compliance handled end-to-end. We ship to retail, wholesale, and direct-to-consumer channels across Europe, the US, and Asia.
+              Warehousing, logistics, and regulatory compliance handled
+              end-to-end. We ship to retail, wholesale, and direct-to-consumer
+              channels across Europe, the US, and Asia.
             </p>
           </div>
         </div>
       </Container>
     </section>
 
+    <!-- FAQ -->
+    <section class="border-t border-neutral-200 py-24 md:py-32">
+      <Container>
+        <div class="grid gap-16 md:grid-cols-12 md:gap-8">
+          <div class="md:col-span-4">
+            <h2 class="text-3xl font-light tracking-tight text-neutral-800 md:text-4xl">
+              Frequently asked questions
+            </h2>
+          </div>
+          <div class="md:col-span-7 md:col-start-6">
+            <dl class="divide-y divide-neutral-200" id="faq-list">
+              <div class="py-6 first:pt-0" data-faq>
+                <dt>
+                  <button class="flex w-full items-center justify-between text-left" data-faq-toggle aria-expanded="true">
+                    <span class="text-base font-medium text-neutral-900 md:text-lg">Is this authentic extra virgin olive oil?</span>
+                    <svg class="h-5 w-5 shrink-0 text-neutral-400 transition-transform duration-200 rotate-180" data-faq-icon viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" /></svg>
+                  </button>
+                </dt>
+                <dd class="mt-3 text-sm leading-relaxed text-neutral-500 md:text-base" data-faq-answer>
+                  Yes — it is produced using cold-press extraction methods to maintain quality and flavour.
+                </dd>
+              </div>
+              <div class="py-6" data-faq>
+                <dt>
+                  <button class="flex w-full items-center justify-between text-left" data-faq-toggle aria-expanded="false">
+                    <span class="text-base font-medium text-neutral-900 md:text-lg">Who handles delivery and availability?</span>
+                    <svg class="h-5 w-5 shrink-0 text-neutral-400 transition-transform duration-200" data-faq-icon viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" /></svg>
+                  </button>
+                </dt>
+                <dd class="mt-3 hidden text-sm leading-relaxed text-neutral-500 md:text-base" data-faq-answer>
+                  Orders are fulfilled through Amazon, with Peregrine supporting distribution and supply.
+                </dd>
+              </div>
+              <div class="py-6 last:pb-0" data-faq>
+                <dt>
+                  <button class="flex w-full items-center justify-between text-left" data-faq-toggle aria-expanded="false">
+                    <span class="text-base font-medium text-neutral-900 md:text-lg">What can I use it for?</span>
+                    <svg class="h-5 w-5 shrink-0 text-neutral-400 transition-transform duration-200" data-faq-icon viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" /></svg>
+                  </button>
+                </dt>
+                <dd class="mt-3 hidden text-sm leading-relaxed text-neutral-500 md:text-base" data-faq-answer>
+                  Everything from cooking and frying to salad dressings and dipping.
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </Container>
+    </section>
+
+    <script>
+      const faqs = document.querySelectorAll("[data-faq]");
+      faqs.forEach((faq) => {
+        const toggle = faq.querySelector("[data-faq-toggle]");
+        const answer = faq.querySelector("[data-faq-answer]");
+        const icon = faq.querySelector("[data-faq-icon]");
+        toggle?.addEventListener("click", () => {
+          const open = toggle.getAttribute("aria-expanded") === "true";
+          toggle.setAttribute("aria-expanded", String(!open));
+          answer?.classList.toggle("hidden");
+          icon?.classList.toggle("rotate-180");
+        });
+      });
+    </script>
+
     <!-- CTA -->
     <section class="border-t border-neutral-200 py-24 md:py-32">
       <Container>
         <div class="flex flex-col items-center text-center">
-          <h2 class="mb-4 text-2xl font-light text-neutral-800 md:text-3xl">Ready to get started?</h2>
+          <h2 class="mb-4 text-2xl font-light text-neutral-800 md:text-3xl">
+            Ready to get started?
+          </h2>
           <p class="mb-8 max-w-md text-sm leading-relaxed text-neutral-500">
-            Whether you're launching a new product line or expanding an existing range, we'll help you source, brand, and ship with confidence.
+            Whether you're launching a new product line or expanding an existing
+            range, we'll help you source, brand, and ship with confidence.
           </p>
-          <a
-            href="/#contact"
-            class="rounded-lg bg-[#22384A] px-8 py-3 text-xs font-semibold tracking-[0.15em] text-white uppercase transition-opacity hover:opacity-90"
-          >
-            Get in Touch
+          <a href="/#contact" class="group inline-flex items-center overflow-hidden rounded-xl bg-neutral-900 text-white transition-opacity hover:opacity-90">
+            <span class="px-6 py-4 text-sm font-medium tracking-wide uppercase">Get in Touch</span>
+            <span class="flex h-full items-center border-l border-white/20 px-4 py-4">
+              <svg class="h-4 w-4 transition-transform group-hover:translate-x-0.5" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5" /></svg>
+            </span>
           </a>
         </div>
       </Container>

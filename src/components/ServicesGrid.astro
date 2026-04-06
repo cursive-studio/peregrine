@@ -4,9 +4,9 @@ import ServiceCard from "./ServiceCard.astro";
 
 interface ServiceItem {
   title: string;
+  tag: string;
   image: string;
   href?: string;
-  overlayOpacity?: string;
 }
 
 interface Props {
@@ -17,64 +17,51 @@ const {
   services = [
     {
       title: "Reusable Bottles",
+      tag: "Manufacturing",
       image:
         "https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=800&q=80",
       href: "/reusable-bottles",
-      overlayOpacity: "bg-black/35",
     },
     {
       title: "Textiles",
+      tag: "Industrial Design",
       image:
         "https://images.unsplash.com/photo-1558171813-4c088753af8f?auto=format&fit=crop&w=800&q=80",
       href: "/textiles",
-      overlayOpacity: "bg-black/50",
     },
     {
       title: "Olive Oil & Supplements",
+      tag: "Distribution",
       image:
         "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&w=800&q=80",
       href: "/olive-oil-supplements",
-      overlayOpacity: "bg-black/35",
     },
   ],
 } = Astro.props;
 ---
 
-<section
-  id="services"
-  class="py-24 md:py-32"
-  aria-labelledby="services-heading"
->
+<section id="services" class="py-24 md:py-32" aria-labelledby="services-heading">
   <Container>
     <!-- Header row -->
-    <div
-      class="mb-12 flex flex-col gap-4 md:mb-16 md:flex-row md:items-end md:justify-between"
-    >
-      <p
-        class="text-[11px] font-medium tracking-[0.2em] text-neutral-400 uppercase"
-      >
+    <div class="mb-12 flex flex-col gap-4 md:mb-16 md:flex-row md:items-end md:justify-between">
+      <p class="text-[11px] font-medium tracking-[0.2em] text-neutral-400 uppercase">
         <span id="services-heading">Services</span>
       </p>
-      <p
-        class="max-w-md text-right text-sm leading-relaxed text-neutral-500 md:text-base"
-      >
-        We help brands bring ideas to market — responsibly, efficiently, and at
-        scale.
+      <p class="max-w-md text-right text-sm leading-relaxed text-neutral-500 md:text-base">
+        We help brands bring ideas to market — responsibly, efficiently, and at scale.
       </p>
     </div>
 
     <!-- Cards grid -->
-    <div class="grid gap-0 md:grid-cols-3 md:gap-0">
-      {
-        services.map((service) => (
-          <ServiceCard
-            title={service.title}
-            image={service.image}
-            href={service.href}
-            overlayOpacity={service.overlayOpacity}
-          />
-        ))
-      }
+    <div class="grid gap-8 md:grid-cols-3">
+      {services.map((service) => (
+        <ServiceCard
+          title={service.title}
+          tag={service.tag}
+          image={service.image}
+          href={service.href}
+        />
+      ))}
     </div>
   </Container>
 </section>

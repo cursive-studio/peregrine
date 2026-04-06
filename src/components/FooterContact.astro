@@ -69,9 +69,12 @@ import Container from "./Container.astro";
           ></textarea>
           <button
             type="submit"
-            class="mt-2 w-full rounded-lg bg-white px-6 py-3 text-xs font-semibold tracking-[0.15em] text-[#22384A] uppercase transition-opacity hover:opacity-90"
+            class="group mt-2 inline-flex w-full items-center justify-center overflow-hidden rounded-xl bg-white text-[#22384A] transition-opacity hover:opacity-90"
           >
-            Send Message
+            <span class="px-6 py-4 text-sm font-medium tracking-wide uppercase">Send Message</span>
+            <span class="flex h-full items-center border-l border-neutral-200 px-4 py-4">
+              <svg class="h-4 w-4 transition-transform group-hover:translate-x-0.5" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5" /></svg>
+            </span>
           </button>
         </form>
       </div>

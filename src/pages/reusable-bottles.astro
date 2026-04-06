@@ -35,13 +35,19 @@ import EthosSplit from "../components/EthosSplit.astro";
         </p>
 
         <!-- cta buttons -->
-        <div class="flex gap-4 pt-8">
-          <a href="/#contact" class="bg-white text-black px-4 py-2"
-            >Get in touch</a
-          >
-          <a href="/#services" class="bg-white text-black px-4 py-2"
-            >View our work</a
-          >
+        <div class="flex flex-wrap gap-4 pt-8">
+          <a href="/#contact" class="group inline-flex items-center overflow-hidden rounded-xl bg-neutral-900 text-white transition-opacity hover:opacity-90">
+            <span class="px-6 py-4 text-sm font-medium tracking-wide uppercase">Get in touch</span>
+            <span class="flex h-full items-center border-l border-white/20 px-4 py-4">
+              <svg class="h-4 w-4 transition-transform group-hover:translate-x-0.5" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5" /></svg>
+            </span>
+          </a>
+          <a href="/#services" class="group inline-flex items-center overflow-hidden rounded-xl border border-neutral-300 text-neutral-900 transition-opacity hover:opacity-70">
+            <span class="px-6 py-4 text-sm font-medium tracking-wide uppercase">View our work</span>
+            <span class="flex h-full items-center border-l border-neutral-300 px-4 py-4">
+              <svg class="h-4 w-4 transition-transform group-hover:translate-x-0.5" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5" /></svg>
+            </span>
+          </a>
         </div>
       </Container>
     </section>
@@ -234,11 +240,11 @@ import EthosSplit from "../components/EthosSplit.astro";
             Tell us about your project and we'll put together a proposal
             tailored to your brand, volume, and timeline.
           </p>
-          <a
-            href="/#contact"
-            class="rounded-lg bg-[#22384A] px-8 py-3 text-xs font-semibold tracking-[0.15em] text-white uppercase transition-opacity hover:opacity-90"
-          >
-            Get in Touch
+          <a href="/#contact" class="group inline-flex items-center overflow-hidden rounded-xl bg-neutral-900 text-white transition-opacity hover:opacity-90">
+            <span class="px-6 py-4 text-sm font-medium tracking-wide uppercase">Get in Touch</span>
+            <span class="flex h-full items-center border-l border-white/20 px-4 py-4">
+              <svg class="h-4 w-4 transition-transform group-hover:translate-x-0.5" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5" /></svg>
+            </span>
           </a>
         </div>
       </Container>

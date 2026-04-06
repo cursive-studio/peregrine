@@ -1,39 +1,31 @@
 ---
 interface Props {
   title: string;
+  tag: string;
   image: string;
   href?: string;
-  overlayOpacity?: string;
 }
 
-const {
-  title,
-  image,
-  href = "#",
-  overlayOpacity = "bg-black/35",
-} = Astro.props;
+const { title, tag, image, href = "#" } = Astro.props;
 ---
 
-<a href={href} class="group relative block aspect-[3/4] overflow-hidden">
-  <img
-    src={image}
-    alt={title}
-    class="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-    loading="lazy"
-  />
-  <div
-    class:list={[
-      "absolute inset-0 transition-opacity duration-500 group-hover:opacity-60",
-      overlayOpacity,
-    ]}
-  >
+<a href={href} class="group block">
+  <div class="relative aspect-square overflow-hidden rounded-2xl">
+    <img
+      src={image}
+      alt={title}
+      class="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+      loading="lazy"
+    />
+    <div class="absolute inset-0 bg-black/10 transition-opacity duration-500 group-hover:bg-black/20"></div>
+    <!-- Tag pill -->
+    <div class="absolute bottom-4 left-4 z-10">
+      <span class="inline-block rounded bg-white/90 px-3 py-1 text-[10px] font-medium tracking-[0.12em] text-neutral-700 uppercase backdrop-blur-sm">
+        {tag}
+      </span>
+    </div>
   </div>
-  <div class="absolute inset-0 z-10 flex flex-col justify-end p-6 md:p-8">
-    <h3 class="text-xl font-medium text-white md:text-2xl">{title}</h3>
-    <span
-      class="mt-2 text-[10px] font-medium tracking-[0.2em] text-white/60 uppercase"
-    >
-      Learn More
-    </span>
-  </div>
+  <h3 class="mt-5 text-xl font-medium text-neutral-900 md:text-2xl">
+    {title}
+  </h3>
 </a>
