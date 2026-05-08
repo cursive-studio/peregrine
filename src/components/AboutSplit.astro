@@ -10,32 +10,29 @@ const {
 } = Astro.props;
 ---
 
-<section id="about" class="py-24 md:py-32" aria-labelledby="about-heading">
+<section id="about" class="py-32 md:py-44" aria-labelledby="about-heading">
   <Container>
-    <!-- Eyebrow -->
-    <p class="mb-16 text-[11px] font-medium  text-neutral-400 uppercase md:mb-20">
-      About Us
-    </p>
-
-    <div class="grid gap-12 md:grid-cols-12 md:gap-8">
-      <!-- Left column: copy -->
-      <div class="md:col-span-7 lg:col-span-10">
-        <h2 id="about-heading" class="text-2xl leading-normal tracking-tight font-medium text-neutral-800 md:text-3xl md:leading-relaxed">
-          <span class="font-semibold text-neutral-900">Peregrine Creative Group</span> is a
-          design-led manufacturing and distribution partner with over 30&nbsp;years of combined
-          experience. We work alongside ambitious brands to develop, produce, and ship sustainable
-          products that look as good as they perform.
+    <div class="grid items-start gap-16 md:grid-cols-12 md:gap-20">
+      <!-- Statement text — large editorial paragraph -->
+      <div class="md:col-span-8">
+        <p class="mb-10 text-xs font-medium tracking-[0.15em] text-neutral-400 uppercase">
+          About
+        </p>
+        <h2 id="about-heading" class="text-2xl leading-[1.4] font-light text-neutral-600 md:text-3xl lg:text-[2.5rem] lg:leading-[1.35]">
+          <span class="font-medium text-neutral-900">Peregrine Creative Group</span> develops and distributes
+          sustainable products across reusable packaging, garment manufacturing, and consumer goods — connecting
+          design, production, and supply into a single operating system.
         </h2>
       </div>
 
-      <!-- Right column: thumbnail -->
-      <div class="flex items-start justify-end md:col-span-5 lg:col-span-5 lg:col-start-9">
-        <!-- <img
+      <!-- Small image accent -->
+      <div class="hidden md:col-span-3 md:col-start-10 md:block">
+        <img
           src={thumbnailImage}
-          alt="Peregrine Creative workspace"
-          class="aspect-[4/3] w-full max-w-sm rounded-xl object-cover md:max-w-none"
+          alt="Peregrine Creative operations"
+          class="aspect-[3/4] w-full rounded-2xl object-cover"
           loading="lazy"
-        /> -->
+        />
       </div>
     </div>
   </Container>

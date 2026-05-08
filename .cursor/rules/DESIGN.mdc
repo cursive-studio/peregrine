@@ -1,0 +1,277 @@
+---
+description: Design system and visual language for Peregrine Creative Group website
+globs: ["src/**/*.astro", "src/**/*.css"]
+---
+
+# Peregrine Creative Group — Design System
+
+Reference: [AIRCO](https://www.aircompany.com/company) — full-bleed immersive hero, commanding typography, ultra-clean layout, cinematic imagery, and editorial precision.
+
+---
+
+## Design Philosophy
+
+The site should feel like a modern industrial brand with depth and confidence. Not a startup, not a portfolio — a capable operating company presented with the visual clarity and restraint of a premium brand.
+
+Key principles from AIRCO reference:
+- **Immersive heroes** — full-bleed imagery with large overlaid type, no box constraints
+- **Typography as architecture** — headlines are the primary visual element, not imagery
+- **Generous whitespace** — sections breathe with extreme vertical spacing
+- **Minimal chrome** — no borders, no cards where unnecessary, content does the work
+- **Dark/light contrast** — alternating dark feature sections with clean white editorial
+- **Cinematic imagery** — editorial, high-quality, atmospheric (not stock)
+
+---
+
+## Layout Philosophy
+
+### Grid & Container
+- Max container width: `max-w-7xl` (1280px)
+- Horizontal padding: `px-6 md:px-12 lg:px-16`
+- Use 12-column grids for split layouts: `md:grid-cols-12`
+- Common splits: 5/7, 6/6, 7/5 columns
+- Full-bleed sections break out of container for impact
+
+### Section Rhythm
+- Extreme vertical whitespace: `py-32 md:py-40 lg:py-48`
+- Hero: full viewport `min-h-screen` with content anchored
+- Dark feature sections: `py-32 md:py-44`
+- No visible separators between sections — use whitespace and background colour changes instead
+- Let content breathe — less is more
+
+### Spacing Principles
+- Headings get large vertical space before body copy: `mb-8` to `mb-12`
+- Paragraphs after headings: `mt-6` to `mt-8`
+- Section internal gaps: `gap-12` to `gap-20`
+- Avoid tight groupings — editorial spread is the goal
+
+---
+
+## Typography
+
+### Font
+- Primary: Inter (weights 300, 400, 500, 600)
+- System fallback: `-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif`
+
+### Scale (AIRCO-inspired — large and commanding)
+- Hero headline: `text-5xl md:text-6xl lg:text-7xl font-light leading-[1.05]` — enormous, light, cinematic
+- Section headings (h2): `text-3xl md:text-4xl lg:text-5xl font-light leading-[1.1]`
+- Statement text (large body): `text-xl md:text-2xl font-light leading-relaxed` — used for key paragraphs
+- Subheadings (h3): `text-xl md:text-2xl font-medium`
+- Body: `text-base md:text-lg leading-relaxed`
+- Small/supporting: `text-sm leading-relaxed`
+- Eyebrow labels: `text-xs font-medium tracking-[0.15em] uppercase`
+
+### Weight Usage
+- `font-light` (300): hero headlines, large section titles, statement paragraphs — the dominant weight
+- `font-normal` (400): body copy
+- `font-medium` (500): subheadings, card titles, nav links, emphasis
+- `font-semibold` (600): button labels, key names, active states only
+
+### Tracking
+- Large headlines: `tracking-tight` or `tracking-[-0.02em]`
+- Body text: default
+- Eyebrow/label: `tracking-[0.15em]`
+- Button text: `tracking-wide`
+
+---
+
+## Colour Palette
+
+### Light Sections
+- Page background: `bg-white`
+- Primary text: `text-neutral-900`
+- Body text: `text-neutral-600`
+- Muted/secondary: `text-neutral-500`
+- Eyebrow/labels: `text-neutral-400`
+- Borders (when needed): `border-neutral-100` — very subtle
+
+### Dark Sections (immersive brand moments)
+- Background: `bg-neutral-950` or `bg-[#0a0a0a]` — near true black
+- Alternative dark: `bg-[#1a2f3f]` — deep blue-teal (for footer)
+- Primary text: `text-white`
+- Body text: `text-white/70`
+- Secondary: `text-white/50`
+- Muted: `text-white/30`
+
+### Accent Usage
+- Accents used very sparingly — primarily in interactive states or tiny indicators
+- Green for sustainability: `text-green-500`
+- No bright accent colours in headings or large text — keep it monochromatic
+
+---
+
+## Components
+
+### Buttons (Primary)
+Dark background, split layout with arrow:
+```
+group inline-flex items-center overflow-hidden rounded-xl bg-neutral-900 text-white
+├── Label: px-7 py-4 text-sm font-medium tracking-wide uppercase
+└── Arrow: flex items-center border-l border-white/15 px-5 py-4
+    └── svg chevron (h-4 w-4), shifts right on hover
+```
+
+### Buttons (Secondary)
+Outline/ghost, same structure:
+```
+group inline-flex items-center overflow-hidden rounded-xl border border-neutral-200 text-neutral-900
+├── Label: px-7 py-4 text-sm font-medium tracking-wide uppercase
+└── Arrow: flex items-center border-l border-neutral-200 px-5 py-4
+```
+
+On dark backgrounds: `border-white/20 text-white`
+
+### Buttons (Text/Link)
+Simple arrow link (AIRCO-style CTAs):
+```
+inline-flex items-center gap-2 text-sm font-medium transition-opacity hover:opacity-70
+└── Arrow svg or → character
+```
+
+### Cards (Service Cards)
+- Aspect ratio: `aspect-[4/5]` — tall portrait
+- Rounded: `rounded-2xl`
+- Image fills card with subtle gradient overlay from bottom
+- Tag pill bottom-left: `rounded-full bg-white/90 backdrop-blur-sm`
+- Title below card (not overlaid)
+- Hover: gentle scale `group-hover:scale-[1.03]`
+
+### Eyebrow Labels
+```
+text-xs font-medium tracking-[0.15em] text-neutral-400 uppercase
+```
+On dark: `text-white/40`
+
+---
+
+## Section Patterns
+
+### Hero (Homepage — AIRCO-style)
+- Full viewport height, full-bleed image
+- Dark overlay: `bg-black/40` to `bg-black/50`
+- Navbar overlays (fixed, transparent)
+- Large headline in bottom-left or center-right (asymmetric placement)
+- Stats or secondary info positioned opposite to headline
+- Content should feel anchored to the lower third of the viewport
+
+### Statement Section (Large Text Block)
+- Full-width white background
+- Single large paragraph as `text-xl md:text-2xl font-light leading-relaxed`
+- Max width constrained: `max-w-4xl` or `max-w-3xl`
+- Extreme vertical padding — this IS the section
+
+### Split Section (Text + Image)
+- 12-column grid with generous gap
+- Asymmetric: content in 5 cols, image in 7 cols (or inverse)
+- Image: `rounded-2xl` with `aspect-[4/3]` or `aspect-[3/4]`
+- No borders on images — clean edges
+
+### Feature Section (Dark, Immersive)
+- `bg-neutral-950` or `bg-[#0a0a0a]`
+- Full-width, generous padding: `py-32 md:py-44`
+- Large heading + supporting text left, visual element or list right
+- Numbers/indicators with accent colour borders
+
+### Grid Section (Cards/Capabilities)
+- 2, 3, or 4 columns
+- `gap-6` to `gap-8`
+- Cards with subtle background (`bg-neutral-50`) or no background (clean)
+- Consistent internal padding
+
+### Partners / Logo Strip
+- Minimal treatment — text logos or small marks
+- Horizontal scroll or static grid
+- Muted colours — no full-colour logos
+
+---
+
+## Imagery
+
+### Style (AIRCO-influenced)
+- Cinematic, atmospheric, high-contrast
+- Environmental shots — products in context, facilities, operations
+- Dark moody tones for hero/feature sections
+- Clean, bright for editorial/split sections
+- Never clip-art or overly stylised
+
+### Sizing
+- Hero: full-bleed `min-h-screen` with `object-cover`
+- Feature images: `aspect-[16/9]` or `aspect-[21/9]` for cinematic
+- Split sections: `aspect-[4/3]` or `aspect-[3/4]`
+- Cards: `aspect-[4/5]` portrait
+- All images: `rounded-2xl object-cover`
+
+---
+
+## Animation & Motion
+
+### Principles
+- Restrained and purposeful — AIRCO uses almost no motion
+- Hover states only: opacity shifts, gentle scale
+- No scroll-triggered animations unless specifically requested
+- Page should feel stable and grounded, not playful
+
+### Specifics
+- Image hover: `transition-transform duration-700 group-hover:scale-[1.03]`
+- Link/button hover: `transition-opacity duration-200 hover:opacity-70`
+- Accordion/toggle: `transition-all duration-300 ease-in-out`
+- Carousel: CSS-only, `animation: scroll linear infinite`, pauses on hover
+
+### Avoid
+- Parallax effects
+- Entrance animations
+- Loading spinners or skeleton screens
+- Scroll hijacking
+- Decorative motion of any kind
+
+---
+
+## Responsive Strategy
+
+### Breakpoints
+- Mobile-first
+- `md:` (768px) — grids become multi-column
+- `lg:` (1024px) — larger type, wider spacing
+
+### Mobile Behaviour
+- Hero headline scales down but remains large: `text-4xl` minimum
+- Grids collapse to single column
+- Images maintain aspect ratio, full width
+- Navbar: hamburger toggle
+- Extreme padding reduces but remains generous
+
+---
+
+## Accessibility
+
+- Semantic HTML: `nav`, `main`, `section`, `footer`, `h1`–`h3`
+- One `h1` per page
+- `aria-label` on navigation, footer, key sections
+- `aria-expanded` on interactive toggles
+- Alt text on all images
+- Minimum WCAG AA colour contrast
+- Focus-visible styles on all interactive elements
+
+---
+
+## File Structure
+
+```
+src/
+├── layouts/BaseLayout.astro
+├── components/
+│   ├── Container.astro
+│   ├── Navbar.astro
+│   ├── Hero.astro
+│   ├── ServiceCard.astro
+│   ├── ServicesGrid.astro
+│   ├── PartnersCarousel.astro
+│   ├── EthosSplit.astro
+│   ├── FooterContact.astro
+│   └── [SectionName].astro
+├── pages/
+│   ├── index.astro
+│   └── [service-slug].astro
+└── styles/global.css
+```

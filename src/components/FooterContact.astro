@@ -2,78 +2,65 @@
 import Container from "./Container.astro";
 ---
 
-<footer id="contact" class="bg-[#22384A] py-20 text-white md:py-28" aria-label="Footer">
+<footer id="contact" class="bg-[#0a0a0a] py-28 text-white md:py-36" aria-label="Footer">
   <Container>
-    <div class="grid gap-16 md:grid-cols-2 md:gap-12">
-      <!-- Left column: brand & info -->
+    <div class="grid gap-20 md:grid-cols-2 md:gap-24">
+      <!-- Left: brand & info -->
       <div class="flex flex-col justify-between">
         <div>
-          <!-- Logo -->
-          <a href="/" class="mb-8 flex items-center gap-2">
-            <svg
-              class="h-6 w-6"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              aria-hidden="true"
-            >
-              <path d="M12 2C6.48 2 2 6 2 11c0 3 2 6 5 8l5 3 5-3c3-2 5-5 5-8 0-5-4.48-9-10-9z" />
-              <path d="M12 2c-1 2-1.5 4-1.5 6s.5 4 1.5 6c1-2 1.5-4 1.5-6S13 4 12 2z" />
-            </svg>
-            <span class="text-sm tracking-wider">PeregrineCreative</span>
+          <a href="/" class="mb-12 inline-block text-base font-medium tracking-wide uppercase">
+            Peregrine
           </a>
 
-          <p class="mb-10 max-w-sm text-sm leading-relaxed text-white/60">
+          <p class="max-w-md text-lg leading-relaxed font-light text-white/60">
             A design-led partner in sustainable manufacturing, industrial design, and premium
             nutrition. We build products that balance quality, responsibility, and scale.
           </p>
         </div>
 
-        <div class="mt-auto">
-          <p class="mb-3 text-xs text-white/40">
+        <div class="mt-16 space-y-2">
+          <p class="text-sm text-white/40">
             &copy; {new Date().getFullYear()} Peregrine Creative Group. All rights reserved.
           </p>
-          <p class="text-xs text-white/30">
-            Reusable packaging&nbsp;&nbsp;&bull;&nbsp;&nbsp;Responsible textiles&nbsp;&nbsp;&bull;&nbsp;&nbsp;Premium nutrition
+          <p class="text-sm text-white/25">
+            Reusable packaging&nbsp;&bull;&nbsp;Responsible textiles&nbsp;&bull;&nbsp;Premium nutrition
           </p>
         </div>
       </div>
 
-      <!-- Right column: contact form -->
+      <!-- Right: contact form -->
       <div>
-        <h2 class="mb-8 text-2xl font-light md:text-3xl">Get in Touch</h2>
-        <form class="flex flex-col gap-4" action="#" method="POST">
+        <h2 class="mb-3 text-2xl font-light tracking-tight md:text-3xl">Get in Touch</h2>
+        <p class="mb-10 text-sm text-white/40">We'd love to hear about your project.</p>
+        <form class="flex flex-col gap-5" action="#" method="POST">
           <input
             type="text"
             name="name"
             placeholder="Name"
             required
-            class="rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder-white/40 outline-none transition-colors focus:border-white/30"
+            class="rounded-xl border border-white/10 bg-white/[0.04] px-5 py-4 text-[15px] text-white placeholder-white/30 outline-none transition-colors focus:border-white/30"
           />
           <input
             type="email"
             name="email"
             placeholder="Email"
             required
-            class="rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder-white/40 outline-none transition-colors focus:border-white/30"
+            class="rounded-xl border border-white/10 bg-white/[0.04] px-5 py-4 text-[15px] text-white placeholder-white/30 outline-none transition-colors focus:border-white/30"
           />
           <textarea
             name="message"
             placeholder="Message"
-            rows="5"
+            rows="4"
             required
-            class="resize-none rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder-white/40 outline-none transition-colors focus:border-white/30"
+            class="resize-none rounded-xl border border-white/10 bg-white/[0.04] px-5 py-4 text-[15px] text-white placeholder-white/30 outline-none transition-colors focus:border-white/30"
           ></textarea>
           <button
             type="submit"
-            class="group mt-2 inline-flex w-full items-center justify-center overflow-hidden rounded-xl bg-white text-[#22384A] transition-opacity hover:opacity-90"
+            class="group mt-4 inline-flex w-full items-center justify-center overflow-hidden rounded-xl bg-white text-neutral-900 transition-opacity hover:opacity-90"
           >
-            <span class="px-6 py-4 text-sm font-medium tracking-wide uppercase">Send Message</span>
-            <span class="flex h-full items-center border-l border-neutral-200 px-4 py-4">
-              <svg class="h-4 w-4 transition-transform group-hover:translate-x-0.5" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5" /></svg>
+            <span class="px-7 py-4 text-sm font-medium tracking-wide uppercase">Send Message</span>
+            <span class="flex items-center border-l border-neutral-200 px-5 py-4">
+              <svg class="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5" /></svg>
             </span>
           </button>
         </form>

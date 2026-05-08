@@ -5,135 +5,53 @@ const values = [
   {
     title: "High quality does not necessarily mean high price",
     description:
-      "We do all our productions in-house. We oversee every aspect of the production, from initial 3d draft designs, through to mold creation and final product. This ensures we provide only the highest quality, at the best value.",
-    image:
-      "https://images.unsplash.com/photo-1532601224476-15c79f2f7a51?auto=format&fit=crop&w=1200&q=80",
+      "We do all our productions in-house. We oversee every aspect of the production, from initial 3d draft designs, through to mold creation and final product.",
   },
   {
     title: "Always think outside the box",
     description:
-      "We constantly look into new technology and advancements in the industry. We put a lot of investment back into our machines to constantly update and ensure we are ahead of the curve. Our adept design team works in tandem with our product technicians to constantly push the boundary on what can be achieved in production.",
-    image:
-      "https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=1200&q=80",
+      "We constantly look into new technology and advancements in the industry. Our design team works in tandem with product technicians to push the boundary on what can be achieved.",
   },
   {
     title: "Minimise the impact on the environment",
     description:
-      "Climate change is the biggest threat facing our planet. All our products are comprised of fully recyclable PET plastic. Our reusable and refillable cups and bottles combat the negative effect of disposables, and we minimise wastage at every step of production.",
-    image:
-      "https://images.unsplash.com/photo-1497440001374-f26997328c1b?auto=format&fit=crop&w=1200&q=80",
+      "All our products are comprised of fully recyclable PET plastic. Our reusable and refillable cups and bottles combat the negative effect of disposables.",
   },
 ];
 ---
 
-<section id="values" class="py-24 md:py-32" aria-labelledby="values-heading">
+<section id="values" class="py-32 md:py-44" aria-labelledby="values-heading">
   <Container>
-    <div class="grid gap-12 md:grid-cols-12 md:gap-8">
-      <!-- Left content -->
-      <div class="flex flex-col justify-center md:col-span-5">
-        <p class="mb-8 text-[11px] font-medium tracking-[0.2em] text-neutral-400 uppercase">
+    <div class="grid gap-16 md:grid-cols-12 md:gap-20">
+      <!-- Left: eyebrow + heading -->
+      <div class="md:col-span-5">
+        <p class="mb-6 text-xs font-medium tracking-[0.15em] text-neutral-400 uppercase">
           Values
         </p>
-
-        <h2 id="values-heading" class="mb-6 text-3xl font-light text-neutral-800 md:text-4xl">
+        <h2 id="values-heading" class="text-3xl font-light tracking-tight text-neutral-900 md:text-4xl lg:text-5xl">
           Our Ethos
         </h2>
-
-        <!-- Values list -->
-        <ul class="divide-y divide-neutral-200" role="list" id="ethos-list">
-          {values.map((item, i) => (
-            <li class="cursor-pointer py-5" data-index={i}>
-              <p
-                class:list={[
-                  "text-sm transition-colors duration-200 md:text-base",
-                  i === 0
-                    ? "font-semibold text-neutral-900"
-                    : "font-normal text-neutral-400",
-                ]}
-                data-ethos-title
-              >
-                {item.title}
-              </p>
-              <div
-                class:list={[
-                  "overflow-hidden transition-all duration-300 ease-in-out",
-                  i === 0
-                    ? "mt-3 max-h-40 opacity-100"
-                    : "max-h-0 opacity-0",
-                ]}
-                data-ethos-desc={i}
-              >
-                <p class="text-sm leading-relaxed text-neutral-500">
-                  {item.description}
-                </p>
-              </div>
-            </li>
-          ))}
-        </ul>
       </div>
 
-      <!-- Right image -->
-      <div class="relative md:col-span-7">
-        {values.map((item, i) => (
-          <img
-            src={item.image}
-            alt={item.title}
-            class:list={[
-              "aspect-[4/3] w-full rounded-2xl object-cover transition-opacity duration-500 ease-in-out",
-              i === 0 ? "relative opacity-100" : "absolute inset-0 opacity-0",
-            ]}
-            data-ethos-img={i}
-            loading={i === 0 ? "eager" : "lazy"}
-          />
-        ))}
+      <!-- Right: statement + grid -->
+      <div class="md:col-span-6 md:col-start-7">
+        <p class="text-xl font-medium leading-snug tracking-tight text-neutral-900 md:text-2xl">
+          We believe great products come from disciplined processes, not cutting corners.
+        </p>
+        <p class="mt-5 text-base leading-relaxed text-neutral-500 md:text-lg">
+          Every decision — from material sourcing to production methods — is guided by three principles that define how we operate.
+        </p>
+
+        <!-- Values grid -->
+        <div class="mt-12 grid grid-cols-1 gap-px overflow-hidden rounded-xl border border-neutral-100 bg-neutral-100">
+          {values.map((item) => (
+            <div class="bg-white p-6">
+              <h3 class="mb-1.5 text-sm font-medium text-neutral-900">{item.title}</h3>
+              <p class="text-sm leading-relaxed text-neutral-500">{item.description}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   </Container>
 </section>
-
-<script>
-  const list = document.getElementById("ethos-list");
-  if (list) {
-    const items = list.querySelectorAll<HTMLLIElement>("li[data-index]");
-    const images = document.querySelectorAll<HTMLImageElement>("[data-ethos-img]");
-    let active = 0;
-
-    function setActive(index: number) {
-      if (index === active) return;
-
-      items.forEach((li, i) => {
-        const title = li.querySelector<HTMLElement>("[data-ethos-title]");
-        const desc = li.querySelector<HTMLElement>("[data-ethos-desc]");
-        if (!title || !desc) return;
-
-        if (i === index) {
-          title.classList.replace("font-normal", "font-semibold");
-          title.classList.replace("text-neutral-400", "text-neutral-900");
-          desc.classList.remove("max-h-0", "opacity-0");
-          desc.classList.add("mt-3", "max-h-40", "opacity-100");
-        } else {
-          title.classList.remove("font-semibold", "text-neutral-900");
-          title.classList.add("font-normal", "text-neutral-400");
-          desc.classList.remove("mt-3", "max-h-40", "opacity-100");
-          desc.classList.add("max-h-0", "opacity-0");
-        }
-      });
-
-      images.forEach((img, i) => {
-        if (i === index) {
-          img.classList.replace("opacity-0", "opacity-100");
-        } else {
-          img.classList.replace("opacity-100", "opacity-0");
-        }
-      });
-
-      active = index;
-    }
-
-    items.forEach((li) => {
-      li.addEventListener("mouseenter", () => {
-        setActive(Number(li.dataset.index));
-      });
-    });
-  }
-</script>

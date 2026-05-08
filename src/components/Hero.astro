@@ -8,61 +8,96 @@ interface Props {
 const {
   backgroundImage = "https://images.unsplash.com/photo-1565043666747-69f6646db940?auto=format&fit=crop&w=1920&q=80",
 } = Astro.props;
+
+const partners = [
+  "Frozen Brothers",
+  "Tango Ice Blast",
+  "Coca-Cola",
+  "Odeon",
+  "Slush Puppie",
+  "Vimto",
+  "Steri Pack",
+];
 ---
 
-<section class="relative min-h-[85vh] w-full overflow-hidden md:min-h-screen" aria-label="Hero">
-  <!-- Background image -->
+<section class="relative min-h-screen w-full overflow-hidden" aria-label="Hero">
   <img
     src="/bg-1.png"
     alt=""
     class="absolute inset-0 h-full w-full object-cover"
     loading="eager"
   />
+  <div class="absolute inset-0 bg-black/40"></div>
 
-  <!-- Dark overlay -->
-  <div class="absolute inset-0 bg-black/45"></div>
+  <div class="relative z-10 mx-auto flex min-h-screen w-full max-w-7xl flex-col justify-end px-6 pb-32 md:px-12 md:pb-40 lg:px-16">
+    <h1 class="max-w-4xl text-4xl leading-[1.08] font-light tracking-tight text-white md:text-5xl lg:text-7xl">
+      We build production systems for sustainable products at&nbsp;scale
+    </h1>
 
-  <!-- Content -->
-  <Container class="relative z-10 flex h-full min-h-[85vh] flex-col justify-center pb-16 md:min-h-screen md:pb-0">
-    <div class="max-w-screen w-full flex items-center justify-between">
-      <h1 class="text-3xl max-w-xl leading-tight font-light text-white md:text-3xl lg:text-4xl">
-        Designing, Manufacturing &amp;&nbsp;Delivering
-        Sustainable Products at Scale
-      </h1>
-
-      <p class="text-white text-lg max-w-lg text-left">
-        Peregrine Creative Group is a design-led manufacturing and distribution partner with over 30 years of combined experience across reusable packaging, garments, and sustainable product supply chains.
-      </p>
-    </div>
-    <!-- cta buttons -->
-    <div class="flex flex-wrap gap-4 pt-8">
-      <a href="/#services" class="group inline-flex items-center overflow-hidden rounded-xl bg-white text-neutral-900 transition-opacity hover:opacity-90">
-        <span class="px-6 py-4 text-sm font-medium tracking-wide uppercase">Services</span>
-        <span class="flex h-full items-center border-l border-neutral-200 px-4 py-4">
-          <svg class="h-4 w-4 transition-transform group-hover:translate-x-0.5" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5" /></svg>
-        </span>
-      </a>
-      <a href="/#contact" class="group inline-flex items-center overflow-hidden rounded-xl border border-white/30 text-white transition-opacity hover:opacity-80">
-        <span class="px-6 py-4 text-sm font-medium tracking-wide uppercase">Get in touch</span>
-        <span class="flex h-full items-center border-l border-white/30 px-4 py-4">
-          <svg class="h-4 w-4 transition-transform group-hover:translate-x-0.5" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5" /></svg>
-        </span>
-      </a>
-    </div>
-    <div class="flex flex-col gap-10 md:flex-col md:items-center md:justify-between">
-      <!-- Headline -->
-    
-      <!-- Stats -->
-      <div class="flex absolute bottom-16 right-8 gap-12 text-white md:gap-16">
+    <!-- Stats + CTA -->
+    <div class="mt-16 flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
+      <div class="flex gap-16">
         <div>
-          <span class="block text-4xl font-light md:text-5xl">30+</span>
-          <span class="mt-1 block text-xs tracking-wide text-white/70">years experience</span>
+          <span class="block text-3xl font-light tabular-nums text-white md:text-4xl">30+</span>
+          <span class="mt-1 block text-xs text-white/50">years experience</span>
         </div>
         <div>
-          <span class="block text-4xl font-light md:text-5xl">10+</span>
-          <span class="mt-1 block text-xs tracking-wide text-white/70">global partners</span>
+          <span class="block text-3xl font-light tabular-nums text-white md:text-4xl">10+</span>
+          <span class="mt-1 block text-xs text-white/50">global partners</span>
         </div>
       </div>
+
+      <div class="flex flex-wrap gap-4">
+        <a href="/#services" class="group inline-flex items-center overflow-hidden rounded-xl bg-white text-neutral-900 transition-opacity hover:opacity-90">
+          <span class="px-7 py-4 text-sm font-medium tracking-wide uppercase">Services</span>
+          <span class="flex items-center border-l border-neutral-200 px-5 py-4">
+            <svg class="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5" /></svg>
+          </span>
+        </a>
+        <a href="/#contact" class="group inline-flex items-center overflow-hidden rounded-xl border border-white/20 text-white transition-opacity hover:opacity-80">
+          <span class="px-7 py-4 text-sm font-medium tracking-wide uppercase">Get in touch</span>
+          <span class="flex items-center border-l border-white/20 px-5 py-4">
+            <svg class="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5" /></svg>
+          </span>
+        </a>
+      </div>
     </div>
-  </Container>
+  </div>
+
+  <!-- Partners marquee — absolute bottom -->
+  <div class="absolute bottom-0 left-0 z-10 w-full border-t border-white/10 py-5">
+    <div class="relative overflow-hidden">
+      <div class="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-black/40 to-transparent md:w-28"></div>
+      <div class="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-black/40 to-transparent md:w-28"></div>
+
+      <div class="partners-track flex w-max items-center">
+        {[...partners, ...partners].map((name) => (
+          <div class="flex shrink-0 items-center px-8 md:px-12">
+            <span class="whitespace-nowrap text-sm font-medium tracking-tight text-white/50">
+              {name}
+            </span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
 </section>
+
+<style>
+  .partners-track {
+    animation: scroll-partners 30s linear infinite;
+  }
+
+  .partners-track:hover {
+    animation-play-state: paused;
+  }
+
+  @keyframes scroll-partners {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+</style>

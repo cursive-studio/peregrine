@@ -3,109 +3,88 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Navbar from "../components/Navbar.astro";
 import Container from "../components/Container.astro";
 import FooterContact from "../components/FooterContact.astro";
+// image
 ---
 
 <BaseLayout
-  title="Olive Oil & Supplements — Peregrine Creative Group"
-  description="Premium olive oil and nutritional supplements sourced and distributed globally."
+  title="LIVA Groves Olive Oil — Peregrine Creative Group"
+  description="LIVA Groves Organic Extra Virgin Olive Oil — ultra high polyphenols, early harvest Koroneiki from Kalamata PDO. Distributed by Peregrine."
 >
-  <Navbar variant="solid" />
+  <Navbar variant="overlay" />
 
-  <main class="pt-16">
-    <!-- Page Hero -->
-    <section class="relative overflow-hidden py-24 md:py-32">
-      <Container>
-        <p
-          class="mb-6 text-[11px] font-medium tracking-[0.2em] text-neutral-400 uppercase"
-        >
-          Olive Oil
-        </p>
-        <h1
-          class="max-w-3xl text-4xl font-light text-neutral-900 md:text-5xl lg:text-6xl"
-        >
-          Premium olive oil, thoughtfully sourced and delivered.
+  <main>
+    <!-- Full-bleed Hero -->
+    <section class="relative min-h-screen w-full overflow-hidden" aria-label="Hero">
+      <img
+        src="/liva/liva-hero.jpeg"
+        alt="Olive groves in Kalamata, Greece"
+        class="absolute inset-0 h-full w-full object-cover"
+        loading="eager"
+      />
+      <div class="absolute inset-0 bg-black/40"></div>
+
+      <div class="relative z-10 mx-auto flex min-h-screen w-full max-w-7xl flex-col justify-end px-6 pb-24 md:px-12 md:pb-32 lg:px-16">
+        <h1 class="max-w-4xl text-4xl leading-[1.08] font-light tracking-tight text-white md:text-5xl lg:text-7xl">
+          LIVA Groves Organic Extra Virgin Olive Oil
         </h1>
-        <p
-          class="mt-6 max-w-xl text-base leading-relaxed text-neutral-500 md:text-lg"
-        >
-          Distributed by Peregrine Creative Group — specialists in bringing
-          high-quality, distinctive products to market.
-        </p>
 
-        <!-- cta buttons -->
-        <div class="flex flex-wrap gap-4 pt-8">
-          <a href="/#contact" class="group inline-flex items-center overflow-hidden rounded-xl bg-neutral-900 text-white transition-opacity hover:opacity-90">
-            <span class="px-6 py-4 text-sm font-medium tracking-wide uppercase">View product on Amazon</span>
-            <span class="flex h-full items-center border-l border-white/20 px-4 py-4">
-              <svg class="h-4 w-4 transition-transform group-hover:translate-x-0.5" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5" /></svg>
+        <div class="mt-16 flex flex-wrap gap-4">
+          <a href="https://www.amazon.co.uk/dp/B0GQWBKKBR" target="_blank" rel="noopener" class="group inline-flex items-center overflow-hidden rounded-xl bg-white text-neutral-900 transition-opacity hover:opacity-90">
+            <span class="px-7 py-4 text-sm font-medium tracking-wide uppercase">View on Amazon</span>
+            <span class="flex items-center border-l border-neutral-200 px-5 py-4">
+              <svg class="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5" /></svg>
+            </span>
+          </a>
+          <a href="/#contact" class="group inline-flex items-center overflow-hidden rounded-xl border border-white/20 text-white transition-opacity hover:opacity-80">
+            <span class="px-7 py-4 text-sm font-medium tracking-wide uppercase">Get in touch</span>
+            <span class="flex items-center border-l border-white/20 px-5 py-4">
+              <svg class="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5" /></svg>
             </span>
           </a>
         </div>
-      </Container>
-    </section>
-
-    <!-- Hero image -->
-    <section class="px-6 md:px-10">
-      <div class="mx-auto max-w-7xl overflow-hidden rounded-2xl">
-        <img
-          src="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&w=1600&q=80"
-          alt="Olive oil production"
-          class="aspect-[21/9] w-full object-cover"
-          loading="eager"
-        />
       </div>
     </section>
 
-    <!-- Details -->
-    <section class="py-24 md:py-32">
+    <!-- About -->
+    <section class="py-32 md:py-44">
       <Container>
-        <div class="grid gap-16 md:grid-cols-12">
+        <div class="grid gap-16 md:grid-cols-12 md:gap-20">
           <div class="md:col-span-5">
-            <h2 class="text-2xl font-light text-neutral-800 md:text-3xl">
-              About
+            <p class="mb-6 text-xs font-medium tracking-[0.15em] text-neutral-400 uppercase">
+              LIVA Groves
+            </p>
+            <h2 class="text-3xl font-light tracking-tight text-neutral-900 md:text-4xl">
+              Ultra high polyphenol olive oil from Kalamata, Greece
             </h2>
           </div>
           <div class="md:col-span-6 md:col-start-7">
             <p class="text-base leading-relaxed text-neutral-600 md:text-lg">
-              This extra virgin olive oil is crafted from carefully selected
-              olives and cold-pressed to preserve its natural flavour, aroma,
-              and nutritional value. The result is a clean, balanced oil suited
-              for everyday cooking as well as finishing dishes.
+              LIVA Groves Organic Extra Virgin Olive Oil is produced from early-harvest Koroneiki olives grown in the historic Kalamata region of Greece. Cold-pressed at low temperatures to preserve freshness, aroma, and quality, it delivers an exceptionally high polyphenol content of 1300+ mg/kg — far exceeding the threshold required under EU Regulation 432/2012.
             </p>
-
-            <p
-              class="text-base leading-relaxed text-neutral-600 mt-4 md:text-lg"
-            >
-              Designed for quality-conscious consumers, it delivers both
-              versatility and consistency — whether used in salads, cooking, or
-              dipping.
+            <p class="mt-6 text-base leading-relaxed text-neutral-600 md:text-lg">
+              Certified organic (BIOHELLAS – GR-BIO-03) with full traceability from tree to bottle. Gold Award winner at the Olympia Awards 2025 for sensory quality, balance, and production excellence.
             </p>
           </div>
         </div>
       </Container>
     </section>
 
-    <!-- Why it exists -->
-    <section class="border-t border-neutral-200 py-24 md:py-32">
+    <!-- Product details -->
+    <section class="py-32 md:py-44">
       <Container>
-        <div class="grid items-center gap-12 md:grid-cols-12 md:gap-8">
+        <div class="grid items-center gap-16 md:grid-cols-12 md:gap-20">
           <div class="md:col-span-5">
-            <h2
-              class="mb-6 text-3xl font-light tracking-tight text-neutral-800 md:text-4xl"
-            >
-              Simple, high-quality essentials
+            <h2 class="mb-6 text-3xl font-light tracking-tight text-neutral-900 md:text-4xl">
+              Early harvest, cold pressed
             </h2>
             <p class="text-base leading-relaxed text-neutral-500 md:text-lg">
-              This product focuses on doing one thing well — delivering
-              reliable, high-quality olive oil without unnecessary complexity.
-              It's built for everyday use, with a standard that holds up across
-              cooking and serving.
+              Mechanically extracted at low temperatures from early-harvest olives to preserve the full spectrum of natural polyphenols, antioxidants, and flavour compounds. Naturally low acidity (&lt;0.3%) with a robust, peppery finish characteristic of premium Koroneiki oil.
             </p>
           </div>
           <div class="md:col-span-6 md:col-start-7">
             <img
               src="https://images.unsplash.com/photo-1510627498534-cf7e9002facc?auto=format&fit=crop&w=900&q=80"
-              alt="Olive oil in everyday use"
+              alt="Cold-pressed olive oil production"
               class="aspect-[4/3] w-full rounded-2xl object-cover"
               loading="lazy"
             />
@@ -114,283 +93,155 @@ import FooterContact from "../components/FooterContact.astro";
       </Container>
     </section>
 
-    <!-- Product highlights -->
-    <section class="bg-stone-100 py-24 md:py-32">
+    <!-- Key attributes -->
+    <section class="py-32 md:py-44">
       <Container>
-        <h2
-          class="mb-16 text-center text-3xl font-medium tracking-tight text-neutral-800 md:mb-20 md:text-4xl"
-        >
-          What makes it stand out
-        </h2>
-        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          <div class="flex flex-col items-center text-center">
-            <div
-              class="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-stone-200"
-            >
-              <svg
-                class="h-8 w-8 text-green-800"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path
-                  d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2z"
-                ></path>
-                <path d="M12 6v12M8 10l4-4 4 4"></path>
-              </svg>
-            </div>
-            <h3 class="mb-2 text-base font-semibold text-neutral-900">
-              Extra Virgin Quality
-            </h3>
-            <p class="max-w-[200px] text-sm leading-relaxed text-neutral-500">
-              Cold-pressed to retain natural characteristics
+        <div class="grid gap-16 md:grid-cols-12 md:gap-20">
+          <div class="md:col-span-5">
+            <p class="mb-6 text-xs font-medium tracking-[0.15em] text-neutral-400 uppercase">
+              Product
             </p>
+            <h2 class="text-3xl font-light tracking-tight text-neutral-900 md:text-4xl">
+              What sets it apart
+            </h2>
           </div>
-          <div class="flex flex-col items-center text-center">
-            <div
-              class="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-stone-200"
-            >
-              <svg
-                class="h-8 w-8 text-green-800"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M12 22c-4-3-8-6-8-11a8 8 0 0116 0c0 5-4 8-8 11z"
-                ></path>
-                <circle cx="12" cy="11" r="3"></circle>
-              </svg>
-            </div>
-            <h3 class="mb-2 text-base font-semibold text-neutral-900">
-              Pure &amp; Natural
-            </h3>
-            <p class="max-w-[200px] text-sm leading-relaxed text-neutral-500">
-              Made from high-quality olives
+
+          <div class="md:col-span-6 md:col-start-7">
+            <p class="text-xl font-medium leading-snug tracking-tight text-neutral-900 md:text-2xl">
+              Independently tested, certified organic, and fully traceable from grove to table.
             </p>
-          </div>
-          <div class="flex flex-col items-center text-center">
-            <div
-              class="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-stone-200"
-            >
-              <svg
-                class="h-8 w-8 text-green-800"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M12 3v18M3 12h18M7.5 7.5l9 9M16.5 7.5l-9 9"></path>
-              </svg>
+
+            <div class="mt-12 grid grid-cols-1 gap-px overflow-hidden rounded-xl border border-neutral-100 bg-neutral-100 sm:grid-cols-2">
+              <div class="bg-white p-6">
+                <h3 class="mb-1.5 text-sm font-medium text-neutral-900">Ultra High Polyphenols</h3>
+                <p class="text-sm leading-relaxed text-neutral-500">1300+ mg/kg — independently lab tested, far exceeding EU health claim thresholds</p>
+              </div>
+              <div class="bg-white p-6">
+                <h3 class="mb-1.5 text-sm font-medium text-neutral-900">Kalamata PDO</h3>
+                <p class="text-sm leading-relaxed text-neutral-500">Certified Protected Designation of Origin from the historic Kalamata region</p>
+              </div>
+              <div class="bg-white p-6">
+                <h3 class="mb-1.5 text-sm font-medium text-neutral-900">Certified Organic</h3>
+                <p class="text-sm leading-relaxed text-neutral-500">BIOHELLAS certified (GR-BIO-03) with full organoleptic analysis</p>
+              </div>
+              <div class="bg-white p-6">
+                <h3 class="mb-1.5 text-sm font-medium text-neutral-900">Award Winning</h3>
+                <p class="text-sm leading-relaxed text-neutral-500">Gold Award — Olympia Awards 2025 for sensory quality and production excellence</p>
+              </div>
             </div>
-            <h3 class="mb-2 text-base font-semibold text-neutral-900">
-              Versatile Use
-            </h3>
-            <p class="max-w-[200px] text-sm leading-relaxed text-neutral-500">
-              Ideal for cooking, dressing, and finishing
-            </p>
-          </div>
-          <div class="flex flex-col items-center text-center">
-            <div
-              class="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-stone-200"
-            >
-              <svg
-                class="h-8 w-8 text-green-800"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M12 22V8M5 12l7-4 7 4"></path>
-                <path d="M5 16l7-4 7 4"></path>
-              </svg>
-            </div>
-            <h3 class="mb-2 text-base font-semibold text-neutral-900">
-              Balanced Flavour
-            </h3>
-            <p class="max-w-[200px] text-sm leading-relaxed text-neutral-500">
-              Smooth profile suitable for everyday use
-            </p>
           </div>
         </div>
       </Container>
     </section>
 
     <!-- Distributed by Peregrine -->
-    <section class="bg-[#22384A] py-28 text-white md:py-36">
+    <section class="py-32 md:py-44">
       <Container>
-        <div class="grid gap-16 md:grid-cols-12 md:gap-8">
-          <!-- Left: title & copy -->
-          <div class="md:col-span-6">
-            <p
-              class="mb-6 text-[11px] font-medium tracking-[0.2em] uppercase text-white/40"
-            >
-              Our Role
+        <div class="grid gap-16 md:grid-cols-12 md:gap-20">
+          <div class="md:col-span-5">
+            <p class="mb-6 text-xs font-medium tracking-[0.15em] text-neutral-400 uppercase">
+              Distribution
             </p>
-            <h2
-              class="mb-8 text-3xl font-medium leading-tight tracking-tight md:text-5xl"
-            >
+            <h2 class="text-3xl font-light tracking-tight text-neutral-900 md:text-4xl lg:text-5xl">
               Distributed by Peregrine
             </h2>
-            <p
-              class="max-w-md text-base leading-relaxed text-white/60 md:text-lg"
-            >
-              Peregrine Creative Group works with brands and producers to bring
-              distinctive products to market — from concept through to
-              distribution.
-            </p>
-            <p class="mt-6 text-sm leading-relaxed text-white/40">
-              This means you're not just buying a product — you're buying
-              through a trusted distribution partner.
-            </p>
           </div>
 
-          <!-- Right: key points -->
-          <div
-            class="flex flex-col justify-center md:col-span-5 md:col-start-8"
-          >
-            <p
-              class="mb-8 text-[11px] font-medium tracking-[0.2em] uppercase text-white/40"
-            >
-              For this product, Peregrine ensures
+          <div class="md:col-span-6 md:col-start-7">
+            <p class="text-xl font-medium leading-snug tracking-tight text-neutral-900 md:text-2xl">
+              Peregrine Creative Group brings LIVA Groves to market — handling sourcing, quality assurance, and UK distribution.
             </p>
-            <ul class="space-y-6">
-              <li class="flex items-start gap-4">
-                <span
-                  class="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-amber-400/40 text-sm text-amber-400"
-                  >01</span
-                >
-                <span class="text-base font-medium text-white md:text-lg"
-                  >Reliable sourcing and supply</span
-                >
-              </li>
-              <li class="flex items-start gap-4">
-                <span
-                  class="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-amber-400/40 text-sm text-amber-400"
-                  >02</span
-                >
-                <span class="text-base font-medium text-white md:text-lg"
-                  >Quality consistency</span
-                >
-              </li>
-              <li class="flex items-start gap-4">
-                <span
-                  class="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-amber-400/40 text-sm text-amber-400"
-                  >03</span
-                >
-                <span class="text-base font-medium text-white md:text-lg"
-                  >Efficient distribution and delivery</span
-                >
-              </li>
-              <li class="flex items-start gap-4">
-                <span
-                  class="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-amber-400/40 text-sm text-amber-400"
-                  >04</span
-                >
-                <span class="text-base font-medium text-white md:text-lg"
-                  >A direct link between producer and customer</span
-                >
-              </li>
-            </ul>
-          </div>
-        </div>
-      </Container>
-    </section>
+            <p class="mt-5 text-base leading-relaxed text-neutral-500 md:text-lg">
+              Available on Amazon UK with Peregrine managing the full supply chain from producer in Kalamata to end customer. This means consistent stock, quality control on every batch, and a direct relationship between grove and buyer.
+            </p>
 
-    <!-- Capabilities -->
-    <section class="border-t border-neutral-200 py-24 md:py-32">
-      <Container>
-        <p
-          class="mb-16 text-[11px] font-medium tracking-[0.2em] text-neutral-400 uppercase"
-        >
-          Capabilities
-        </p>
-        <div class="grid gap-12 md:grid-cols-3">
-          <div>
-            <h3 class="mb-3 text-lg font-medium text-neutral-900">
-              Sourcing &amp; Quality
-            </h3>
-            <p class="text-sm leading-relaxed text-neutral-500">
-              Direct relationships with producers ensure every batch meets our
-              acidity, polyphenol, and freshness benchmarks. Full lab testing on
-              every shipment.
-            </p>
-          </div>
-          <div>
-            <h3 class="mb-3 text-lg font-medium text-neutral-900">
-              Private Label &amp; Branding
-            </h3>
-            <p class="text-sm leading-relaxed text-neutral-500">
-              We offer white-label and custom-branded solutions — designing
-              packaging, labels, and marketing assets that position your product
-              at the premium end of shelf.
-            </p>
-          </div>
-          <div>
-            <h3 class="mb-3 text-lg font-medium text-neutral-900">
-              Global Distribution
-            </h3>
-            <p class="text-sm leading-relaxed text-neutral-500">
-              Warehousing, logistics, and regulatory compliance handled
-              end-to-end. We ship to retail, wholesale, and direct-to-consumer
-              channels across Europe, the US, and Asia.
-            </p>
+            <div class="mt-12 grid grid-cols-1 gap-px overflow-hidden rounded-xl border border-neutral-100 bg-neutral-100 sm:grid-cols-2">
+              <div class="bg-white p-6">
+                <h3 class="mb-1.5 text-sm font-medium text-neutral-900">Direct Sourcing</h3>
+                <p class="text-sm leading-relaxed text-neutral-500">Relationship with the grower in Kalamata, Greece</p>
+              </div>
+              <div class="bg-white p-6">
+                <h3 class="mb-1.5 text-sm font-medium text-neutral-900">Quality Assurance</h3>
+                <p class="text-sm leading-relaxed text-neutral-500">Independent lab testing on every batch shipped</p>
+              </div>
+              <div class="bg-white p-6">
+                <h3 class="mb-1.5 text-sm font-medium text-neutral-900">UK Distribution</h3>
+                <p class="text-sm leading-relaxed text-neutral-500">Fulfilled via Amazon with Peregrine managing logistics</p>
+              </div>
+              <div class="bg-white p-6">
+                <h3 class="mb-1.5 text-sm font-medium text-neutral-900">Full Traceability</h3>
+                <p class="text-sm leading-relaxed text-neutral-500">From tree to bottle — certified and documented</p>
+              </div>
+            </div>
           </div>
         </div>
       </Container>
     </section>
 
     <!-- FAQ -->
-    <section class="border-t border-neutral-200 py-24 md:py-32">
+    <section class="py-32 md:py-44">
       <Container>
-        <div class="grid gap-16 md:grid-cols-12 md:gap-8">
+        <div class="grid gap-16 md:grid-cols-12 md:gap-20">
           <div class="md:col-span-4">
-            <h2 class="text-3xl font-light tracking-tight text-neutral-800 md:text-4xl">
+            <h2 class="text-3xl font-light tracking-tight text-neutral-900 md:text-4xl">
               Frequently asked questions
             </h2>
           </div>
           <div class="md:col-span-7 md:col-start-6">
-            <dl class="divide-y divide-neutral-200" id="faq-list">
+            <dl class="divide-y divide-neutral-100" id="faq-list">
               <div class="py-6 first:pt-0" data-faq>
                 <dt>
                   <button class="flex w-full items-center justify-between text-left" data-faq-toggle aria-expanded="true">
-                    <span class="text-base font-medium text-neutral-900 md:text-lg">Is this authentic extra virgin olive oil?</span>
+                    <span class="text-base font-medium text-neutral-900 md:text-lg">What does "ultra high polyphenol" mean?</span>
                     <svg class="h-5 w-5 shrink-0 text-neutral-400 transition-transform duration-200 rotate-180" data-faq-icon viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" /></svg>
                   </button>
                 </dt>
                 <dd class="mt-3 text-sm leading-relaxed text-neutral-500 md:text-base" data-faq-answer>
-                  Yes — it is produced using cold-press extraction methods to maintain quality and flavour.
+                  LIVA Groves contains 1300+ mg/kg of naturally occurring polyphenols — independently lab tested. The EU authorises a health claim for olive oil polyphenols at a much lower threshold (EU Regulation 432/2012). Polyphenols contribute to the protection of blood lipids from oxidative stress, with a beneficial effect obtained from a daily intake of 20g.
                 </dd>
               </div>
               <div class="py-6" data-faq>
                 <dt>
                   <button class="flex w-full items-center justify-between text-left" data-faq-toggle aria-expanded="false">
-                    <span class="text-base font-medium text-neutral-900 md:text-lg">Who handles delivery and availability?</span>
+                    <span class="text-base font-medium text-neutral-900 md:text-lg">Where are the olives grown?</span>
                     <svg class="h-5 w-5 shrink-0 text-neutral-400 transition-transform duration-200" data-faq-icon viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" /></svg>
                   </button>
                 </dt>
                 <dd class="mt-3 hidden text-sm leading-relaxed text-neutral-500 md:text-base" data-faq-answer>
-                  Orders are fulfilled through Amazon, with Peregrine supporting distribution and supply.
+                  Early-harvest Koroneiki olives grown in the historic Kalamata region of Greece. The oil carries a Certified Protected Designation of Origin (PDO) — guaranteeing geographical authenticity.
+                </dd>
+              </div>
+              <div class="py-6" data-faq>
+                <dt>
+                  <button class="flex w-full items-center justify-between text-left" data-faq-toggle aria-expanded="false">
+                    <span class="text-base font-medium text-neutral-900 md:text-lg">Is it certified organic?</span>
+                    <svg class="h-5 w-5 shrink-0 text-neutral-400 transition-transform duration-200" data-faq-icon viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" /></svg>
+                  </button>
+                </dt>
+                <dd class="mt-3 hidden text-sm leading-relaxed text-neutral-500 md:text-base" data-faq-answer>
+                  Yes — certified organic by BIOHELLAS (GR-BIO-03) with full traceability from tree to bottle, including certified organoleptic analysis.
+                </dd>
+              </div>
+              <div class="py-6" data-faq>
+                <dt>
+                  <button class="flex w-full items-center justify-between text-left" data-faq-toggle aria-expanded="false">
+                    <span class="text-base font-medium text-neutral-900 md:text-lg">How do I buy it?</span>
+                    <svg class="h-5 w-5 shrink-0 text-neutral-400 transition-transform duration-200" data-faq-icon viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" /></svg>
+                  </button>
+                </dt>
+                <dd class="mt-3 hidden text-sm leading-relaxed text-neutral-500 md:text-base" data-faq-answer>
+                  Available on Amazon UK (500ml bottle). Orders are fulfilled through Amazon with Peregrine managing distribution and supply.
                 </dd>
               </div>
               <div class="py-6 last:pb-0" data-faq>
                 <dt>
                   <button class="flex w-full items-center justify-between text-left" data-faq-toggle aria-expanded="false">
-                    <span class="text-base font-medium text-neutral-900 md:text-lg">What can I use it for?</span>
+                    <span class="text-base font-medium text-neutral-900 md:text-lg">What does it taste like?</span>
                     <svg class="h-5 w-5 shrink-0 text-neutral-400 transition-transform duration-200" data-faq-icon viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" /></svg>
                   </button>
                 </dt>
                 <dd class="mt-3 hidden text-sm leading-relaxed text-neutral-500 md:text-base" data-faq-answer>
-                  Everything from cooking and frying to salad dressings and dipping.
+                  A robust, peppery finish characteristic of premium early-harvest Koroneiki olives. Ideal for finishing dishes, salad dressings, dipping, or cooking where you want the oil's character to come through.
                 </dd>
               </div>
             </dl>
@@ -415,22 +266,29 @@ import FooterContact from "../components/FooterContact.astro";
     </script>
 
     <!-- CTA -->
-    <section class="border-t border-neutral-200 py-24 md:py-32">
+    <section class="py-32 md:py-44">
       <Container>
         <div class="flex flex-col items-center text-center">
-          <h2 class="mb-4 text-2xl font-light text-neutral-800 md:text-3xl">
-            Ready to get started?
+          <h2 class="mb-6 text-3xl font-light tracking-tight text-neutral-900 md:text-4xl">
+            Try LIVA Groves
           </h2>
-          <p class="mb-8 max-w-md text-sm leading-relaxed text-neutral-500">
-            Whether you're launching a new product line or expanding an existing
-            range, we'll help you source, brand, and ship with confidence.
+          <p class="mb-10 max-w-md text-base leading-relaxed text-neutral-500">
+            500ml organic extra virgin olive oil — ultra high polyphenols, early harvest Koroneiki, Kalamata PDO. Available now on Amazon UK.
           </p>
-          <a href="/#contact" class="group inline-flex items-center overflow-hidden rounded-xl bg-neutral-900 text-white transition-opacity hover:opacity-90">
-            <span class="px-6 py-4 text-sm font-medium tracking-wide uppercase">Get in Touch</span>
-            <span class="flex h-full items-center border-l border-white/20 px-4 py-4">
-              <svg class="h-4 w-4 transition-transform group-hover:translate-x-0.5" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5" /></svg>
-            </span>
-          </a>
+          <div class="flex flex-wrap justify-center gap-4">
+            <a href="https://www.amazon.co.uk/dp/B0GQWBKKBR" target="_blank" rel="noopener" class="group inline-flex items-center overflow-hidden rounded-xl bg-neutral-900 text-white transition-opacity hover:opacity-90">
+              <span class="px-7 py-4 text-sm font-medium tracking-wide uppercase">Buy on Amazon</span>
+              <span class="flex items-center border-l border-white/15 px-5 py-4">
+                <svg class="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5" /></svg>
+              </span>
+            </a>
+            <a href="/#contact" class="group inline-flex items-center overflow-hidden rounded-xl border border-neutral-200 text-neutral-900 transition-opacity hover:opacity-70">
+              <span class="px-7 py-4 text-sm font-medium tracking-wide uppercase">Wholesale enquiry</span>
+              <span class="flex items-center border-l border-neutral-200 px-5 py-4">
+                <svg class="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5" /></svg>
+              </span>
+            </a>
+          </div>
         </div>
       </Container>
     </section>
