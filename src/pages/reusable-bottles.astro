@@ -7,8 +7,8 @@ import EthosSplit from "../components/EthosSplit.astro";
 ---
 
 <BaseLayout
-  title="Reusable Bottles — Peregrine Creative Group"
-  description="Custom-designed reusable bottles manufactured sustainably at scale."
+  title="Reusable Cups & Drinkware — Peregrine Creative Group"
+  description="We design and manufacture reusable cups, custom slush yards, bottles and promotional drinkware for cinemas, theme parks, stadiums, and events."
 >
   <Navbar variant="overlay" />
 
@@ -17,7 +17,7 @@ import EthosSplit from "../components/EthosSplit.astro";
     <section class="relative min-h-screen w-full overflow-hidden" aria-label="Hero">
       <img
         src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=1920&q=80"
-        alt="Reusable bottle collection"
+        alt="Reusable drinkware collection"
         class="absolute inset-0 h-full w-full object-cover"
         loading="eager"
       />
@@ -25,7 +25,7 @@ import EthosSplit from "../components/EthosSplit.astro";
 
       <div class="relative z-10 mx-auto flex min-h-screen w-full max-w-7xl flex-col justify-end px-6 pb-24 md:px-12 md:pb-32 lg:px-16">
         <h1 class="max-w-4xl text-4xl leading-[1.08] font-light tracking-tight text-white md:text-5xl lg:text-7xl">
-          Creative drinkware and packaging, designed to stand out
+          Reusable cups, custom vessels, and slush yards — designed to stand out
         </h1>
 
         <div class="mt-16 flex flex-wrap gap-4">
@@ -35,8 +35,8 @@ import EthosSplit from "../components/EthosSplit.astro";
               <svg class="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5" /></svg>
             </span>
           </a>
-          <a href="/#services" class="group inline-flex items-center overflow-hidden rounded-xl border border-white/20 text-white transition-opacity hover:opacity-80">
-            <span class="px-7 py-4 text-sm font-medium tracking-wide uppercase">View our work</span>
+          <a href="#products" class="group inline-flex items-center overflow-hidden rounded-xl border border-white/20 text-white transition-opacity hover:opacity-80">
+            <span class="px-7 py-4 text-sm font-medium tracking-wide uppercase">View products</span>
             <span class="flex items-center border-l border-white/20 px-5 py-4">
               <svg class="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5" /></svg>
             </span>
@@ -45,50 +45,223 @@ import EthosSplit from "../components/EthosSplit.astro";
       </div>
     </section>
 
-    <!-- Content split -->
+    <!-- Partners marquee -->
+    <section class="border-b border-neutral-100 py-6">
+      <div class="relative overflow-hidden">
+        <div class="pointer-events-none absolute inset-y-0 left-0 z-10 w-20 bg-gradient-to-r from-white to-transparent md:w-32"></div>
+        <div class="pointer-events-none absolute inset-y-0 right-0 z-10 w-20 bg-gradient-to-l from-white to-transparent md:w-32"></div>
+        <div class="partners-track flex w-max items-center">
+          {["Frozen Brothers", "Tango Ice Blast", "Coca-Cola", "Odeon", "Slush Puppie", "Vimto", "Steri Pack", "Frozen Brothers", "Tango Ice Blast", "Coca-Cola", "Odeon", "Slush Puppie", "Vimto", "Steri Pack"].map((name) => (
+            <div class="flex shrink-0 items-center px-8 md:px-12">
+              <span class="whitespace-nowrap text-sm font-medium tracking-tight text-neutral-300">
+                {name}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <style>
+      .partners-track {
+        animation: scroll-partners 30s linear infinite;
+      }
+      .partners-track:hover {
+        animation-play-state: paused;
+      }
+      @keyframes scroll-partners {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }
+    </style>
+
+    <!-- Intro statement -->
     <section class="py-32 md:py-44">
       <Container>
         <div class="grid gap-16 md:grid-cols-12 md:gap-20">
           <div class="md:col-span-5">
+            <p class="mb-6 text-xs font-medium tracking-[0.15em] text-neutral-400 uppercase">
+              What we do
+            </p>
             <h2 class="text-3xl font-light tracking-tight text-neutral-900 md:text-4xl">
-              Packaging that people remember
+              Redefine by redesign
             </h2>
           </div>
           <div class="md:col-span-6 md:col-start-7">
-            <p class="text-base leading-relaxed text-neutral-600 md:text-lg">
-              Most food and drink packaging is forgettable. Peregrine helps brands
-              create eye-catching, functional products that customers actually want
-              to keep — from reusable cinema cups and custom molded vessels to
-              inventive slush yards and collectible promotional drinkware.
+            <p class="text-xl font-medium leading-snug tracking-tight text-neutral-900 md:text-2xl">
+              Most food and drink packaging is boring, but it doesn't have to be.
+            </p>
+            <p class="mt-5 text-base leading-relaxed text-neutral-500 md:text-lg">
+              We work to make our designs eye-catching and innovative. Imagine a reusable cinema cup that can hold two drinks, a slush yard shaped like a star, or a straw that changes colour as you use it. With the right design, packaging becomes a unique souvenir most people will want to take home.
             </p>
           </div>
         </div>
       </Container>
     </section>
 
-    <!-- From concept -->
+    <!-- Full-width image break -->
+    <section class="px-6 md:px-12 lg:px-16">
+      <div class="mx-auto max-w-7xl overflow-hidden rounded-2xl">
+        <img
+          src="https://images.unsplash.com/photo-1523362628745-0c100fc609a6?auto=format&fit=crop&w=1600&q=80"
+          alt="Reusable cups in production"
+          class="aspect-[21/9] w-full object-cover"
+          loading="lazy"
+        />
+      </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="py-32 md:py-44">
+      <Container>
+        <p class="mb-16 text-xs font-medium tracking-[0.15em] text-neutral-400 uppercase md:mb-20">
+          Products
+        </p>
+
+        <!-- Reusable Cups — large feature -->
+        <div class="grid items-center gap-12 md:grid-cols-12 md:gap-20">
+          <div class="md:col-span-6">
+            <div class="overflow-hidden rounded-2xl">
+              <img
+                src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=900&q=80"
+                alt="Reusable promotional cups"
+                class="aspect-[4/3] w-full object-cover"
+                loading="lazy"
+              />
+            </div>
+          </div>
+          <div class="md:col-span-5 md:col-start-8">
+            <h3 class="mb-4 text-2xl font-medium tracking-tight text-neutral-900 md:text-3xl">Reusable Cups</h3>
+            <p class="text-base leading-relaxed text-neutral-500 md:text-lg">
+              Durable, dishwasher-safe cups that can be printed 360° top-to-bottom. Ideal for theme parks, cinemas, stadiums, sporting events, and music festivals — anywhere large crowds consume large volumes of drinks.
+            </p>
+            <p class="mt-4 text-base leading-relaxed text-neutral-500 md:text-lg">
+              With the right design, a cup becomes a unique souvenir most people will want to take home.
+            </p>
+          </div>
+        </div>
+
+        <!-- Thermochromic IML — reversed -->
+        <div class="mt-24 grid items-center gap-12 md:mt-32 md:grid-cols-12 md:gap-20">
+          <div class="order-2 md:order-1 md:col-span-5">
+            <h3 class="mb-4 text-2xl font-medium tracking-tight text-neutral-900 md:text-3xl">Thermochromic IML Cups</h3>
+            <p class="text-base leading-relaxed text-neutral-500 md:text-lg">
+              In-Mould Labelling technology that produces eye-catching, vibrant designs without exterior sleeves or prints. The beauty isn't fully apparent until the cold beverage hits the cup — within seconds, the design shifts and transforms, introducing new colours and patterns as the temperature drops.
+            </p>
+            <p class="mt-4 text-sm text-neutral-400">
+              Effectively two designs in one cup.
+            </p>
+          </div>
+          <div class="order-1 md:order-2 md:col-span-6 md:col-start-7">
+            <div class="overflow-hidden rounded-2xl">
+              <img
+                src="https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=900&q=80"
+                alt="Thermochromic colour-changing cups"
+                class="aspect-[4/3] w-full object-cover"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Custom Vessels — large feature -->
+        <div class="mt-24 grid items-center gap-12 md:mt-32 md:grid-cols-12 md:gap-20">
+          <div class="md:col-span-6">
+            <div class="overflow-hidden rounded-2xl">
+              <img
+                src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=900&q=80"
+                alt="Custom beverage vessels"
+                class="aspect-[4/3] w-full object-cover"
+                loading="lazy"
+              />
+            </div>
+          </div>
+          <div class="md:col-span-5 md:col-start-8">
+            <h3 class="mb-4 text-2xl font-medium tracking-tight text-neutral-900 md:text-3xl">Custom Vessels</h3>
+            <p class="text-base leading-relaxed text-neutral-500 md:text-lg">
+              We produce custom beverage vessels for all types of product — from water bottles and sport bottles to fizzy drink vessels for theme parks. A reusable cup with a divider inside allows two different liquids in the same cup. A dual-straw lid makes it perfect for sharing.
+            </p>
+            <p class="mt-4 text-sm text-neutral-400">
+              If it can be imagined, it can be done.
+            </p>
+          </div>
+        </div>
+
+        <!-- Slush Yards — reversed -->
+        <div class="mt-24 grid items-center gap-12 md:mt-32 md:grid-cols-12 md:gap-20">
+          <div class="order-2 md:order-1 md:col-span-5">
+            <h3 class="mb-4 text-2xl font-medium tracking-tight text-neutral-900 md:text-3xl">Slush Yards</h3>
+            <p class="text-base leading-relaxed text-neutral-500 md:text-lg">
+              The famous Twister Cup — twin chambers for two different drinks in one vessel. Iconic in design, a firm favourite of top cinemas and theme parks. Our signature fruit series utilises the shape of the yard to make it seem as if a real fruit has been grown in the bottle.
+            </p>
+            <p class="mt-4 text-sm text-neutral-400">
+              Comprised of high-quality PET plastic. Each project is unique.
+            </p>
+          </div>
+          <div class="order-1 md:order-2 md:col-span-6 md:col-start-7">
+            <div class="overflow-hidden rounded-2xl">
+              <img
+                src="https://images.unsplash.com/photo-1570831739435-6601aa3fa4fb?auto=format&fit=crop&w=900&q=80"
+                alt="Custom slush yards"
+                class="aspect-[4/3] w-full object-cover"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </div>
+      </Container>
+    </section>
+
+    <!-- Full-width image break -->
+    <section class="px-6 md:px-12 lg:px-16">
+      <div class="mx-auto max-w-7xl overflow-hidden rounded-2xl">
+        <img
+          src="https://images.unsplash.com/photo-1565043666747-69f6646db940?auto=format&fit=crop&w=1600&q=80"
+          alt="Manufacturing facility"
+          class="aspect-[21/9] w-full object-cover"
+          loading="lazy"
+        />
+      </div>
+    </section>
+
+    <!-- End-to-end service -->
     <section class="py-32 md:py-44">
       <Container>
         <div class="grid gap-16 md:grid-cols-12 md:gap-20">
           <div class="md:col-span-5">
+            <p class="mb-6 text-xs font-medium tracking-[0.15em] text-neutral-400 uppercase">
+              Process
+            </p>
             <h2 class="text-3xl font-light tracking-tight text-neutral-900 md:text-4xl">
               From concept to finished product
             </h2>
           </div>
           <div class="md:col-span-6 md:col-start-7">
-            <p class="text-base leading-relaxed text-neutral-600 md:text-lg">
-              Peregrine offers an end-to-end service spanning concept
-              development, industrial design, 3D proto-renders, physical
-              samples, production, and marketing support.
+            <p class="text-xl font-medium leading-snug tracking-tight text-neutral-900 md:text-2xl">
+              We bring your ideas to life with a focus on quality and creativity.
             </p>
-            <ul class="mt-10 space-y-4 text-lg font-light text-neutral-400">
-              <li>Reusable promotional cups</li>
-              <li>Custom beverage vessels</li>
-              <li>Slush yards</li>
-              <li>Industrial design</li>
-              <li>3D rendering</li>
-              <li>Label illustration and design</li>
-            </ul>
+            <p class="mt-5 text-base leading-relaxed text-neutral-500 md:text-lg">
+              From the initial concept to the finished physical product, we provide a complete package. With more than 30 years of combined industry knowledge, we provide more than just a product — we provide a complete marketing service, including new concepts, designs, and strategies to accompany them.
+            </p>
+
+            <div class="mt-12 grid grid-cols-1 gap-px overflow-hidden rounded-xl border border-neutral-100 bg-neutral-100 sm:grid-cols-2">
+              <div class="bg-white p-6">
+                <h3 class="mb-1.5 text-sm font-medium text-neutral-900">Industrial Design</h3>
+                <p class="text-sm leading-relaxed text-neutral-500">Concept development and form exploration</p>
+              </div>
+              <div class="bg-white p-6">
+                <h3 class="mb-1.5 text-sm font-medium text-neutral-900">3D Proto-Renders</h3>
+                <p class="text-sm leading-relaxed text-neutral-500">Photorealistic visualisations before production</p>
+              </div>
+              <div class="bg-white p-6">
+                <h3 class="mb-1.5 text-sm font-medium text-neutral-900">Physical Samples</h3>
+                <p class="text-sm leading-relaxed text-neutral-500">Tangible prototypes for testing and approval</p>
+              </div>
+              <div class="bg-white p-6">
+                <h3 class="mb-1.5 text-sm font-medium text-neutral-900">Marketing Strategy</h3>
+                <p class="text-sm leading-relaxed text-neutral-500">Advertising ideas and target market identification</p>
+              </div>
+            </div>
           </div>
         </div>
       </Container>
@@ -96,93 +269,6 @@ import EthosSplit from "../components/EthosSplit.astro";
 
     <!-- Ethos -->
     <EthosSplit />
-
-    <!-- Signature Products -->
-    <section class="py-32 md:py-44">
-      <Container>
-        <p class="mb-16 text-xs font-medium tracking-[0.15em] text-neutral-400 uppercase md:mb-20">
-          Signature products
-        </p>
-        <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          <div class="group">
-            <div class="overflow-hidden rounded-xl">
-              <img
-                src="https://images.unsplash.com/photo-1523362628745-0c100fc609a6?auto=format&fit=crop&w=800&q=80"
-                alt="Reusable Cups"
-                class="aspect-[4/3] w-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
-                loading="lazy"
-              />
-            </div>
-            <h3 class="mt-5 text-base font-medium text-neutral-900">Reusable Cups</h3>
-            <p class="mt-1.5 text-sm leading-relaxed text-neutral-500">
-              Durable, dishwasher-safe, 360° printable cups for cinemas,
-              stadiums, festivals, theme parks, and events.
-            </p>
-          </div>
-          <div class="group">
-            <div class="overflow-hidden rounded-xl">
-              <img
-                src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=800&q=80"
-                alt="Custom Vessels"
-                class="aspect-[4/3] w-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
-                loading="lazy"
-              />
-            </div>
-            <h3 class="mt-5 text-base font-medium text-neutral-900">Custom Vessels</h3>
-            <p class="mt-1.5 text-sm leading-relaxed text-neutral-500">
-              Custom bottles and molded drinkware designed around a client's
-              concept, shape, or branded world.
-            </p>
-          </div>
-          <div class="group">
-            <div class="overflow-hidden rounded-xl">
-              <img
-                src="https://images.unsplash.com/photo-1570831739435-6601aa3fa4fb?auto=format&fit=crop&w=800&q=80"
-                alt="Slush Yards"
-                class="aspect-[4/3] w-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
-                loading="lazy"
-              />
-            </div>
-            <h3 class="mt-5 text-base font-medium text-neutral-900">Slush Yards</h3>
-            <p class="mt-1.5 text-sm leading-relaxed text-neutral-500">
-              Creative, high-impact slush yard designs including signature
-              shapes like the Twister Cup and bespoke molded concepts.
-            </p>
-          </div>
-        </div>
-      </Container>
-    </section>
-
-    <!-- Why Peregrine -->
-    <section class="py-32 md:py-44">
-      <Container>
-        <h2 class="mb-16 text-3xl font-light tracking-tight text-neutral-900 md:mb-20 md:text-4xl">
-          Why Peregrine?
-        </h2>
-        <div class="grid gap-12 md:grid-cols-3 md:gap-8">
-          <div>
-            <h3 class="mb-3 text-lg font-medium text-neutral-900">High quality, strong value</h3>
-            <p class="text-sm leading-relaxed text-neutral-500">
-              In-house production oversight from 3D drafts to mold creation and final output.
-            </p>
-          </div>
-          <div>
-            <h3 class="mb-3 text-lg font-medium text-neutral-900">Creative thinking</h3>
-            <p class="text-sm leading-relaxed text-neutral-500">
-              A focus on pushing packaging beyond standard forms through new
-              technology, updated machinery, and collaboration between design and product teams.
-            </p>
-          </div>
-          <div>
-            <h3 class="mb-3 text-lg font-medium text-neutral-900">Lower environmental impact</h3>
-            <p class="text-sm leading-relaxed text-neutral-500">
-              Reusable, refillable, recyclable, and biodegradable solutions
-              designed to reduce waste and reliance on disposables.
-            </p>
-          </div>
-        </div>
-      </Container>
-    </section>
 
     <!-- Sustainability -->
     <section class="bg-neutral-950 py-32 text-white md:py-44">
@@ -198,12 +284,7 @@ import EthosSplit from "../components/EthosSplit.astro";
           </div>
           <div class="md:col-span-6 md:col-start-7">
             <p class="text-base leading-relaxed text-white/60 md:text-lg">
-              Sustainability is an operating principle, not an add-on. We use
-              fully recyclable PET and recycled R-PET across our product lines,
-              alongside reusable and refillable options designed to replace
-              single-use alternatives. Our waste-management practices reduce
-              production waste while improving efficiency, and our biodegradable
-              cups and straws mark the next step in a greener product direction.
+              All our products are comprised of fully recyclable PET plastic. Our reusable and refillable cups and bottles combat the negative effect of disposables, and we minimise wastage at every step of production. Biodegradable cups and straws mark the next step in our greener product direction.
             </p>
           </div>
         </div>
@@ -215,11 +296,10 @@ import EthosSplit from "../components/EthosSplit.astro";
       <Container>
         <div class="flex flex-col items-center text-center">
           <h2 class="mb-6 text-3xl font-light tracking-tight text-neutral-900 md:text-4xl">
-            Ready to get started?
+            Ready to create something unique?
           </h2>
-          <p class="mb-10 max-w-md text-base leading-relaxed text-neutral-500">
-            Tell us about your project and we'll put together a proposal
-            tailored to your brand, volume, and timeline.
+          <p class="mb-10 max-w-lg text-base leading-relaxed text-neutral-500">
+            Whether it's a reusable cinema cup, a custom slush yard, or a promotional vessel for your next event — we'll bring your idea to life.
           </p>
           <a href="/#contact" class="group inline-flex items-center overflow-hidden rounded-xl bg-neutral-900 text-white transition-opacity hover:opacity-90">
             <span class="px-7 py-4 text-sm font-medium tracking-wide uppercase">Get in Touch</span>
