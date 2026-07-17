@@ -1,34 +1,32 @@
 ---
 interface Props {
   title: string;
-  tag: string;
   image: string;
   href?: string;
 }
 
-const { title, tag, image, href = "#" } = Astro.props;
+const { title, image, href } = Astro.props;
+
+const Tag = href ? "a" : "div";
 ---
 
-<a href={href} class="group block">
-  <!-- Title above image -->
-  <h3 class="mb-5 text-lg tracking-tight text-neutral-900 md:text-xl">
-    <span class="font-semibold">Peregrine</span>{" "}
-    <span class="font-light">{title}</span>
+<Tag
+  href={href}
+  class:list={[
+    "group relative block overflow-hidden rounded-2xl",
+    href && "transition-opacity duration-200 hover:opacity-95",
+  ]}
+>
+  <img
+    src={image}
+    alt={title}
+    class="aspect-square md:aspect-[3/4] w-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
+    loading="lazy"
+  />
+
+  <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/35 via-black/5 to-transparent"></div>
+
+  <h3 class="absolute bottom-6 left-6 text-lg font-normal tracking-tight text-white md:bottom-8 md:left-8 md:text-xl">
+    {title}
   </h3>
-
-  <!-- Clean landscape image -->
-  <div class="overflow-hidden rounded-lg">
-    <img
-      src={image}
-      alt={title}
-      class="aspect-[3/2] w-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
-      loading="lazy"
-    />
-  </div>
-
-  <!-- Link below -->
-  <p class="mt-4 inline-flex items-center gap-1.5 text-sm text-neutral-500 transition-colors duration-200 group-hover:text-neutral-900">
-    <span>{title}</span>
-    <svg class="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5" /></svg>
-  </p>
-</a>
+</Tag>

@@ -3,7 +3,6 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Navbar from "../components/Navbar.astro";
 import Container from "../components/Container.astro";
 import FooterContact from "../components/FooterContact.astro";
-// image
 ---
 
 <BaseLayout
@@ -16,12 +15,12 @@ import FooterContact from "../components/FooterContact.astro";
     <!-- Full-bleed Hero -->
     <section class="relative min-h-screen w-full overflow-hidden" aria-label="Hero">
       <img
-        src="/liva/liva-hero.jpeg"
+        src="/liva/liva-hero.webp"
         alt="Olive groves in Kalamata, Greece"
         class="absolute inset-0 h-full w-full object-cover"
         loading="eager"
       />
-      <div class="absolute inset-0 bg-black/40"></div>
+      <div class="absolute inset-0 bg-black/20"></div>
 
       <div class="relative z-10 mx-auto flex min-h-screen w-full max-w-7xl flex-col justify-end px-6 pb-24 md:px-12 md:pb-32 lg:px-16">
         <h1 class="max-w-4xl text-4xl leading-[1.08] font-light tracking-tight text-white md:text-5xl lg:text-7xl">
@@ -45,9 +44,42 @@ import FooterContact from "../components/FooterContact.astro";
       </div>
     </section>
 
+    <!-- Key stats bar -->
+    <section class="border-b border-neutral-100 bg-neutral-50 py-10">
+      <Container>
+        <div class="grid grid-cols-2 gap-8 md:grid-cols-4 md:gap-12">
+          <div class="text-center">
+            <span class="block text-2xl font-light tracking-tight text-neutral-900 md:text-3xl">1300+</span>
+            <span class="mt-1 block text-xs text-neutral-500">mg/kg polyphenols</span>
+          </div>
+          <div class="text-center">
+            <span class="block text-2xl font-light tracking-tight text-neutral-900 md:text-3xl">&lt;0.3%</span>
+            <span class="mt-1 block text-xs text-neutral-500">acidity level</span>
+          </div>
+          <div class="text-center">
+            <span class="block text-2xl font-light tracking-tight text-neutral-900 md:text-3xl">500ml</span>
+            <span class="mt-1 block text-xs text-neutral-500">bottle size</span>
+          </div>
+          <div class="text-center">
+            <span class="block text-2xl font-light tracking-tight text-neutral-900 md:text-3xl">Gold</span>
+            <span class="mt-1 block text-xs text-neutral-500">Olympia Awards 2025</span>
+          </div>
+        </div>
+      </Container>
+    </section>
+
     <!-- About -->
     <section class="py-32 md:py-44">
       <Container>
+<!-- Image of bottle -->
+        <div class="pb-32">
+          <img
+            src="/liva/liva-bottle.png"
+            alt="LIVA Groves olive oil bottle"
+            class="w-full h-auto max-h-[500px] object-contain"
+            loading="lazy"
+          />
+        </div>
         <div class="grid gap-16 md:grid-cols-12 md:gap-20">
           <div class="md:col-span-5">
             <p class="mb-6 text-xs font-medium tracking-[0.15em] text-neutral-400 uppercase">
@@ -69,32 +101,91 @@ import FooterContact from "../components/FooterContact.astro";
       </Container>
     </section>
 
-    <!-- Product details -->
+    <!-- Full-width image break -->
+    <section class="px-6 md:px-12 lg:px-16 md:pb-16">
+      <div class="mx-auto max-w-7xl overflow-hidden rounded-2xl">
+        <img
+          src="/liva/liva-pour.webp"
+          alt="LIVA Groves olive oil bottle"
+          class="aspect-[21/9] w-full object-contain"
+          loading="lazy"
+        />
+      </div>
+    </section>
+
+    <!-- Science & Research highlight — dark section -->
+    <section class="bg-neutral-950 py-32 text-white md:py-44">
+      <Container>
+        <div class="grid gap-16 md:grid-cols-12 md:gap-20">
+          <div class="md:col-span-5">
+            <p class="mb-6 text-xs font-medium tracking-[0.15em] uppercase text-white/40">
+              Research
+            </p>
+            <h2 class="text-3xl font-light tracking-tight md:text-4xl lg:text-5xl">
+              Used in scientific and academic research
+            </h2>
+          </div>
+          <div class="md:col-span-6 md:col-start-7">
+            <p class="text-xl font-medium leading-snug tracking-tight md:text-2xl">
+              Olive oil polyphenols contribute to the protection of blood lipids from oxidative stress.
+            </p>
+            <p class="mt-5 text-base leading-relaxed text-white/60 md:text-lg">
+              The beneficial effect is obtained with a daily intake of 20g of olive oil (EU Regulation 432/2012). LIVA Groves exceeds the minimum polyphenol threshold by more than 5x, making it suitable for use in clinical and academic research contexts studying the health benefits of high-polyphenol extra virgin olive oil.
+            </p>
+            <div class="mt-12 grid grid-cols-1 gap-px overflow-hidden rounded-xl border border-white/10 bg-white/10 sm:grid-cols-2">
+              <div class="bg-neutral-950 p-6">
+                <h3 class="mb-1.5 text-sm font-medium text-white">EU Health Claim</h3>
+                <p class="text-sm leading-relaxed text-white/50">Authorised under EU Regulation 432/2012 for polyphenol content</p>
+              </div>
+              <div class="bg-neutral-950 p-6">
+                <h3 class="mb-1.5 text-sm font-medium text-white">Lab Verified</h3>
+                <p class="text-sm leading-relaxed text-white/50">Independently tested polyphenol levels on every batch</p>
+              </div>
+              <div class="bg-neutral-950 p-6">
+                <h3 class="mb-1.5 text-sm font-medium text-white">Organoleptic Analysis</h3>
+                <p class="text-sm leading-relaxed text-white/50">Certified sensory profiling for quality assurance</p>
+              </div>
+              <div class="bg-neutral-950 p-6">
+                <h3 class="mb-1.5 text-sm font-medium text-white">Full Traceability</h3>
+                <p class="text-sm leading-relaxed text-white/50">Documented chain from grove to bottle for research integrity</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Container>
+    </section>
+
+    <!-- Product details with image -->
     <section class="py-32 md:py-44">
       <Container>
         <div class="grid items-center gap-16 md:grid-cols-12 md:gap-20">
-          <div class="md:col-span-5">
-            <h2 class="mb-6 text-3xl font-light tracking-tight text-neutral-900 md:text-4xl">
+          <div class="md:col-span-6">
+            <div class="overflow-hidden rounded-2xl">
+              <img
+                src="/liva/olive-tree.jpg"
+                alt="Koroneiki olives being harvested"
+                class="aspect-[4/3] w-full object-contain"
+                loading="lazy"
+              />
+            </div>
+          </div>
+          <div class="md:col-span-5 md:col-start-8">
+            <h2 class="mb-6 text-2xl font-medium tracking-tight text-neutral-900 md:text-3xl">
               Early harvest, cold pressed
             </h2>
             <p class="text-base leading-relaxed text-neutral-500 md:text-lg">
-              Mechanically extracted at low temperatures from early-harvest olives to preserve the full spectrum of natural polyphenols, antioxidants, and flavour compounds. Naturally low acidity (&lt;0.3%) with a robust, peppery finish characteristic of premium Koroneiki oil.
+              Mechanically extracted at low temperatures from early-harvest Koroneiki olives to preserve the full spectrum of natural polyphenols, antioxidants, and flavour compounds.
             </p>
-          </div>
-          <div class="md:col-span-6 md:col-start-7">
-            <img
-              src="https://images.unsplash.com/photo-1510627498534-cf7e9002facc?auto=format&fit=crop&w=900&q=80"
-              alt="Cold-pressed olive oil production"
-              class="aspect-[4/3] w-full rounded-2xl object-cover"
-              loading="lazy"
-            />
+            <p class="mt-4 text-base leading-relaxed text-neutral-500 md:text-lg">
+              Naturally low acidity (&lt;0.3%) with a robust, peppery finish characteristic of premium Koroneiki oil from the Kalamata PDO region.
+            </p>
           </div>
         </div>
       </Container>
     </section>
 
     <!-- Key attributes -->
-    <section class="py-32 md:py-44">
+    <section class="bg-neutral-50 py-32 md:py-44">
       <Container>
         <div class="grid gap-16 md:grid-cols-12 md:gap-20">
           <div class="md:col-span-5">
@@ -111,7 +202,7 @@ import FooterContact from "../components/FooterContact.astro";
               Independently tested, certified organic, and fully traceable from grove to table.
             </p>
 
-            <div class="mt-12 grid grid-cols-1 gap-px overflow-hidden rounded-xl border border-neutral-100 bg-neutral-100 sm:grid-cols-2">
+            <div class="mt-12 grid grid-cols-1 gap-px overflow-hidden rounded-xl border border-neutral-200 bg-neutral-200 sm:grid-cols-2">
               <div class="bg-white p-6">
                 <h3 class="mb-1.5 text-sm font-medium text-neutral-900">Ultra High Polyphenols</h3>
                 <p class="text-sm leading-relaxed text-neutral-500">1300+ mg/kg — independently lab tested, far exceeding EU health claim thresholds</p>
@@ -132,6 +223,18 @@ import FooterContact from "../components/FooterContact.astro";
           </div>
         </div>
       </Container>
+    </section>
+
+    <!-- Full-width image break -->
+    <section class="px-6 md:px-12 lg:px-16">
+      <div class="mx-auto max-w-7xl overflow-hidden rounded-2xl">
+        <img
+          src="/liva/greek-woman.jpg"
+          alt="Olive groves at golden hour"
+          class="aspect-[21/9] w-full object-cover"
+          loading="lazy"
+        />
+      </div>
     </section>
 
     <!-- Distributed by Peregrine -->
@@ -179,7 +282,7 @@ import FooterContact from "../components/FooterContact.astro";
     </section>
 
     <!-- FAQ -->
-    <section class="py-32 md:py-44">
+    <section class="bg-neutral-50 py-32 md:py-44">
       <Container>
         <div class="grid gap-16 md:grid-cols-12 md:gap-20">
           <div class="md:col-span-4">
@@ -188,7 +291,7 @@ import FooterContact from "../components/FooterContact.astro";
             </h2>
           </div>
           <div class="md:col-span-7 md:col-start-6">
-            <dl class="divide-y divide-neutral-100" id="faq-list">
+            <dl class="divide-y divide-neutral-200" id="faq-list">
               <div class="py-6 first:pt-0" data-faq>
                 <dt>
                   <button class="flex w-full items-center justify-between text-left" data-faq-toggle aria-expanded="true">
@@ -220,6 +323,17 @@ import FooterContact from "../components/FooterContact.astro";
                 </dt>
                 <dd class="mt-3 hidden text-sm leading-relaxed text-neutral-500 md:text-base" data-faq-answer>
                   Yes — certified organic by BIOHELLAS (GR-BIO-03) with full traceability from tree to bottle, including certified organoleptic analysis.
+                </dd>
+              </div>
+              <div class="py-6" data-faq>
+                <dt>
+                  <button class="flex w-full items-center justify-between text-left" data-faq-toggle aria-expanded="false">
+                    <span class="text-base font-medium text-neutral-900 md:text-lg">Can it be used for research purposes?</span>
+                    <svg class="h-5 w-5 shrink-0 text-neutral-400 transition-transform duration-200" data-faq-icon viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" /></svg>
+                  </button>
+                </dt>
+                <dd class="mt-3 hidden text-sm leading-relaxed text-neutral-500 md:text-base" data-faq-answer>
+                  Yes — the ultra high polyphenol content and full lab documentation make it suitable for academic and clinical research into olive oil health benefits. Every batch is independently verified with full traceability.
                 </dd>
               </div>
               <div class="py-6" data-faq>

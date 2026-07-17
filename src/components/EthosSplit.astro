@@ -1,57 +1,58 @@
 ---
-import Container from "./Container.astro";
-
 const values = [
   {
-    title: "High quality does not necessarily mean high price",
+    title: "Right products",
     description:
-      "We do all our productions in-house. We oversee every aspect of the production, from initial 3d draft designs, through to mold creation and final product.",
+      "We choose projects where quality, usefulness, and long-term demand can work together.",
   },
   {
-    title: "Always think outside the box",
+    title: "Right partners",
     description:
-      "We constantly look into new technology and advancements in the industry. Our design team works in tandem with product technicians to push the boundary on what can be achieved.",
+      "We build with manufacturers, growers, brands, and distributors who care about the outcome.",
   },
   {
-    title: "Minimise the impact on the environment",
+    title: "Right process",
     description:
-      "All our products are comprised of fully recyclable PET plastic. Our reusable and refillable cups and bottles combat the negative effect of disposables.",
+      "We connect sourcing, sampling, production, logistics, and market feedback into one clear system.",
+  },
+  {
+    title: "Right standards",
+    description:
+      "We keep quality control, responsible materials, and commercial discipline visible from first idea to delivery.",
   },
 ];
 ---
 
-<section id="values" class="py-32 md:py-44" aria-labelledby="values-heading">
-  <Container>
-    <div class="grid gap-16 md:grid-cols-12 md:gap-20">
-      <!-- Left: eyebrow + heading -->
-      <div class="md:col-span-5">
-        <p class="mb-6 text-xs font-medium tracking-[0.15em] text-neutral-400 uppercase">
-          Values
-        </p>
-        <h2 id="values-heading" class="text-3xl font-light tracking-tight text-neutral-900 md:text-4xl lg:text-5xl">
-          Our Ethos
-        </h2>
-      </div>
+<section id="ethos" class="relative min-h-screen w-full overflow-hidden bg-neutral-950 px-6 py-24 text-white md:px-12 md:py-28 lg:px-16" aria-labelledby="ethos-heading">
+  <img
+    src="/liva/olive-tree.jpg"
+    alt="Olive branches in a grove"
+    class="absolute inset-0 h-full w-full object-cover"
+    loading="lazy"
+  />
+  <div class="absolute inset-0 bg-black/65"></div>
+  <div class="absolute inset-0 bg-gradient-to-r from-black/50 via-black/25 to-black/10"></div>
 
-      <!-- Right: statement + grid -->
-      <div class="md:col-span-6 md:col-start-7">
-        <p class="text-xl font-medium leading-snug tracking-tight text-neutral-900 md:text-2xl">
-          We believe great products come from disciplined processes, not cutting corners.
-        </p>
-        <p class="mt-5 text-base leading-relaxed text-neutral-500 md:text-lg">
-          Every decision — from material sourcing to production methods — is guided by three principles that define how we operate.
-        </p>
-
-        <!-- Values grid -->
-        <div class="mt-12 grid grid-cols-1 gap-px overflow-hidden rounded-xl border border-neutral-100 bg-neutral-100">
-          {values.map((item) => (
-            <div class="bg-white p-6">
-              <h3 class="mb-1.5 text-sm font-medium text-neutral-900">{item.title}</h3>
-              <p class="text-sm leading-relaxed text-neutral-500">{item.description}</p>
-            </div>
-          ))}
-        </div>
-      </div>
+  <div class="relative z-10 flex min-h-[calc(100vh-12rem)] max-w-5xl flex-col justify-between">
+    <div>
+      <p class="mb-10 inline-flex bg-white px-4 py-3 text-xs font-medium tracking-[0.12em] text-neutral-700 uppercase">
+        How we work
+      </p>
+      <h2 id="ethos-heading" class="font-serif text-6xl leading-none tracking-tight md:text-8xl">
+        Our Ethos
+      </h2>
+      <p class="mt-12 max-w-2xl text-lg leading-relaxed text-white/80 md:text-xl">
+        Every decision we make is guided by a simple operating principle: build products that can travel from idea to market with quality, responsibility, and clarity intact.
+      </p>
     </div>
-  </Container>
+
+    <div class="mt-16 max-w-4xl divide-y divide-white/20 border-y border-white/20">
+      {values.map((item) => (
+        <article class="grid gap-4 py-5 md:grid-cols-[0.9fr_1.5fr] md:gap-10">
+          <h3 class="font-serif text-3xl leading-tight text-white md:text-4xl">{item.title}</h3>
+          <p class="self-center text-base leading-relaxed text-white/75 md:text-lg">{item.description}</p>
+        </article>
+      ))}
+    </div>
+  </div>
 </section>

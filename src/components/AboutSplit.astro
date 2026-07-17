@@ -1,6 +1,4 @@
 ---
-import Container from "./Container.astro";
-
 interface Props {
   thumbnailImage?: string;
 }
@@ -8,32 +6,96 @@ interface Props {
 const {
   thumbnailImage = "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=640&q=80",
 } = Astro.props;
+
+const logos = [
+  { src: "/peregrine-client-logos/frozon-brothers-logo 1.svg", alt: "Frozen Brothers" },
+  { src: "/peregrine-client-logos/cola.svg", alt: "Coca-Cola" },
+  { src: "/peregrine-client-logos/tango.svg", alt: "Tango" },
+  { src: "/peregrine-client-logos/vimto.svg", alt: "Vimto" },
+  { src: "/peregrine-client-logos/steri.svg", alt: "Steri Pack" },
+  { src: "/peregrine-client-logos/liva-logo.svg", alt: "LIVA" },
+  { src: "/peregrine-client-logos/crealy-logo 1.svg", alt: "Crealy" },
+  { src: "/peregrine-client-logos/hoburne.svg", alt: "Hoburne" },
+  { src: "/peregrine-client-logos/pleasure-beach.svg", alt: "Pleasure Beach" },
+  { src: "/peregrine-client-logos/avoryx-logo.png", alt: "Avoryx" },
+];
+
+const rail = [...logos, ...logos];
 ---
 
-<section id="about" class="py-32 md:py-44" aria-labelledby="about-heading">
-  <Container>
-    <div class="grid items-start gap-16 md:grid-cols-12 md:gap-20">
-      <!-- Statement text — large editorial paragraph -->
-      <div class="md:col-span-8">
-        <p class="mb-10 text-xs font-medium tracking-[0.15em] text-neutral-400 uppercase">
-          About
-        </p>
-        <h2 id="about-heading" class="text-2xl leading-[1.4] font-light text-neutral-600 md:text-3xl lg:text-[2.5rem] lg:leading-[1.35]">
-          <span class="font-medium text-neutral-900">Peregrine Creative Group</span> develops and distributes
-          sustainable products across reusable packaging, garment manufacturing, and consumer goods — connecting
-          design, production, and supply into a single operating system.
+<section id="about" class="w-full bg-white px-6 py-28 md:px-12 md:py-40 lg:px-8" aria-labelledby="about-heading">
+  <div class="grid items-start gap-12 md:grid-cols-12 md:gap-16">
+      <div class="md:col-span-5">
+        <h2 id="about-heading" class="max-w-[400px]  font-light tracking-tight text-neutral-600 md:text-sm md:leading-[1.16] lg:text-lg">
+
+            Peregrine Creative Group is a design-led manufacturing and distribution partner with over 30 years of combined experience across reusable packaging, garments, and sustainable product supply chains.
+
         </h2>
       </div>
 
-      <!-- Small image accent -->
-      <div class="hidden md:col-span-3 md:col-start-10 md:block">
-        <img
-          src={thumbnailImage}
-          alt="Peregrine Creative operations"
-          class="aspect-[3/4] w-full rounded-2xl object-cover"
-          loading="lazy"
-        />
+      <div class="md:col-span-7">
+        <p class="mb-8 text-[10px] font-medium tracking-[0.2em] text-neutral-400 uppercase">
+          Trusted by
+        </p>
+
+        <div class="about-marquee relative overflow-hidden">
+          <div class="pointer-events-none absolute inset-y-0 left-0 z-10 w-10 bg-gradient-to-r from-white to-transparent"></div>
+          <div class="pointer-events-none absolute inset-y-0 right-0 z-10 w-10 bg-gradient-to-l from-white to-transparent"></div>
+
+          <div class="about-marquee-track flex w-max items-center gap-8">
+            {rail.map((logo) => (
+              <div class="flex h-10 w-[7.5rem] shrink-0 items-center justify-center">
+                <img
+                  src={logo.src}
+                  alt={logo.alt}
+                  class="about-marquee-logo h-full w-full object-contain"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
-    </div>
-  </Container>
+  </div>
 </section>
+
+<style>
+  .about-marquee-track {
+    animation: about-logo-marquee 24s linear infinite;
+  }
+
+  .about-marquee:hover .about-marquee-track {
+    animation-play-state: paused;
+  }
+
+  .about-marquee-logo {
+    filter: grayscale(1);
+  }
+
+  @keyframes about-logo-marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .about-marquee {
+      overflow: visible;
+    }
+
+    .about-marquee-track {
+      animation: none;
+      flex-wrap: wrap;
+      width: 100%;
+      gap: 1.5rem;
+    }
+
+    .about-marquee .pointer-events-none {
+      display: none;
+    }
+  }
+</style>

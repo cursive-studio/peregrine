@@ -2,69 +2,37 @@
 import Container from "./Container.astro";
 ---
 
-<footer id="contact" class="bg-[#0a0a0a] py-28 text-white md:py-36" aria-label="Footer">
-  <Container>
-    <div class="grid gap-20 md:grid-cols-2 md:gap-24">
+<footer id="contact" class="bg-[#0a0a0a] pt-4 pb-8 text-white md:pt-16 md:pb-8" aria-label="Footer">
+  <div class="px-8">
+    <div class="grid gap-8 md:grid-cols-2 md:gap-16">
       <!-- Left: brand & info -->
       <div class="flex flex-col justify-between">
         <div>
-          <a href="/" class="mb-12 inline-block text-base font-medium tracking-wide uppercase">
-            Peregrine
+          <a href="/" class="mb-1 md:mb-4 inline-block text-sm md:text-base font-medium tracking-wide uppercase">
+            Peregrine Creative Group
           </a>
 
-          <p class="max-w-md text-lg leading-relaxed font-light text-white/60">
+          <p class="max-w-md text-xs leading-relaxed font-light text-white/60">
             A design-led partner in sustainable manufacturing, industrial design, and premium
             nutrition. We build products that balance quality, responsibility, and scale.
           </p>
         </div>
 
-        <div class="mt-16 space-y-2">
-          <p class="text-sm text-white/40">
-            &copy; {new Date().getFullYear()} Peregrine Creative Group. All rights reserved.
-          </p>
-          <p class="text-sm text-white/25">
-            Reusable packaging&nbsp;&bull;&nbsp;Responsible textiles&nbsp;&bull;&nbsp;Premium nutrition
-          </p>
-        </div>
+
       </div>
 
       <!-- Right: contact form -->
       <div>
-        <h2 class="mb-3 text-2xl font-light tracking-tight md:text-3xl">Get in Touch</h2>
-        <p class="mb-10 text-sm text-white/40">We'd love to hear about your project.</p>
-        <form class="flex flex-col gap-5" action="#" method="POST">
-          <input
-            type="text"
-            name="name"
-            placeholder="Name"
-            required
-            class="rounded-xl border border-white/10 bg-white/[0.04] px-5 py-4 text-[15px] text-white placeholder-white/30 outline-none transition-colors focus:border-white/30"
-          />
-          <input
-            type="email"
-            name="email"
-            placeholder="Email"
-            required
-            class="rounded-xl border border-white/10 bg-white/[0.04] px-5 py-4 text-[15px] text-white placeholder-white/30 outline-none transition-colors focus:border-white/30"
-          />
-          <textarea
-            name="message"
-            placeholder="Message"
-            rows="4"
-            required
-            class="resize-none rounded-xl border border-white/10 bg-white/[0.04] px-5 py-4 text-[15px] text-white placeholder-white/30 outline-none transition-colors focus:border-white/30"
-          ></textarea>
-          <button
-            type="submit"
-            class="group mt-4 inline-flex w-full items-center justify-center overflow-hidden rounded-xl bg-white text-neutral-900 transition-opacity hover:opacity-90"
-          >
-            <span class="px-7 py-4 text-sm font-medium tracking-wide uppercase">Send Message</span>
-            <span class="flex items-center border-l border-neutral-200 px-5 py-4">
-              <svg class="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5" /></svg>
-            </span>
-          </button>
-        </form>
+        <h2 class="mb-1 text-2xl font-light tracking-tight md:text-3xl">Get in Touch</h2>
+        <a href="mailto:info@peregrinecreativegroup.com" class="text-xl md:text-4xl text-white/40 underline">info@peregrinecreativegroup.com</a>
       </div>
     </div>
-  </Container>
+  </div>
+
+  <div class="mt-8 space-y-2 px-8">
+    <p class="text-xs text-white/40">
+      &copy; {new Date().getFullYear()} Peregrine Creative Group. All rights reserved.
+    </p>
+
+  </div>
 </footer>

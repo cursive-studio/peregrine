@@ -1,0 +1,67 @@
+---
+const logos = [
+  "Frozen Brothers",
+  "Tango Ice Blast",
+  "Coca-Cola",
+  "Odeon",
+  "Slush Puppie",
+  "Vimto",
+  "Steri Pack",
+  "Stone Island",
+  "Hugo Boss",
+  "Diesel",
+];
+
+const rail = [...logos, ...logos];
+---
+
+<section id="projects" class="w-full border-y border-neutral-200 bg-[#f7f6f2]" aria-labelledby="trusted-heading">
+  <div class="flex min-h-[18rem] items-center justify-center px-6 py-20 md:min-h-[21rem]">
+    <h2 id="trusted-heading" class="font-serif text-5xl leading-none tracking-tight text-neutral-950 md:text-6xl">
+      They trust us.
+    </h2>
+  </div>
+
+  <div class="overflow-hidden border-t border-neutral-200">
+    <div class="trusted-track flex w-max">
+      {rail.map((name) => (
+        <div class="flex h-44 w-[18rem] shrink-0 items-center justify-center border-r border-neutral-200 bg-[#f7f6f2] px-8 md:h-56 md:w-[30rem]">
+          <span class="logo-wordmark text-center text-2xl font-bold tracking-[-0.04em] text-neutral-950 md:text-3xl">
+            {name}
+          </span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .trusted-track {
+    animation: trusted-marquee 44s linear infinite;
+  }
+
+  .trusted-track:hover {
+    animation-play-state: paused;
+  }
+
+  .logo-wordmark {
+    filter: grayscale(1);
+  }
+
+  @keyframes trusted-marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .trusted-track {
+      animation: none;
+      flex-wrap: wrap;
+      width: 100%;
+    }
+  }
+</style>

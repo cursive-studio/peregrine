@@ -1,0 +1,101 @@
+---
+interface ProjectItem {
+  title: string;
+  category: string;
+  categoryVariant: "dark" | "mint";
+  image: string;
+  description: string;
+  href: string;
+  linkLabel: string;
+}
+
+interface Props {
+  projects?: ProjectItem[];
+}
+
+const {
+  projects = [
+    {
+      title: "Liva — High Phenolic Olive Oil",
+      category: "Consumer Goods",
+      categoryVariant: "dark",
+      image: "/liva/bottle-with-olives.jpg",
+      description:
+        "Organic extra virgin olive oil with 1300+ mg/kg polyphenols, developed from early harvest sourcing through bottling, quality assurance, and UK distribution.",
+      href: "/olive-oil-supplements",
+      linkLabel: "View Project",
+    },
+    {
+      title: "Avoryx — High performance gymwear for women",
+      category: "Fitness and activewear",
+      categoryVariant: "mint",
+      image: "/images/avoryx.webp",
+      description:
+        "Performance-led women's gymwear produced with technical fabrics, sampling, and a seasonal production run from design through finished goods.",
+      href: "https://www.instagram.com/avoryx/",
+      linkLabel: "Case Study",
+    },
+  ],
+} = Astro.props;
+---
+
+<section id="projects" class="w-full bg-white px-6 py-28 md:px-12 md:py-36 lg:px-16" aria-labelledby="projects-heading">
+  <div class="mb-12 flex flex-col gap-6 border-b border-neutral-200 pb-10 md:mb-16 md:flex-row md:items-start md:justify-between md:gap-12">
+    <h2 id="projects-heading" class="text-3xl font-normal tracking-tight text-neutral-950 md:text-4xl">
+      Recent Projects
+    </h2>
+    <p class="max-w-sm text-sm leading-relaxed text-neutral-500 md:text-right">
+      The last two production runs brought from early material decisions through finished goods, packing, and distribution.
+    </p>
+  </div>
+
+  <div class="grid items-start gap-16 lg:grid-cols-2 lg:gap-20">
+    {projects.map((project, index) => (
+      <article class:list={["group", index === 1 && "lg:mt-40"]}>
+        <a
+          href={project.href}
+          class="block overflow-hidden rounded-2xl"
+          target={project.href.startsWith("http") ? "_blank" : undefined}
+          rel={project.href.startsWith("http") ? "noopener noreferrer" : undefined}
+        >
+          <div class="relative overflow-hidden rounded-2xl">
+            <img
+              src={project.image}
+              alt={project.title}
+              class=" w-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
+              loading="lazy"
+            />
+            <span
+              class:list={[
+                "absolute bottom-4 left-4 px-3 py-1.5 text-xs font-medium tracking-wide",
+                project.categoryVariant === "dark"
+                  ? "bg-neutral-950 text-white"
+                  : "bg-[#d8ebe3] text-neutral-900",
+              ]}
+            >
+              {project.category}
+            </span>
+          </div>
+        </a>
+
+        <div class="mt-6 flex items-baseline justify-between gap-6">
+          <h3 class="text-xl font-medium tracking-tight text-neutral-950 md:text-2xl">
+            {project.title}
+          </h3>
+          <a
+            href={project.href}
+            class="shrink-0 text-sm text-neutral-950 underline underline-offset-4 transition-opacity hover:opacity-60"
+            target={project.href.startsWith("http") ? "_blank" : undefined}
+            rel={project.href.startsWith("http") ? "noopener noreferrer" : undefined}
+          >
+            {project.linkLabel}
+          </a>
+        </div>
+
+        <p class="mt-4 max-w-md text-sm leading-relaxed text-neutral-500">
+          {project.description}
+        </p>
+      </article>
+    ))}
+  </div>
+</section>

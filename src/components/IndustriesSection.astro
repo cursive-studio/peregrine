@@ -1,0 +1,149 @@
+---
+const industries = [
+  {
+    id: "hospitality",
+    title: "Hospitality",
+    image: "/images/services/design-card.png",
+    items: ["Reusable bottles", "Event Cups", "Custom packaging"],
+  },
+  {
+    id: "fitness",
+    title: "Fitness and activewear",
+    image: "/textiles/textiles-hero.webp",
+    items: ["Anti-bacterial gym towels", "Women's gym wear"],
+  },
+  {
+    id: "textiles",
+    title: "Textiles",
+    image: "/textiles/textiles-spools.webp",
+    items: ["Garment production", "Garment distribution", "Consumer Goods"],
+  },
+  {
+    id: "consumer-goods",
+    title: "Consumer Goods",
+    image: "/liva/oil-bottle.jpg",
+    items: ["Olive Oil & Supplements"],
+  },
+];
+---
+
+<section
+  id="industries"
+  class="w-full bg-[#fbfbfa] px-6 py-28 md:px-12 md:py-36 lg:px-16"
+  aria-labelledby="industries-heading"
+  data-industries
+>
+  <div class="grid items-start gap-16 lg:grid-cols-2 lg:gap-24">
+    <div>
+      <p id="industries-heading" class="mb-10 text-sm text-neutral-500 md:mb-14">
+        Industries we serve
+      </p>
+
+      <div role="tablist" aria-label="Industries we serve" class="divide-y divide-neutral-200 border-y border-neutral-200">
+        {industries.map((industry, index) => (
+          <button
+            type="button"
+            role="tab"
+            id={`industry-tab-${industry.id}`}
+            aria-controls={`industry-panel-${industry.id}`}
+            aria-selected={index === 0 ? "true" : "false"}
+            tabindex={index === 0 ? 0 : -1}
+            data-industry-tab={industry.id}
+            class:list={[
+              "industry-tab group flex w-full items-center justify-between py-6 text-left transition-colors duration-200 md:py-7",
+              index === 0 ? "is-active text-neutral-950" : "text-neutral-400",
+            ]}
+          >
+            <span class="text-xl font-normal tracking-tight md:text-2xl">{industry.title}</span>
+            <svg
+              class="industry-tab-arrow h-4 w-4 shrink-0 text-neutral-950 opacity-0 transition-opacity duration-200"
+              viewBox="0 0 16 16"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              aria-hidden="true"
+            >
+              <path d="M3 8h10M9 4l4 4-4 4" />
+            </svg>
+          </button>
+        ))}
+      </div>
+    </div>
+
+    <div class="relative min-h-[24rem]">
+      {industries.map((industry, index) => (
+        <div
+          id={`industry-panel-${industry.id}`}
+          role="tabpanel"
+          aria-labelledby={`industry-tab-${industry.id}`}
+          data-industry-panel={industry.id}
+          class:list={[
+            "industry-panel transition-opacity duration-500",
+            index === 0 ? "relative opacity-100" : "pointer-events-none absolute inset-0 opacity-0",
+          ]}
+          hidden={index !== 0}
+        >
+          <div class="overflow-hidden rounded-2xl">
+            <img
+              src={industry.image}
+              alt={industry.title}
+              class="aspect-[4/3] w-full object-cover"
+              loading={index === 0 ? "eager" : "lazy"}
+            />
+          </div>
+
+          <ul class="mt-8 space-y-2 text-sm text-neutral-900 md:text-base">
+            {industry.items.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  const section = document.querySelector("[data-industries]");
+  if (section) {
+    const tabs = [...section.querySelectorAll<HTMLButtonElement>("[data-industry-tab]")];
+    const panels = [...section.querySelectorAll<HTMLElement>("[data-industry-panel]")];
+
+    const setActive = (id: string) => {
+      tabs.forEach((tab) => {
+        const isActive = tab.dataset.industryTab === id;
+        tab.setAttribute("aria-selected", String(isActive));
+        tab.tabIndex = isActive ? 0 : -1;
+        tab.classList.toggle("is-active", isActive);
+        tab.classList.toggle("text-neutral-950", isActive);
+        tab.classList.toggle("text-neutral-400", !isActive);
+      });
+
+      panels.forEach((panel) => {
+        const isActive = panel.dataset.industryPanel === id;
+        panel.hidden = !isActive;
+        panel.classList.toggle("relative", isActive);
+        panel.classList.toggle("absolute", !isActive);
+        panel.classList.toggle("inset-0", !isActive);
+        panel.classList.toggle("opacity-100", isActive);
+        panel.classList.toggle("opacity-0", !isActive);
+        panel.classList.toggle("pointer-events-none", !isActive);
+      });
+    };
+
+    tabs.forEach((tab) => {
+      const id = tab.dataset.industryTab;
+      if (!id) return;
+
+      tab.addEventListener("mouseenter", () => setActive(id));
+      tab.addEventListener("click", () => setActive(id));
+      tab.addEventListener("focus", () => setActive(id));
+    });
+  }
+</script>
+
+<style>
+  .industry-tab.is-active .industry-tab-arrow {
+    opacity: 1;
+  }
+</style>

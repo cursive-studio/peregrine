@@ -7,7 +7,7 @@ import FooterContact from "../components/FooterContact.astro";
 
 <BaseLayout
   title="Textiles — Peregrine Creative Group"
-  description="Responsibly manufactured textiles from design to delivery."
+  description="Rapid garment solutions from design to delivery. European speed, global scale, sustainable production."
 >
   <Navbar variant="overlay" />
 
@@ -15,7 +15,7 @@ import FooterContact from "../components/FooterContact.astro";
     <!-- Full-bleed Hero -->
     <section class="relative min-h-screen w-full overflow-hidden" aria-label="Hero">
       <img
-        src="https://images.unsplash.com/photo-1558171813-4c088753af8f?auto=format&fit=crop&w=1920&q=80"
+        src="/textiles/textiles-hero.webp"
         alt="Textile manufacturing"
         class="absolute inset-0 h-full w-full object-cover"
         loading="eager"
@@ -24,7 +24,7 @@ import FooterContact from "../components/FooterContact.astro";
 
       <div class="relative z-10 mx-auto flex min-h-screen w-full max-w-7xl flex-col justify-end px-6 pb-24 md:px-12 md:pb-32 lg:px-16">
         <h1 class="max-w-4xl text-4xl leading-[1.08] font-light tracking-tight text-white md:text-5xl lg:text-7xl">
-          Rapid garment production, built for a fast-moving market
+          Rapid garment solutions for a fast-changing market
         </h1>
 
         <div class="mt-16 flex flex-wrap gap-4">
@@ -34,7 +34,7 @@ import FooterContact from "../components/FooterContact.astro";
               <svg class="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5" /></svg>
             </span>
           </a>
-          <a href="/#services" class="group inline-flex items-center overflow-hidden rounded-xl border border-white/20 text-white transition-opacity hover:opacity-80">
+          <a href="#capabilities" class="group inline-flex items-center overflow-hidden rounded-xl border border-white/20 text-white transition-opacity hover:opacity-80">
             <span class="px-7 py-4 text-sm font-medium tracking-wide uppercase">View capabilities</span>
             <span class="flex items-center border-l border-white/20 px-5 py-4">
               <svg class="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5" /></svg>
@@ -44,179 +44,161 @@ import FooterContact from "../components/FooterContact.astro";
       </div>
     </section>
 
+    <!-- Credentials bar -->
+    <section class="border-b border-neutral-100 bg-neutral-50 py-10">
+      <Container>
+        <p class="mb-5 text-center text-xs font-medium tracking-[0.15em] text-neutral-400 uppercase">Producing for</p>
+        <div class="flex flex-wrap items-center justify-center gap-x-10 gap-y-3">
+          <span class="text-sm font-medium text-neutral-700">Stone Island</span>
+          <span class="text-sm font-medium text-neutral-700">Hugo Boss</span>
+          <span class="text-sm font-medium text-neutral-700">Jil Sander</span>
+          <span class="text-sm font-medium text-neutral-700">Diesel</span>
+          <span class="text-sm font-medium text-neutral-700">Massimo Dutti</span>
+          <span class="text-sm font-medium text-neutral-700">OYSHO</span>
+        </div>
+      </Container>
+    </section>
+
     <!-- Overview -->
     <section class="py-32 md:py-44">
       <Container>
         <div class="grid gap-16 md:grid-cols-12 md:gap-20">
           <div class="md:col-span-5">
+            <p class="mb-6 text-xs font-medium tracking-[0.15em] text-neutral-400 uppercase">
+              RAGScreative
+            </p>
             <h2 class="text-3xl font-light tracking-tight text-neutral-900 md:text-4xl">
-              End-to-end garment solutions
+              Design, manufacturing, and distribution under one roof
             </h2>
           </div>
           <div class="md:col-span-6 md:col-start-7">
             <p class="text-base leading-relaxed text-neutral-600 md:text-lg">
-              We provide a fully integrated service across design,
-              manufacturing, and distribution — giving brands a single partner
-              to manage the entire supply chain. With over 30 years of combined
-              experience, we specialise in delivering high-quality garments
-              quickly, efficiently, and responsibly.
+              Our integrated network seamlessly connects design, manufacturing, and distribution to deliver sustainable garment solutions with a significantly reduced carbon footprint. With decades of experience producing for major fashion labels, we operate as both a creative and operational partner — not just a supplier.
+            </p>
+            <p class="mt-6 text-base leading-relaxed text-neutral-600 md:text-lg">
+              In-house logistics via our freight division (M&W Freight) ensures total supply-chain control from first sample to final delivery.
             </p>
           </div>
         </div>
       </Container>
     </section>
 
-    <!-- From concept to delivery -->
-    <section class="py-32 md:py-44">
+    <!-- Full-width image break -->
+    <section class="px-6 md:px-12 lg:px-16">
+      <div class="mx-auto max-w-7xl overflow-hidden rounded-2xl">
+        <img
+          src="/textiles/textiles-spools.webp"
+          alt="Textile production facility"
+          class="aspect-[21/9] w-full object-cover"
+          loading="lazy"
+        />
+      </div>
+    </section>
+
+    <!-- Production network — dark section -->
+    <section class="bg-neutral-950 py-32 text-white md:py-44">
       <Container>
         <div class="grid gap-16 md:grid-cols-12 md:gap-20">
           <div class="md:col-span-5">
-            <h2 class="mb-6 text-3xl font-light tracking-tight text-neutral-900 md:text-4xl">
-              From concept to delivery
+            <p class="mb-6 text-xs font-medium tracking-[0.15em] uppercase text-white/40">
+              Global network
+            </p>
+            <h2 class="text-3xl font-light tracking-tight md:text-4xl lg:text-5xl">
+              European speed. Global scale.
             </h2>
-            <p class="text-base leading-relaxed text-neutral-500 md:text-lg">
-              RAGS operates as a vertically integrated system, covering every stage of garment production — from initial design through to final delivery.
-            </p>
           </div>
-
           <div class="md:col-span-6 md:col-start-7">
-            <p class="mb-8 text-xs font-medium tracking-[0.15em] text-neutral-400 uppercase">
-              Capabilities
+            <p class="text-xl font-medium leading-snug tracking-tight md:text-2xl">
+              Nearshore European production combined with Far East manufacturing — balancing speed, cost, and quality.
             </p>
-            <ul class="divide-y divide-neutral-100">
-              <li class="py-5 first:pt-0">
-                <h3 class="text-base font-medium text-neutral-900 md:text-lg">Design &amp; creative direction</h3>
-              </li>
-              <li class="py-5">
-                <h3 class="text-base font-medium text-neutral-900 md:text-lg">Garment manufacturing</h3>
-              </li>
-              <li class="py-5">
-                <h3 class="text-base font-medium text-neutral-900 md:text-lg">Textile innovation</h3>
-              </li>
-              <li class="py-5 last:pb-0">
-                <h3 class="text-base font-medium text-neutral-900 md:text-lg">Logistics &amp; distribution</h3>
-              </li>
-            </ul>
-            <p class="mt-8 text-sm leading-relaxed text-neutral-500">
-              They position themselves as both a creative and operational partner, not just a supplier.
-            </p>
+            <div class="mt-12 grid grid-cols-1 gap-px overflow-hidden rounded-xl border border-white/10 bg-white/10 sm:grid-cols-2">
+              <div class="bg-neutral-950 p-6">
+                <h3 class="mb-1.5 text-sm font-medium text-white">European Production</h3>
+                <p class="text-sm leading-relaxed text-white/50">UK, Greece, Bulgaria, Turkey, Egypt — rapid turnaround, ethical standards</p>
+              </div>
+              <div class="bg-neutral-950 p-6">
+                <h3 class="mb-1.5 text-sm font-medium text-white">Far East Manufacturing</h3>
+                <p class="text-sm leading-relaxed text-white/50">China, Pakistan, Bangladesh — scalable output, competitive pricing</p>
+              </div>
+              <div class="bg-neutral-950 p-6">
+                <h3 class="mb-1.5 text-sm font-medium text-white">In-House Logistics</h3>
+                <p class="text-sm leading-relaxed text-white/50">M&W Freight — cargo departs on time, arrives on schedule</p>
+              </div>
+              <div class="bg-neutral-950 p-6">
+                <h3 class="mb-1.5 text-sm font-medium text-white">Ethical Focus</h3>
+                <p class="text-sm leading-relaxed text-white/50">Fair labour, certified factories, quality without compromise</p>
+              </div>
+            </div>
           </div>
         </div>
       </Container>
     </section>
 
-    <!-- Global production -->
-    <section class="py-32 md:py-44">
+    <!-- Capabilities grid -->
+    <section id="capabilities" class="py-32 md:py-44">
       <Container>
-        <div class="grid gap-16 md:grid-cols-12 md:gap-20">
-          <div class="md:col-span-5">
-            <h2 class="mb-6 text-3xl font-light tracking-tight text-neutral-900 md:text-4xl">
-              European speed.<br />Global scale.
-            </h2>
-            <p class="text-base leading-relaxed text-neutral-500 md:text-lg">
-              RAGS combines nearshore European production with Far East manufacturing to balance speed, cost, and quality.
-            </p>
-          </div>
-
-          <div class="md:col-span-6 md:col-start-7">
-            <p class="mb-8 text-xs font-medium tracking-[0.15em] text-neutral-400 uppercase">
-              Key Points
-            </p>
-            <ul class="divide-y divide-neutral-100">
-              <li class="py-5 first:pt-0">
-                <h3 class="text-base font-medium text-neutral-900 md:text-lg">European production</h3>
-                <p class="mt-1 text-sm text-neutral-500">UK, Greece, Bulgaria, Turkey, Egypt</p>
-              </li>
-              <li class="py-5">
-                <h3 class="text-base font-medium text-neutral-900 md:text-lg">Global reach</h3>
-                <p class="mt-1 text-sm text-neutral-500">China, Pakistan, Bangladesh</p>
-              </li>
-              <li class="py-5">
-                <h3 class="text-base font-medium text-neutral-900 md:text-lg">Ethical production focus</h3>
-              </li>
-              <li class="py-5 last:pb-0">
-                <h3 class="text-base font-medium text-neutral-900 md:text-lg">Competitive pricing without sacrificing quality</h3>
-              </li>
-            </ul>
-          </div>
+        <div class="mb-16 max-w-2xl">
+          <p class="mb-6 text-xs font-medium tracking-[0.15em] text-neutral-400 uppercase">Capabilities</p>
+          <h2 class="text-3xl font-light tracking-tight text-neutral-900 md:text-4xl">
+            From concept to delivery
+          </h2>
         </div>
-      </Container>
-    </section>
-
-    <!-- Specialist capabilities -->
-    <section class="py-32 md:py-44">
-      <Container>
         <div class="grid grid-cols-1 gap-px overflow-hidden rounded-xl border border-neutral-100 bg-neutral-100 sm:grid-cols-2 lg:grid-cols-4">
           <div class="bg-white p-8">
             <h3 class="mb-2 text-base font-medium text-neutral-900">Design</h3>
             <p class="text-sm leading-relaxed text-neutral-500">
-              Collaborative design process focused on brand identity, functionality, and market relevance.
+              Experienced designers work closely with clients to create designs that capture brand essence — functional and visually distinctive.
             </p>
           </div>
           <div class="bg-white p-8">
             <h3 class="mb-2 text-base font-medium text-neutral-900">Manufacturing</h3>
             <p class="text-sm leading-relaxed text-neutral-500">
-              Production through trusted factories used by major fashion brands, ensuring quality and consistency.
+              Production through factories used by Stone Island, Hugo Boss, and Diesel — ensuring quality and consistency at scale.
             </p>
           </div>
           <div class="bg-white p-8">
             <h3 class="mb-2 text-base font-medium text-neutral-900">Innovation</h3>
             <p class="text-sm leading-relaxed text-neutral-500">
-              Development of proprietary fabrics and technologies (e.g. water-repellent cotton, traceability systems).
+              Proprietary fabrics like SEIDON (water-repellent 100% cotton) and QR traceability systems built in-house.
             </p>
           </div>
           <div class="bg-white p-8">
             <h3 class="mb-2 text-base font-medium text-neutral-900">Logistics</h3>
             <p class="text-sm leading-relaxed text-neutral-500">
-              End-to-end supply chain control with in-house freight and delivery coordination.
+              Total supply-chain management with in-house freight — controlling every step from production to delivery.
             </p>
           </div>
         </div>
       </Container>
     </section>
 
-    <!-- Sustainability -->
-    <section class="py-32 md:py-44">
+    <!-- Innovation highlight with image -->
+    <section class="bg-neutral-50 py-32 md:py-44">
       <Container>
-        <div class="grid gap-16 md:grid-cols-12 md:gap-20">
-          <!-- Left: eyebrow + heading -->
-          <div class="md:col-span-5">
-            <p class="mb-6 text-xs font-medium tracking-[0.15em] text-neutral-400 uppercase">
-              Sustainability
-            </p>
-            <h2 class="text-3xl font-light tracking-tight text-neutral-900 md:text-4xl lg:text-5xl">
-              Lower impact, built into the process
-            </h2>
-          </div>
-
-          <!-- Right: statement + grid -->
-          <div class="md:col-span-6 md:col-start-7">
-            <p class="text-xl font-medium leading-snug tracking-tight text-neutral-900 md:text-2xl">
-              Sustainability is embedded across the supply chain, not treated as an add-on.
-            </p>
-            <p class="mt-5 text-base leading-relaxed text-neutral-500 md:text-lg">
-              By prioritising responsible materials and transparent processes, we reduce environmental impact while maintaining the quality and scalability our partners expect.
-            </p>
-
-            <!-- 2x2 grid -->
-            <div class="mt-12 grid grid-cols-1 gap-px overflow-hidden rounded-xl border border-neutral-100 bg-neutral-100 sm:grid-cols-2">
-              <div class="bg-white p-6">
-                <h3 class="mb-1.5 text-sm font-medium text-neutral-900">Reduced Carbon</h3>
-                <p class="text-sm leading-relaxed text-neutral-500">Lower carbon footprint across production and logistics</p>
-              </div>
-              <div class="bg-white p-6">
-                <h3 class="mb-1.5 text-sm font-medium text-neutral-900">Recycled Materials</h3>
-                <p class="text-sm leading-relaxed text-neutral-500">Garments made from recycled PET plastics and fibres</p>
-              </div>
-              <div class="bg-white p-6">
-                <h3 class="mb-1.5 text-sm font-medium text-neutral-900">Lifecycle Tracking</h3>
-                <p class="text-sm leading-relaxed text-neutral-500">Transparent traceability via QR codes on every garment</p>
-              </div>
-              <div class="bg-white p-6">
-                <h3 class="mb-1.5 text-sm font-medium text-neutral-900">Ethical Production</h3>
-                <p class="text-sm leading-relaxed text-neutral-500">Fair labour practices and certified manufacturing partners</p>
-              </div>
+        <div class="grid items-center gap-16 md:grid-cols-12 md:gap-20">
+          <div class="md:col-span-6">
+            <div class="overflow-hidden rounded-2xl">
+              <img
+                src="/textiles/textiles.jpg"
+                alt="Sustainable textile materials"
+                class="aspect-[4/3] w-full object-cover"
+                loading="lazy"
+              />
             </div>
+          </div>
+          <div class="md:col-span-5 md:col-start-8">
+            <p class="mb-6 text-xs font-medium tracking-[0.15em] text-neutral-400 uppercase">
+              Green Initiative
+            </p>
+            <h2 class="mb-6 text-2xl font-medium tracking-tight text-neutral-900 md:text-3xl">
+              Sustainability built in, not bolted on
+            </h2>
+            <p class="text-base leading-relaxed text-neutral-500 md:text-lg">
+              We produce garments from recycled PET plastics — bottles are shredded into chips, melted, and extruded into yarn. The result is durable, water-resistant, and keeps disposable plastics out of landfill.
+            </p>
+            <p class="mt-4 text-base leading-relaxed text-neutral-500 md:text-lg">
+              Our QR traceability system lets customers scan a hang-tag and instantly see where their garment was made, how it was produced, and the energy saved in the process.
+            </p>
           </div>
         </div>
       </Container>
@@ -230,8 +212,7 @@ import FooterContact from "../components/FooterContact.astro";
             Ready to get started?
           </h2>
           <p class="mb-10 max-w-md text-base leading-relaxed text-neutral-500">
-            Whether you're launching a new apparel line or sourcing custom
-            homeware, we'll help you bring it to market responsibly.
+            Whether you're launching a new apparel line or scaling existing production, we'll help you bring it to market — rapidly and responsibly.
           </p>
           <a href="/#contact" class="group inline-flex items-center overflow-hidden rounded-xl bg-neutral-900 text-white transition-opacity hover:opacity-90">
             <span class="px-7 py-4 text-sm font-medium tracking-wide uppercase">Get in Touch</span>
