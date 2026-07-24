@@ -7,8 +7,14 @@ const { variant = "solid" } = Astro.props;
 
 const isOverlay = variant === "overlay";
 
+const serviceLinks = [
+  { label: "Product development", href: "/reusable-bottles" },
+  { label: "Production", href: "/textiles" },
+  { label: "Distribution", href: "/olive-oil-supplements" },
+];
+
 const navItems = [
-  { label: "Services", href: "/#services" },
+  { label: "Services", href: "/#services", children: serviceLinks },
   { label: "Projects", href: "/#projects" },
   { label: "About", href: "/#about" },
 ];
@@ -36,11 +42,46 @@ const navItems = [
 
     <ul class="hidden items-center gap-8 md:flex" role="list">
       {navItems.map((item) => (
-        <li>
-          <a href={item.href} class="text-[14px] transition-opacity duration-200 hover:opacity-60">
-            {item.label}
-          </a>
-        </li>
+        item.children ? (
+          <li class="group relative">
+            <a
+              href={item.href}
+              class="inline-flex items-center gap-1.5 text-[14px] transition-opacity duration-200 hover:opacity-60"
+              aria-haspopup="true"
+            >
+              {item.label}
+              <svg class="h-3 w-3 transition-transform duration-200 group-hover:rotate-180" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                <path d="M2.5 4.5L6 8l3.5-3.5" />
+              </svg>
+            </a>
+
+            <div class="invisible absolute top-full left-1/2 z-50 pt-3 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100 -translate-x-1/2">
+              <ul
+                class="min-w-[13rem] rounded-xl border border-neutral-200 bg-white py-2 text-neutral-950 shadow-lg"
+                role="menu"
+                aria-label="Services"
+              >
+                {item.children.map((child) => (
+                  <li role="none">
+                    <a
+                      href={child.href}
+                      class="block px-4 py-2.5 text-[14px] transition-colors duration-150 hover:bg-neutral-50"
+                      role="menuitem"
+                    >
+                      {child.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </li>
+        ) : (
+          <li>
+            <a href={item.href} class="text-[14px] transition-opacity duration-200 hover:opacity-60">
+              {item.label}
+            </a>
+          </li>
+        )
       ))}
     </ul>
 
@@ -73,9 +114,26 @@ const navItems = [
   <div class="flex flex-1 flex-col justify-center px-[28px]">
     <nav class="flex flex-col gap-8" aria-label="Mobile navigation">
       {navItems.map((item) => (
-        <a href={item.href} class="text-4xl font-light tracking-tight transition-opacity duration-200 hover:opacity-60">
-          {item.label}
-        </a>
+        item.children ? (
+          <div>
+            <a href={item.href} class="text-4xl font-light tracking-tight transition-opacity duration-200 hover:opacity-60">
+              {item.label}
+            </a>
+            <ul class="mt-5 space-y-3 border-l border-white/20 pl-5">
+              {item.children.map((child) => (
+                <li>
+                  <a href={child.href} class="text-lg text-white/70 transition-opacity duration-200 hover:opacity-100">
+                    {child.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ) : (
+          <a href={item.href} class="text-4xl font-light tracking-tight transition-opacity duration-200 hover:opacity-60">
+            {item.label}
+          </a>
+        )
       ))}
     </nav>
   </div>

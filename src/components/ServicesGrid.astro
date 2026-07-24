@@ -4,6 +4,7 @@ import ServiceCard from "./ServiceCard.astro";
 interface ServiceItem {
   title: string;
   image: string;
+  items: string[];
   href?: string;
 }
 
@@ -14,32 +15,39 @@ interface Props {
 const {
   services = [
     {
-      title: "Design",
+      title: "Product Development",
       image: "/images/services/design-card.png",
+      items: ["Reusable Bottles", "Event Cups", "Custom packaging"],
+      href: "/reusable-bottles",
     },
     {
-      title: "Manufacturing",
+      title: "Production",
       image: "/images/services/manufacture-card.png",
+      items: ["Anti-bacterial gym towels", "Activewear", "Textiles"],
+      href: "/textiles",
     },
     {
       title: "Distribution",
       image: "/images/services/distribution-card.png",
+      items: ["Olive Oil & Supplements"],
+      href: "/olive-oil-supplements",
     },
   ],
 } = Astro.props;
 ---
 
-<section id="services" class="w-full bg-[#fbfbfa] py-28 md:py-36" aria-labelledby="services-heading">
-  <div class="px-6 md:px-12 lg:px-16">
-    <h2 id="services-heading" class="mb-10 text-2xl font-normal tracking-tight text-neutral-950 md:mb-12">
+<section id="services" class="w-full bg-[#fbfbfa] py-28 md:py-16" aria-labelledby="services-heading">
+  <div class="px-6 md:px-4 lg:px-4">
+    <h2 id="services-heading" class="mb-4 text-lg font-normal tracking-tight text-neutral-950 md:mb-4">
       Services
     </h2>
 
-    <div class="grid gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-3">
+    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-2">
       {services.map((service) => (
         <ServiceCard
           title={service.title}
           image={service.image}
+          items={service.items}
           href={service.href}
         />
       ))}
