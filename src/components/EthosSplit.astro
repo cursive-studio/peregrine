@@ -1,58 +1,212 @@
 ---
-const values = [
+const ethics = [
   {
-    title: "Right products",
-    description:
-      "We choose projects where quality, usefulness, and long-term demand can work together.",
+    id: "quality",
+    title: "Quality",
+    image: "/images/services/design-card.png",
+    copy: "Peregrine Creative Group is a design-led manufacturing and distribution partner with over 30 years of combined experience across reusable packaging, garments, and sustainable product supply chains.",
   },
   {
-    title: "Right partners",
-    description:
-      "We build with manufacturers, growers, brands, and distributors who care about the outcome.",
+    id: "innovation",
+    title: "Innovation",
+    image: "/images/services/manufacture-card.png",
+    copy: "We develop new products through material research, rapid sampling, and production methods that move brands from concept to market-ready goods with speed and precision.",
   },
   {
-    title: "Right process",
-    description:
-      "We connect sourcing, sampling, production, logistics, and market feedback into one clear system.",
-  },
-  {
-    title: "Right standards",
-    description:
-      "We keep quality control, responsible materials, and commercial discipline visible from first idea to delivery.",
+    id: "sustainability",
+    title: "Sustainability",
+    image: "/images/services/distribution-card.png",
+    copy: "From responsible sourcing to reusable formats and efficient logistics, we build supply chains that reduce waste while protecting product quality at every stage.",
   },
 ];
 ---
 
-<section id="ethos" class="relative min-h-screen w-full overflow-hidden bg-neutral-950 px-6 py-24 text-white md:px-12 md:py-28 lg:px-16" aria-labelledby="ethos-heading">
-  <img
-    src="/liva/olive-tree.jpg"
-    alt="Olive branches in a grove"
-    class="absolute inset-0 h-full w-full object-cover"
-    loading="lazy"
-  />
-  <div class="absolute inset-0 bg-black/65"></div>
-  <div class="absolute inset-0 bg-gradient-to-r from-black/50 via-black/25 to-black/10"></div>
-
-  <div class="relative z-10 flex min-h-[calc(100vh-12rem)] max-w-5xl flex-col justify-between">
-    <div>
-      <p class="mb-10 inline-flex bg-white px-4 py-3 text-xs font-medium tracking-[0.12em] text-neutral-700 uppercase">
-        How we work
-      </p>
-      <h2 id="ethos-heading" class="font-serif text-6xl leading-none tracking-tight md:text-8xl">
-        Our Ethos
+<section
+  id="ethos"
+  class="w-full bg-[#f5f5f5] px-6 py-28 md:px-12 md:py-36 lg:px-16"
+  aria-labelledby="ethos-heading"
+  data-ethos
+>
+  <div class="grid items-start gap-10 lg:grid-cols-12 lg:gap-8">
+    <div class="lg:col-span-2">
+      <h2 id="ethos-heading" class="text-sm text-neutral-950 md:text-base">
+        Ethos
       </h2>
-      <p class="mt-12 max-w-2xl text-lg leading-relaxed text-white/80 md:text-xl">
-        Every decision we make is guided by a simple operating principle: build products that can travel from idea to market with quality, responsibility, and clarity intact.
-      </p>
     </div>
 
-    <div class="mt-16 max-w-4xl divide-y divide-white/20 border-y border-white/20">
-      {values.map((item) => (
-        <article class="grid gap-4 py-5 md:grid-cols-[0.9fr_1.5fr] md:gap-10">
-          <h3 class="font-serif text-3xl leading-tight text-white md:text-4xl">{item.title}</h3>
-          <p class="self-center text-base leading-relaxed text-white/75 md:text-lg">{item.description}</p>
-        </article>
+    <div class="lg:col-span-2">
+      <div role="tablist" aria-label="Ethos values" class="flex flex-col gap-1">
+        {ethics.map((ethic, index) => (
+          <button
+            type="button"
+            role="tab"
+            id={`ethos-tab-${ethic.id}`}
+            aria-controls="ethos-panel"
+            aria-selected={index === 0 ? "true" : "false"}
+            tabindex={index === 0 ? 0 : -1}
+            data-ethos-tab={ethic.id}
+            class:list={[
+              "ethos-tab text-left text-2xl tracking-tight transition-colors duration-200 md:text-3xl",
+              index === 0 ? "is-active text-neutral-950" : "text-neutral-400",
+            ]}
+          >
+            {ethic.title}
+          </button>
+        ))}
+      </div>
+    </div>
+
+    <div class="lg:col-span-4">
+      <div class="ethos-image-frame relative aspect-square w-full overflow-hidden rounded-none bg-neutral-200">
+        {ethics.map((ethic, index) => (
+          <img
+            src={ethic.image}
+            alt=""
+            data-ethos-image={ethic.id}
+            class:list={[
+              "ethos-image absolute inset-0 h-full w-full object-cover",
+              index === 0 ? "is-active" : "",
+            ]}
+            loading={index === 0 ? "eager" : "lazy"}
+            aria-hidden="true"
+          />
+        ))}
+      </div>
+    </div>
+
+    <div class="lg:col-span-4" id="ethos-panel" role="tabpanel" aria-labelledby="ethos-tab-quality">
+      {ethics.map((ethic, index) => (
+        <p
+          data-ethos-copy={ethic.id}
+          class:list={[
+            "ethos-copy max-w-md text-sm leading-relaxed text-neutral-700 md:text-base",
+            index === 0 ? "is-active" : "",
+          ]}
+        >
+          {ethic.copy}
+        </p>
       ))}
     </div>
   </div>
 </section>
+
+<script>
+  import { animate } from "motion";
+
+  const section = document.querySelector("[data-ethos]");
+  if (section) {
+    const tabs = [...section.querySelectorAll<HTMLButtonElement>("[data-ethos-tab]")];
+    const images = [...section.querySelectorAll<HTMLImageElement>("[data-ethos-image]")];
+    const copies = [...section.querySelectorAll<HTMLElement>("[data-ethos-copy]")];
+    const panel = section.querySelector("#ethos-panel");
+
+    let activeId = tabs[0]?.dataset.ethosTab ?? "quality";
+    let isAnimating = false;
+
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    const setActive = async (id: string) => {
+      if (id === activeId || isAnimating) return;
+
+      const previousId = activeId;
+      activeId = id;
+      isAnimating = true;
+
+      tabs.forEach((tab) => {
+        const isActive = tab.dataset.ethosTab === id;
+        tab.setAttribute("aria-selected", String(isActive));
+        tab.tabIndex = isActive ? 0 : -1;
+        tab.classList.toggle("is-active", isActive);
+        tab.classList.toggle("text-neutral-950", isActive);
+        tab.classList.toggle("text-neutral-400", !isActive);
+      });
+
+      if (panel) {
+        panel.setAttribute("aria-labelledby", `ethos-tab-${id}`);
+      }
+
+      copies.forEach((copy) => {
+        copy.classList.toggle("is-active", copy.dataset.ethosCopy === id);
+      });
+
+      const incoming = images.find((img) => img.dataset.ethosImage === id);
+      const outgoing = images.find((img) => img.dataset.ethosImage === previousId);
+
+      if (!incoming) {
+        isAnimating = false;
+        return;
+      }
+
+      images.forEach((img) => img.classList.toggle("is-active", img === incoming));
+
+      if (prefersReducedMotion) {
+        incoming.style.transform = "translateY(0)";
+        incoming.style.opacity = "1";
+        if (outgoing && outgoing !== incoming) {
+          outgoing.style.transform = "translateY(100%)";
+          outgoing.style.opacity = "0";
+        }
+        isAnimating = false;
+        return;
+      }
+
+      incoming.style.transform = "translateY(100%)";
+      incoming.style.opacity = "1";
+      incoming.style.zIndex = "2";
+
+      if (outgoing && outgoing !== incoming) {
+        outgoing.style.zIndex = "1";
+        await Promise.all([
+          animate(incoming, { y: ["100%", "0%"] }, { duration: 0.55, ease: [0.22, 1, 0.36, 1] }).finished,
+          animate(outgoing, { y: ["0%", "-30%"], opacity: [1, 0] }, { duration: 0.55, ease: [0.22, 1, 0.36, 1] }).finished,
+        ]);
+        outgoing.style.transform = "translateY(100%)";
+        outgoing.style.opacity = "0";
+        outgoing.style.zIndex = "";
+      } else {
+        await animate(incoming, { y: ["100%", "0%"] }, { duration: 0.55, ease: [0.22, 1, 0.36, 1] }).finished;
+      }
+
+      incoming.style.zIndex = "";
+      isAnimating = false;
+    };
+
+    images.forEach((img, index) => {
+      if (index === 0) {
+        img.style.transform = "translateY(0)";
+        img.style.opacity = "1";
+      } else {
+        img.style.transform = "translateY(100%)";
+        img.style.opacity = "0";
+      }
+    });
+
+    tabs.forEach((tab) => {
+      const id = tab.dataset.ethosTab;
+      if (!id) return;
+      tab.addEventListener("mouseenter", () => {
+        void setActive(id);
+      });
+      tab.addEventListener("click", () => {
+        void setActive(id);
+      });
+      tab.addEventListener("focus", () => {
+        void setActive(id);
+      });
+    });
+  }
+</script>
+
+<style>
+  .ethos-image {
+    will-change: transform, opacity;
+  }
+
+  .ethos-copy {
+    display: none;
+  }
+
+  .ethos-copy.is-active {
+    display: block;
+  }
+</style>

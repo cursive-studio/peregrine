@@ -23,27 +23,70 @@ import EthosSplit from "../components/EthosSplit.astro";
       />
       <div class="absolute inset-0 bg-black/40"></div>
 
-      <div class="relative z-10 mx-auto flex min-h-screen w-full max-w-7xl flex-col justify-end px-6 pb-24 md:px-12 md:pb-32 lg:px-16">
-        <h1 class="max-w-4xl text-4xl leading-[1.08] font-light tracking-tight text-white md:text-5xl lg:text-7xl">
+      <div class="relative z-10 flex min-h-screen w-full flex-col justify-center px-[28px] pt-24">
+        <h1
+          class="bottles-hero-enter max-w-6xl pb-4 font-pp-neue-montreal text-[40px] leading-[1.05] font-bold tracking-tight text-white md:text-6xl"
+          data-bottles-hero-enter
+          data-hero-delay="0"
+        >
           Reusable cups, custom vessels, and slush yards — designed to stand out
         </h1>
+        <p class="max-w-md text-sm font-normal tracking-tight text-white">
+          We design and manufacture reusable cups, promotional drinkware, and custom vessels for cinemas, theme parks, stadiums, and events.
+        </p>
 
-        <div class="mt-16 flex flex-wrap gap-4">
-          <a href="/#contact" class="group inline-flex items-center overflow-hidden rounded-xl bg-white text-neutral-900 transition-opacity hover:opacity-90">
-            <span class="px-7 py-4 text-sm font-medium tracking-wide uppercase">Get in touch</span>
-            <span class="flex items-center border-l border-neutral-200 px-5 py-4">
-              <svg class="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5" /></svg>
-            </span>
+        <div class="flex flex-wrap items-center gap-3 py-8">
+          <a
+            href="#products"
+            class="inline-flex items-center gap-2 rounded-full bg-[#0f1f14] px-6 py-3 text-sm text-white transition-opacity duration-200 hover:opacity-90"
+          >
+            View products
+            <svg class="h-3.5 w-3.5 -rotate-45" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <path d="M3 8h10M9 4l4 4-4 4" />
+            </svg>
           </a>
-          <a href="#products" class="group inline-flex items-center overflow-hidden rounded-xl border border-white/20 text-white transition-opacity hover:opacity-80">
-            <span class="px-7 py-4 text-sm font-medium tracking-wide uppercase">View products</span>
-            <span class="flex items-center border-l border-white/20 px-5 py-4">
-              <svg class="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5" /></svg>
-            </span>
+          <a
+            href="/#contact"
+            class="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm text-neutral-950 transition-opacity duration-200 hover:opacity-90"
+          >
+            Get in touch
+            <svg class="h-3.5 w-3.5 -rotate-45" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <path d="M3 8h10M9 4l4 4-4 4" />
+            </svg>
           </a>
         </div>
       </div>
     </section>
+
+    <script>
+      import { animate } from "motion";
+
+      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const entryEase = [0.22, 1, 0.36, 1] as const;
+
+      document.querySelectorAll<HTMLElement>("[data-bottles-hero-enter]").forEach((element) => {
+        const delay = Number(element.dataset.heroDelay ?? 0);
+
+        if (prefersReducedMotion) {
+          element.style.opacity = "1";
+          element.style.transform = "none";
+          return;
+        }
+
+        animate(
+          element,
+          { opacity: [0, 1], y: [28, 0] },
+          { duration: 0.9, delay, ease: entryEase },
+        );
+      });
+    </script>
+
+    <style>
+      .bottles-hero-enter {
+        opacity: 0;
+        transform: translateY(28px);
+      }
+    </style>
 
     <!-- Partners marquee -->
     <section class="border-b border-neutral-100 py-6">

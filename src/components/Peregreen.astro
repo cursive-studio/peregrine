@@ -1,0 +1,119 @@
+---
+const initiatives = [
+  {
+    id: "quality",
+    title: "Quality",
+    copy: "We recognise that having a responsibility to the environment beyond legal and regulatory requirements is paramount.",
+  },
+  {
+    id: "innovation",
+    title: "Innovation",
+    copy: "We invest in cleaner materials, smarter production methods, and product formats that reduce waste without compromising performance.",
+  },
+  {
+    id: "sustainability",
+    title: "Sustainability",
+    copy: "From responsible sourcing to reusable systems and efficient logistics, we design supply chains that protect both product quality and the planet.",
+  },
+];
+---
+
+<section
+  id="peregreen"
+  class="w-full bg-white px-6 py-28 md:px-12 md:py-36 lg:px-16"
+  aria-labelledby="peregreen-heading"
+  data-peregreen
+>
+  <div class="grid items-stretch gap-12 lg:grid-cols-2 lg:gap-16">
+    <div class="flex min-h-[22rem] flex-col justify-between md:min-h-[28rem]">
+      <h2 id="peregreen-heading" class="text-sm text-neutral-950 md:text-base">
+        PereGreen
+      </h2>
+
+      <div class="mt-16 max-w-md lg:mt-0">
+        {initiatives.map((item, index) => (
+          <div
+            class:list={["peregreen-item border-0", index === 0 && "is-open"]}
+            data-peregreen-item={item.id}
+          >
+            <button
+              type="button"
+              class="peregreen-trigger w-full py-2 text-left text-2xl tracking-tight transition-colors duration-200 md:text-3xl"
+              aria-expanded={index === 0 ? "true" : "false"}
+              aria-controls={`peregreen-panel-${item.id}`}
+              id={`peregreen-trigger-${item.id}`}
+              data-peregreen-trigger
+            >
+              {item.title}
+            </button>
+
+            <div
+              id={`peregreen-panel-${item.id}`}
+              role="region"
+              aria-labelledby={`peregreen-trigger-${item.id}`}
+              class="peregreen-panel grid transition-[grid-template-rows] duration-300 ease-out"
+              data-peregreen-panel
+            >
+              <div class="overflow-hidden">
+                <p class="pb-4 text-sm leading-relaxed text-neutral-500 md:text-base">
+                  {item.copy}
+                </p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="overflow-hidden rounded-2xl">
+      <img
+        src="/liva/olive-tree.jpg"
+        alt="Green landscape representing PereGreen environmental initiatives"
+        class="aspect-[4/3] h-full w-full object-cover lg:aspect-auto lg:min-h-[28rem]"
+        loading="lazy"
+      />
+    </div>
+  </div>
+</section>
+
+<script>
+  const section = document.querySelector("[data-peregreen]");
+  if (section) {
+    const items = [...section.querySelectorAll<HTMLElement>("[data-peregreen-item]")];
+
+    const setOpen = (id: string) => {
+      items.forEach((item) => {
+        const isOpen = item.dataset.peregreenItem === id;
+        const trigger = item.querySelector<HTMLButtonElement>("[data-peregreen-trigger]");
+        item.classList.toggle("is-open", isOpen);
+        trigger?.setAttribute("aria-expanded", String(isOpen));
+      });
+    };
+
+    items.forEach((item) => {
+      const id = item.dataset.peregreenItem;
+      const trigger = item.querySelector<HTMLButtonElement>("[data-peregreen-trigger]");
+      if (!id || !trigger) return;
+
+      trigger.addEventListener("click", () => setOpen(id));
+    });
+  }
+</script>
+
+<style>
+  .peregreen-trigger {
+    color: #c7c7c7;
+  }
+
+  .peregreen-item.is-open .peregreen-trigger {
+    color: #0a0a0a;
+  }
+
+  .peregreen-panel {
+    grid-template-rows: 0fr;
+  }
+
+  .peregreen-item.is-open .peregreen-panel {
+    grid-template-rows: 1fr;
+  }
+</style>

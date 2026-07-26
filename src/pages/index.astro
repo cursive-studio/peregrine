@@ -7,8 +7,10 @@ import TrustedBy from "../components/TrustedBy.astro";
 import ServicesGrid from "../components/ServicesGrid.astro";
 import IndustriesSection from "../components/IndustriesSection.astro";
 import RecentProjects from "../components/RecentProjects.astro";
-import EthosSplit from "../components/EthosSplit.astro";
+import Capabilities from "../components/Capabilities.astro";
 import FooterContact from "../components/FooterContact.astro";
+import EthosSplit from "../components/EthosSplit.astro";
+import Peregreen from "../components/Peregreen.astro";
 ---
 
 <BaseLayout>
@@ -17,16 +19,10 @@ import FooterContact from "../components/FooterContact.astro";
     <Hero />
     <AboutSplit />
     <ServicesGrid />
-
-    <div class="max-w-7xl mx-auto">
-
-    
-      <RecentProjects />
-    </div>
-
-    <!-- <ServicesGrid /> -->
-
-
+    <Capabilities />
+    <RecentProjects />
+    <EthosSplit />
+    <Peregreen />
   </main>
   <FooterContact />
 </BaseLayout>

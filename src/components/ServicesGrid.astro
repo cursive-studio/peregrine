@@ -5,6 +5,7 @@ interface ServiceItem {
   title: string;
   image: string;
   items: string[];
+  description?: string;
   href?: string;
 }
 
@@ -15,40 +16,44 @@ interface Props {
 const {
   services = [
     {
-      title: "Product Development",
+      title: "Reusable Cups & Custom Bottles",
       image: "/images/services/design-card.png",
       items: ["Reusable Bottles", "Event Cups", "Custom packaging"],
       href: "/reusable-bottles",
+      description: "We design and manufacture reusable cups, promotional cups, sports bottles, refillable bottles, slush-yards and event cups."
     },
     {
-      title: "Production",
+      title: "Garments & Textiles",
       image: "/images/services/manufacture-card.png",
       items: ["Anti-bacterial gym towels", "Activewear", "Textiles"],
       href: "/textiles",
+      description: "Our integrated network seamlessly integrates design, manufacturing, and distribution to deliver sustainable garment solutions with a significantly reduced carbon footprint. By prioritizing sustainability at every stage, we are able to provide rapid and efficient solutions that benefit both our customers and the environment.",
     },
     {
-      title: "Distribution",
+      title: "Olive Oil & Supplements",
       image: "/images/services/distribution-card.png",
       items: ["Olive Oil & Supplements"],
       href: "/olive-oil-supplements",
+      description: "Our products are made from the highest quality, sustainable, and ethically sourced ingredients, and are produced in a way that is environmentally friendly and sustainable.",
     },
   ],
 } = Astro.props;
 ---
 
 <section id="services" class="w-full bg-[#fbfbfa] py-28 md:py-16" aria-labelledby="services-heading">
-  <div class="px-6 md:px-4 lg:px-4">
-    <h2 id="services-heading" class="mb-4 text-lg font-normal tracking-tight text-neutral-950 md:mb-4">
-      Services
+  <div class="px-6 md:px-0 lg:px-0">
+    <h2 id="services-heading" class="mb-4 px-8 text-lg font-normal tracking-tight text-neutral-950 md:mb-4">
+      What we do
     </h2>
 
-    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-2">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 ">
       {services.map((service) => (
         <ServiceCard
           title={service.title}
           image={service.image}
           items={service.items}
           href={service.href}
+          description={service.description}
         />
       ))}
     </div>

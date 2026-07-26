@@ -1,0 +1,97 @@
+---
+const capabilities = [
+  "Garment Production",
+  "3D photo-design",
+  "Marketing strategy",
+  "Industrial design",
+  "Manufacturing",
+  "Logistics",
+];
+---
+
+<section
+  id="capabilities"
+  class="w-full bg-[#f5f5f5] px-6 py-28 md:px-12 md:py-36 lg:px-16"
+  aria-labelledby="capabilities-heading"
+>
+  <div class="mx-auto max-w-5xl">
+    <p id="capabilities-heading" class="mb-8 text-sm text-neutral-950 md:mb-10 md:text-base" data-capability-label>
+      Capabilities
+    </p>
+
+    <ul class="list-none space-y-0" role="list">
+      {capabilities.map((item, index) => (
+        <li
+          class="capability-item text-4xl font-medium leading-[1.15] tracking-tight text-neutral-950 md:text-6xl lg:text-7xl"
+          data-capability-item
+          data-capability-delay={0.08 * index}
+        >
+          {item}
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<script>
+  import { animate, inView } from "motion";
+
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const entryEase = [0.22, 1, 0.36, 1] as const;
+
+  const items = document.querySelectorAll<HTMLElement>("[data-capability-item]");
+  const label = document.querySelector<HTMLElement>("[data-capability-label]");
+
+  if (prefersReducedMotion) {
+    items.forEach((el) => {
+      el.style.opacity = "1";
+      el.style.transform = "none";
+    });
+    if (label) {
+      label.style.opacity = "1";
+      label.style.transform = "none";
+    }
+  } else {
+    const section = document.getElementById("capabilities");
+    if (section) {
+      inView(
+        section,
+        () => {
+          if (label) {
+            animate(
+              label,
+              { opacity: [0, 1], y: [12, 0] },
+              { duration: 0.6, ease: entryEase },
+            );
+          }
+
+          items.forEach((element) => {
+            const delay = Number(element.dataset.capabilityDelay ?? 0);
+            animate(
+              element,
+              { opacity: [0, 1], y: [28, 0] },
+              { duration: 0.75, delay: 0.1 + delay, ease: entryEase },
+            );
+          });
+        },
+        { amount: 0.25 },
+      );
+    }
+  }
+</script>
+
+<style>
+  .capability-item,
+  [data-capability-label] {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .capability-item,
+    [data-capability-label] {
+      opacity: 1;
+      transform: none;
+    }
+  }
+</style>

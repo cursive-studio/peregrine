@@ -16,17 +16,27 @@ interface Props {
 const {
   projects = [
     {
-      title: "Liva — High Phenolic Olive Oil",
+      title: "Liva",
       category: "Consumer Goods",
       categoryVariant: "dark",
-      image: "/liva/bottle-with-olives.jpg",
+      image: "/images/liva.png",
       description:
         "Organic extra virgin olive oil with 1300+ mg/kg polyphenols, developed from early harvest sourcing through bottling, quality assurance, and UK distribution.",
       href: "/olive-oil-supplements",
       linkLabel: "View Project",
     },
     {
-      title: "Avoryx — High performance gymwear for women",
+      title: "Reusable Cups & Custom Bottles",
+      category: "Consumer Goods",
+      categoryVariant: "dark",
+      image: "/images/cups.webp",
+      description:
+        "Reusable cups for coffee and tea, developed from design through production and distribution.",
+      href: "/reusable-cups",
+      linkLabel: "View Project",
+    },
+    {
+      title: "Avoryx",
       category: "Fitness and activewear",
       categoryVariant: "mint",
       image: "/images/avoryx.webp",
@@ -39,61 +49,122 @@ const {
 } = Astro.props;
 ---
 
-<section id="projects" class="w-full bg-white px-6 py-28 md:px-12 md:py-36 lg:px-16" aria-labelledby="projects-heading">
-  <div class="mb-12 flex flex-col gap-6 border-b border-neutral-200 pb-10 md:mb-16 md:flex-row md:items-start md:justify-between md:gap-12">
+<section id="projects" class="w-full overflow-x-hidden bg-white py-28 md:py-36" aria-labelledby="projects-heading">
+  <div class="mb-12 flex flex-col gap-6  px-6 pb-10 md:mb-16 md:px-12 lg:px-16">
     <h2 id="projects-heading" class="text-3xl font-normal tracking-tight text-neutral-950 md:text-4xl">
       Recent Projects
     </h2>
-
   </div>
 
-  <div class="grid items-start gap-16 lg:grid-cols-2 lg:gap-20">
-    {projects.map((project, index) => (
-      <article class:list={["group", index === 1 && "lg:mt-40"]}>
+  <div
+    class="projects-slider flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-2 md:gap-4 md:px-12 lg:px-16"
+    aria-label="Recent projects carousel"
+    data-projects-slider
+  >
+    {projects.map((project) => (
+      <article class="group w-[min(85vw,28rem)] shrink-0 snap-start md:w-[24rem]">
         <a
           href={project.href}
-          class="block overflow-hidden rounded-2xl"
+          class="block overflow-hidden"
           target={project.href.startsWith("http") ? "_blank" : undefined}
           rel={project.href.startsWith("http") ? "noopener noreferrer" : undefined}
         >
-          <div class="relative overflow-hidden rounded-2xl">
+          <div class="relative overflow-hidden">
             <img
               src={project.image}
               alt={project.title}
-              class=" w-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
+              class="aspect-square w-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
               loading="lazy"
+              draggable="false"
             />
-            <span
-              class:list={[
-                "absolute bottom-4 left-4 px-3 py-1.5 text-xs font-medium tracking-wide",
-                project.categoryVariant === "dark"
-                  ? "bg-neutral-950 text-white"
-                  : "bg-[#d8ebe3] text-neutral-900",
-              ]}
-            >
-              {project.category}
-            </span>
           </div>
         </a>
 
-        <div class="mt-6 flex items-baseline justify-between gap-6">
-          <h3 class="text-xl font-medium tracking-tight text-neutral-950 md:text-2xl">
+        <div class="mt-2 flex items-baseline justify-between gap-6 md:mt-4">
+          <h3 class="text-xl font-medium tracking-tight text-neutral-950 md:text-lg">
             {project.title}
           </h3>
-          <a
-            href={project.href}
-            class="shrink-0 text-sm text-neutral-950 underline underline-offset-4 transition-opacity hover:opacity-60"
-            target={project.href.startsWith("http") ? "_blank" : undefined}
-            rel={project.href.startsWith("http") ? "noopener noreferrer" : undefined}
-          >
-            {project.linkLabel}
-          </a>
         </div>
 
-        <p class="mt-4 max-w-md text-sm leading-relaxed text-neutral-500">
+        <p class="mt-4 max-w-md text-sm leading-relaxed text-neutral-500 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-within:opacity-100 md:mt-2">
           {project.description}
         </p>
       </article>
     ))}
   </div>
 </section>
+
+<script>
+  const slider = document.querySelector<HTMLElement>("[data-projects-slider]");
+  if (slider) {
+    let isDragging = false;
+    let startX = 0;
+    let scrollLeft = 0;
+    let hasDragged = false;
+
+    const onPointerDown = (event: PointerEvent) => {
+      if (event.pointerType === "touch") return;
+      isDragging = true;
+      hasDragged = false;
+      startX = event.clientX;
+      scrollLeft = slider.scrollLeft;
+      slider.classList.add("is-dragging");
+      slider.setPointerCapture(event.pointerId);
+    };
+
+    const onPointerMove = (event: PointerEvent) => {
+      if (!isDragging) return;
+      const walk = event.clientX - startX;
+      if (Math.abs(walk) > 4) hasDragged = true;
+      slider.scrollLeft = scrollLeft - walk;
+    };
+
+    const onPointerUp = (event: PointerEvent) => {
+      if (!isDragging) return;
+      isDragging = false;
+      slider.classList.remove("is-dragging");
+      if (slider.hasPointerCapture(event.pointerId)) {
+        slider.releasePointerCapture(event.pointerId);
+      }
+    };
+
+    slider.addEventListener("pointerdown", onPointerDown);
+    slider.addEventListener("pointermove", onPointerMove);
+    slider.addEventListener("pointerup", onPointerUp);
+    slider.addEventListener("pointercancel", onPointerUp);
+
+    slider.addEventListener(
+      "click",
+      (event) => {
+        if (!hasDragged) return;
+        event.preventDefault();
+        event.stopPropagation();
+        hasDragged = false;
+      },
+      true,
+    );
+  }
+</script>
+
+<style>
+  .projects-slider {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    cursor: grab;
+    overscroll-behavior-x: contain;
+  }
+
+  .projects-slider::-webkit-scrollbar {
+    display: none;
+  }
+
+  .projects-slider.is-dragging {
+    cursor: grabbing;
+    scroll-snap-type: none;
+    user-select: none;
+  }
+
+  .projects-slider.is-dragging a {
+    pointer-events: none;
+  }
+</style>
