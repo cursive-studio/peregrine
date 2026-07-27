@@ -141,118 +141,104 @@ import EthosSplit from "../components/EthosSplit.astro";
       </Container>
     </section>
 
-    <!-- Full-width image break -->
-    <section class="px-6 md:px-12 lg:px-16">
-      <div class="mx-auto max-w-7xl overflow-hidden rounded-2xl">
-        <img
-          src="/bottles/cups.webp"
-          alt="Reusable cups in production"
-          class="aspect-video w-full object-cover"
-          loading="lazy"
-        />
-      </div>
-    </section>
+
 
     <!-- Products Section -->
-    <section id="products" class="py-32 md:py-44">
-      <Container>
-        <p class="mb-16 text-xs font-medium tracking-[0.15em] text-neutral-400 uppercase md:mb-20">
+    <section
+      id="products"
+      class="w-full bg-[#f5f5f5] px-6 py-28 md:px-12 md:py-36 lg:px-16"
+      aria-labelledby="products-heading"
+    >
+      <div class="mx-auto max-w-5xl">
+        <p
+          id="products-heading"
+          class="mb-8 text-sm text-neutral-950 md:mb-10 md:text-base"
+          data-products-label
+        >
           Products
         </p>
 
-        <!-- Reusable Cups — large feature -->
-        <div class="grid items-center gap-12 md:grid-cols-12 md:gap-20">
-          <div class="md:col-span-6">
-            <div class="overflow-hidden rounded-2xl">
-              <img
-                src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=900&q=80"
-                alt="Reusable promotional cups"
-                class="aspect-[4/3] w-full object-cover"
-                loading="lazy"
-              />
-            </div>
-          </div>
-          <div class="md:col-span-5 md:col-start-8">
-            <h3 class="mb-4 text-2xl font-medium tracking-tight text-neutral-900 md:text-3xl">Reusable Cups</h3>
-            <p class="text-base leading-relaxed text-neutral-500 md:text-lg">
-              Durable, dishwasher-safe cups that can be printed 360° top-to-bottom. Ideal for theme parks, cinemas, stadiums, sporting events, and music festivals — anywhere large crowds consume large volumes of drinks.
-            </p>
-            <p class="mt-4 text-base leading-relaxed text-neutral-500 md:text-lg">
-              With the right design, a cup becomes a unique souvenir most people will want to take home.
-            </p>
-          </div>
-        </div>
-
-        <!-- Thermochromic IML — reversed -->
-        <div class="mt-24 grid items-center gap-12 md:mt-32 md:grid-cols-12 md:gap-20">
-          <div class="order-2 md:order-1 md:col-span-5">
-            <h3 class="mb-4 text-2xl font-medium tracking-tight text-neutral-900 md:text-3xl">Thermochromic IML Cups</h3>
-            <p class="text-base leading-relaxed text-neutral-500 md:text-lg">
-              In-Mould Labelling technology that produces eye-catching, vibrant designs without exterior sleeves or prints. The beauty isn't fully apparent until the cold beverage hits the cup — within seconds, the design shifts and transforms, introducing new colours and patterns as the temperature drops.
-            </p>
-            <p class="mt-4 text-sm text-neutral-400">
-              Effectively two designs in one cup.
-            </p>
-          </div>
-          <div class="order-1 md:order-2 md:col-span-6 md:col-start-7">
-            <div class="overflow-hidden rounded-2xl">
-              <img
-                src="https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=900&q=80"
-                alt="Thermochromic colour-changing cups"
-                class="aspect-[4/3] w-full object-cover"
-                loading="lazy"
-              />
-            </div>
-          </div>
-        </div>
-
-        <!-- Custom Vessels — large feature -->
-        <div class="mt-24 grid items-center gap-12 md:mt-32 md:grid-cols-12 md:gap-20">
-          <div class="md:col-span-6">
-            <div class="overflow-hidden rounded-2xl">
-              <img
-                src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=900&q=80"
-                alt="Custom beverage vessels"
-                class="aspect-[4/3] w-full object-cover"
-                loading="lazy"
-              />
-            </div>
-          </div>
-          <div class="md:col-span-5 md:col-start-8">
-            <h3 class="mb-4 text-2xl font-medium tracking-tight text-neutral-900 md:text-3xl">Custom Vessels</h3>
-            <p class="text-base leading-relaxed text-neutral-500 md:text-lg">
-              We produce custom beverage vessels for all types of product — from water bottles and sport bottles to fizzy drink vessels for theme parks. A reusable cup with a divider inside allows two different liquids in the same cup. A dual-straw lid makes it perfect for sharing.
-            </p>
-            <p class="mt-4 text-sm text-neutral-400">
-              If it can be imagined, it can be done.
-            </p>
-          </div>
-        </div>
-
-        <!-- Slush Yards — reversed -->
-        <div class="mt-24 grid items-center gap-12 md:mt-32 md:grid-cols-12 md:gap-20">
-          <div class="order-2 md:order-1 md:col-span-5">
-            <h3 class="mb-4 text-2xl font-medium tracking-tight text-neutral-900 md:text-3xl">Slush Yards</h3>
-            <p class="text-base leading-relaxed text-neutral-500 md:text-lg">
-              The famous Twister Cup — twin chambers for two different drinks in one vessel. Iconic in design, a firm favourite of top cinemas and theme parks. Our signature fruit series utilises the shape of the yard to make it seem as if a real fruit has been grown in the bottle.
-            </p>
-            <p class="mt-4 text-sm text-neutral-400">
-              Comprised of high-quality PET plastic. Each project is unique.
-            </p>
-          </div>
-          <div class="order-1 md:order-2 md:col-span-6 md:col-start-7">
-            <div class="overflow-hidden rounded-2xl">
-              <img
-                src="https://images.unsplash.com/photo-1570831739435-6601aa3fa4fb?auto=format&fit=crop&w=900&q=80"
-                alt="Custom slush yards"
-                class="aspect-[4/3] w-full object-cover"
-                loading="lazy"
-              />
-            </div>
-          </div>
-        </div>
-      </Container>
+        <ul class="list-none space-y-0" role="list">
+          {[
+            "Reusable Cups",
+            "Thermochromic IML Cups",
+            "Custom Vessels",
+            "Slush Yards",
+          ].map((item, index) => (
+            <li
+              class="product-list-item text-4xl font-medium leading-[1.15] tracking-tight text-neutral-950 md:text-6xl lg:text-7xl"
+              data-product-item
+              data-product-delay={0.08 * index}
+            >
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
     </section>
+
+    <script>
+      import { animate, inView } from "motion";
+
+      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const entryEase = [0.22, 1, 0.36, 1] as const;
+
+      const items = document.querySelectorAll<HTMLElement>("[data-product-item]");
+      const label = document.querySelector<HTMLElement>("[data-products-label]");
+
+      if (prefersReducedMotion) {
+        items.forEach((el) => {
+          el.style.opacity = "1";
+          el.style.transform = "none";
+        });
+        if (label) {
+          label.style.opacity = "1";
+          label.style.transform = "none";
+        }
+      } else {
+        const section = document.getElementById("products");
+        if (section) {
+          inView(
+            section,
+            () => {
+              if (label) {
+                animate(
+                  label,
+                  { opacity: [0, 1], y: [12, 0] },
+                  { duration: 0.6, ease: entryEase },
+                );
+              }
+
+              items.forEach((element) => {
+                const delay = Number(element.dataset.productDelay ?? 0);
+                animate(
+                  element,
+                  { opacity: [0, 1], y: [28, 0] },
+                  { duration: 0.75, delay: 0.1 + delay, ease: entryEase },
+                );
+              });
+            },
+            { amount: 0.25 },
+          );
+        }
+      }
+    </script>
+
+    <style>
+      .product-list-item,
+      [data-products-label] {
+        opacity: 0;
+        transform: translateY(28px);
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .product-list-item,
+        [data-products-label] {
+          opacity: 1;
+          transform: none;
+        }
+      }
+    </style>
 
     <!-- Full-width image break -->
     <section class="px-6 md:px-12 lg:px-16">
