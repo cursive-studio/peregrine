@@ -24,11 +24,12 @@ const navItems = [
     class="mx-auto flex max-w-[1440px] items-center justify-between gap-8 px-5 py-4 md:px-10 lg:px-14"
     aria-label="Main navigation"
   >
-    <a href="/" class="shrink-0" aria-label="Peregrine Creative Group — home">
-      <img src="/peregrine-logo.png" alt="" class="nav-logo h-11 w-11" width="44" height="44" />
+    <a href="/" class="flex shrink-0 items-center gap-3" aria-label="Peregrine Creative Group, home">
+      <img src="/peregrine-logo.png" alt="" class="nav-logo h-10 w-10" width="40" height="40" />
+      <span class="text-[15px] leading-tight font-medium tracking-[-0.01em] whitespace-nowrap">Peregrine Creative Group</span>
     </a>
 
-    <ul class="hidden items-center gap-7 md:flex" role="list">
+    <ul class="hidden items-center gap-7 whitespace-nowrap lg:flex" role="list">
       {navItems.map((item) => (
         <li>
           <a
@@ -48,7 +49,7 @@ const navItems = [
     </ul>
 
     <button
-      class="nav-link text-[15px] transition-opacity duration-200 hover:opacity-60 md:hidden"
+      class="nav-link text-[15px] transition-opacity duration-200 hover:opacity-60 lg:hidden"
       aria-label="Open menu"
       id="mobile-menu-toggle"
       aria-expanded="false"
@@ -61,8 +62,9 @@ const navItems = [
 
 <div id="mobile-menu" class="fixed inset-0 z-[60] hidden flex-col bg-ink text-white">
   <div class="flex items-center justify-between px-5 py-4">
-    <a href="/" aria-label="Peregrine Creative Group — home">
-      <img src="/peregrine-logo.png" alt="" class="h-11 w-11 invert" width="44" height="44" />
+    <a href="/" class="flex items-center gap-3" aria-label="Peregrine Creative Group, home">
+      <img src="/peregrine-logo.png" alt="" class="h-10 w-10 invert" width="40" height="40" />
+      <span class="text-[15px] leading-tight font-medium tracking-[-0.01em] whitespace-nowrap">Peregrine Creative Group</span>
     </a>
     <button class="text-[15px] transition-opacity duration-200 hover:opacity-60" id="mobile-menu-close" aria-label="Close menu">
       Close
