@@ -1,0 +1,56 @@
+---
+const divisions = [
+  {
+    title: "Garments & Textiles",
+    image: "/textiles/textiles-hero.webp",
+    alt: "Technical fabric swatches",
+    copy: "Activewear, anti-bacterial gym towels and fast-turnaround garment production, with European and Far East manufacturing and in-house logistics.",
+    tags: ["Activewear", "Gym towels", "Textiles"],
+    href: "/textiles",
+    cta: "Explore textiles",
+  },
+  {
+    title: "Olive Oil & Supplements",
+    image: "/liva/liva-hero.webp",
+    alt: "Olives and olive branches on a wooden table",
+    copy: "LIVA organic extra virgin olive oil — early-harvest Kalamata PDO with ultra-high polyphenols, sourced directly and distributed across the UK.",
+    tags: ["Certified organic", "Kalamata PDO", "UK distribution"],
+    href: "/olive-oil-supplements",
+    cta: "Discover LIVA",
+  },
+];
+---
+
+<section id="divisions" class="px-5 py-20 md:px-10 md:py-28 lg:px-14 lg:py-36" aria-labelledby="divisions-heading">
+  <div class="mx-auto max-w-[1328px]">
+    <div class="mb-14 flex flex-wrap items-end justify-between gap-x-16 gap-y-6">
+      <h2 id="divisions-heading" class="max-w-[16ch] flex-[1_1_480px] text-section font-medium">
+        The same supply chain, new categories.
+      </h2>
+      <p class="max-w-[30em] flex-[1_1_380px] text-lg leading-normal text-muted">
+        Design, manufacturing and distribution expertise applied to garments and to food — from technical fabrics to award-winning olive oil.
+      </p>
+    </div>
+
+    <div class="grid gap-6 md:grid-cols-2">
+      {divisions.map((division) => (
+        <article class="flex flex-col bg-stone">
+          <img src={division.image} alt={division.alt} class="block aspect-[4/3] w-full object-cover" width="1536" height="1024" loading="lazy" decoding="async" />
+          <div class="flex flex-1 flex-col gap-5 p-7 md:p-9 md:pb-10">
+            <h3 class="text-[clamp(26px,2.4vw,34px)] font-medium tracking-[-0.02em]">{division.title}</h3>
+            <p class="max-w-[30em] text-[17px] leading-normal text-muted">{division.copy}</p>
+            <ul class="flex flex-wrap gap-2" role="list">
+              {division.tags.map((tag) => (
+                <li class="rounded-full border border-[#c9c8c3] px-3.5 py-2 text-sm">{tag}</li>
+              ))}
+            </ul>
+            <a href={division.href} class="group mt-auto inline-flex items-center gap-2.5 self-start py-3 text-[15px] font-medium underline underline-offset-[5px]">
+              {division.cta}
+              <svg class="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-1" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" /></svg>
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,41 @@
+---
+import ClientLogos from "./ClientLogos.astro";
+
+const products = ["Reusable Cups", "Thermochromic IML Cups", "Custom Vessels", "Slush Yards"];
+---
+
+<section id="cups" class="bg-stone px-5 pt-20 md:px-10 md:pt-28 lg:px-14 lg:pt-32" aria-labelledby="cups-heading">
+  <div class="mx-auto flex max-w-[1328px] flex-wrap items-end gap-10">
+    <div class="min-w-0 flex-[1_1_520px] pb-12 md:pb-20 lg:pb-28">
+      <h2 id="cups-heading" class="max-w-[14ch] text-section font-medium">
+        Reusable cups and custom drinkware.
+      </h2>
+      <p class="mt-7 max-w-[32em] text-[clamp(17px,1.5vw,20px)] leading-[1.45] text-muted">
+        Reusable cups, slush yards and branded vessels for cinemas, theme parks, stadiums and events — designed to become the souvenir people take home.
+      </p>
+      <ul class="mt-8 flex flex-wrap gap-2" role="list">
+        {products.map((product) => (
+          <li class="rounded-full border border-[#c9c8c3] px-3.5 py-2 text-sm">{product}</li>
+        ))}
+      </ul>
+      <div class="mt-9 flex flex-wrap gap-3">
+        <a href="/reusable-bottles" class="inline-flex items-center gap-2.5 rounded-full bg-forest px-6 py-[15px] text-[15px] text-white transition-opacity hover:opacity-90">
+          View cups &amp; bottles
+          <svg class="h-3.5 w-3.5" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" /></svg>
+        </a>
+        <a href="#contact" class="inline-flex items-center gap-2.5 rounded-full bg-white px-6 py-[15px] text-[15px] text-ink transition-opacity hover:opacity-90">
+          Request a quote
+        </a>
+      </div>
+    </div>
+
+    <div class="flex min-w-0 flex-[1_1_440px] items-end justify-center">
+      <img src="/bottles/tango-ice-blast.webp" alt="Tango Ice Blast reusable dome-lid cup with twin straws" class="block h-auto w-[52%] max-w-[360px] mix-blend-multiply" width="900" height="1500" loading="lazy" decoding="async" />
+      <img src="/bottles/fanta-twister.webp" alt="Frozen Fanta Twister custom vessel" class="-ml-[4%] block h-auto w-[30%] max-w-[200px] mix-blend-multiply" width="800" height="1414" loading="lazy" decoding="async" />
+      <img src="/bottles/slush-puppy-bone.webp" alt="Slush Puppie bone-shaped slush yard" class="-ml-[3%] block h-auto w-[26%] max-w-[180px] mix-blend-multiply" width="800" height="1200" loading="lazy" decoding="async" />
+    </div>
+  </div>
+
+  <ClientLogos class="border-t border-stone-line pt-10 pb-12" />
+</section>
+

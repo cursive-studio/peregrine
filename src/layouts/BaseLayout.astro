@@ -7,8 +7,8 @@ interface Props {
 }
 
 const {
-  title = "Peregrine Creative Group — Design-Led Manufacturing",
-  description = "Designing, manufacturing and delivering sustainable products at scale.",
+  title = "Peregrine Creative Group — Reusable Cups, Custom Drinkware & Product Manufacturing",
+  description = "Peregrine Creative Group designs, makes and delivers products for brands — from reusable cups and custom drinkware to garments and olive oil distribution.",
 } = Astro.props;
 ---
 
@@ -18,20 +18,10 @@ const {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link
-      rel="preconnect"
-      href="https://fonts.googleapis.com"
-      crossorigin="anonymous"
-    />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
     <meta name="description" content={description} />
     <title>{title}</title>
   </head>
-  <body class="bg-white font-sans text-neutral-900 antialiased">
+  <body class="bg-white font-sans text-ink antialiased">
     <slot />
   </body>
 </html>

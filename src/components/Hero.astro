@@ -1,58 +1,65 @@
 ---
-interface Props {
-  backgroundImage?: string;
-}
-
-const {
-  backgroundImage = "https://images.unsplash.com/photo-1565043666747-69f6646db940?auto=format&fit=crop&w=1920&q=80",
-} = Astro.props;
+const divisions = [
+  { label: "Cups & Bottles", href: "#cups" },
+  { label: "Garments & Textiles", href: "#divisions" },
+  { label: "Olive Oil & Supplements", href: "#divisions" },
+];
 ---
 
-<section class="relative min-h-screen w-full overflow-hidden" aria-label="Hero">
+<section class="relative flex min-h-[max(640px,100svh)] w-full flex-col overflow-hidden bg-[#111412] text-white" aria-label="Hero">
   <video
-    src="videos/hero-vid.mp4"
+    class="absolute inset-0 h-full w-full object-cover"
+    src="/videos/hero-vid.mp4"
+    poster="/videos/hero-poster.jpg"
     autoplay
-    loop
     muted
+    loop
     playsinline
-    class="absolute inset-0 h-full w-full object-cover blur-sm"
-  />
-  <div class="absolute inset-0 bg-black/40"></div>
+    preload="metadata"
+    aria-hidden="true"
+  ></video>
+  <div class="absolute inset-0 bg-[rgb(6_10_8/0.55)]"></div>
 
-  <div class="relative z-10 flex min-h-screen w-full flex-col justify-center px-[28px] pt-24">
+  <div class="relative mx-auto flex w-full max-w-[1440px] flex-1 flex-col justify-end px-5 pt-32 pb-10 md:px-10 md:pb-12 lg:px-14">
     <h1
-      class="hero-enter pb-4 max-w-6xl font-pp-neue-montreal text-[40px] leading-[1.05] font-bold tracking-tight text-white md:text-6xl"
+      class="hero-enter max-w-[13ch] text-hero font-medium"
       data-hero-enter
       data-hero-delay="0"
     >
-    Peregrine <br/> <span class="text-primary font-normal">CreativeGroup</span>
+      We design, make and deliver products for brands.
     </h1>
-    <p class="text-white text-sm font-normal tracking-tight max-w-md">
-      We design, manufacture and deliver custom physical products for brands across retail, hospitality and events.
-    </p>
 
+    <div
+      class="hero-enter mt-10 flex flex-wrap items-end justify-between gap-x-16 gap-y-10 md:mt-16"
+      data-hero-enter
+      data-hero-delay="0.15"
+    >
+      <div class="max-w-[30em] flex-[1_1_380px]">
+        <p class="text-[clamp(17px,1.4vw,19px)] leading-[1.45] text-[#e8e8e4]">
+          Manufacturing and distribution for retail, hospitality and events, built on over 30 years of combined experience.
+        </p>
+        <div class="mt-7 flex flex-wrap gap-3">
+          <a href="#contact" class="inline-flex items-center gap-2.5 rounded-full bg-white px-6 py-[15px] text-[15px] text-ink transition-opacity hover:opacity-90">
+            Start a project
+            <svg class="h-3.5 w-3.5" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" /></svg>
+          </a>
+          <a href="#cups" class="inline-flex items-center gap-2.5 rounded-full border border-white/55 px-6 py-[14px] text-[15px] text-white transition-colors hover:bg-white/10">
+            Explore our work
+          </a>
+        </div>
+      </div>
 
-    <div class="flex flex-wrap items-center gap-3 py-8">
-      <a
-        href="#projects"
-        class="inline-flex items-center gap-2 rounded-full bg-[#0f1f14] px-6 py-3 text-sm text-white transition-opacity duration-200 hover:opacity-90"
-      >
-        Projects
-        <svg class="h-3.5 w-3.5 -rotate-45" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-          <path d="M3 8h10M9 4l4 4-4 4" />
-        </svg>
-      </a>
-      <a
-        href="#contact"
-        class="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm text-neutral-950 transition-opacity duration-200 hover:opacity-90"
-      >
-        Get in touch
-        <svg class="h-3.5 w-3.5 -rotate-45" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-          <path d="M3 8h10M9 4l4 4-4 4" />
-        </svg>
-      </a>
+      <ul class="flex w-full max-w-[280px] flex-[0_1_280px] flex-col" role="list">
+        {divisions.map((division, index) => (
+          <li class:list={[index < divisions.length - 1 && "border-b border-white/25"]}>
+            <a href={division.href} class="group flex items-center justify-between gap-4 py-2.5 text-[15px] text-white">
+              <span>{division.label}</span>
+              <svg class="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-1" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" /></svg>
+            </a>
+          </li>
+        ))}
+      </ul>
     </div>
-
   </div>
 </section>
 
@@ -71,11 +78,7 @@ const {
       return;
     }
 
-    animate(
-      element,
-      { opacity: [0, 1], y: [28, 0] },
-      { duration: 0.9, delay, ease: entryEase },
-    );
+    animate(element, { opacity: [0, 1], y: [28, 0] }, { duration: 0.9, delay, ease: entryEase });
   });
 </script>
 
@@ -83,5 +86,12 @@ const {
   .hero-enter {
     opacity: 0;
     transform: translateY(28px);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-enter {
+      opacity: 1;
+      transform: none;
+    }
   }
 </style>

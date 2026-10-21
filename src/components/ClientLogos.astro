@@ -1,0 +1,41 @@
+---
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+
+const clients = [
+  { src: "/peregrine-client-logos/cola.svg", alt: "Coca-Cola", height: "h-[30px]", multiply: true },
+  { src: "/peregrine-client-logos/tango.svg", alt: "Tango Ice Blast", height: "h-[38px]", multiply: false },
+  { src: "/peregrine-client-logos/vimto.svg", alt: "Vimto", height: "h-9", multiply: true },
+  { src: "/peregrine-client-logos/frozon-brothers-logo%201.svg", alt: "Frozen Brothers", height: "h-10", multiply: false },
+  { src: "/peregrine-client-logos/hoburne.svg", alt: "Hoburne Holiday Parks", height: "h-[38px]", multiply: true },
+  { src: "/peregrine-client-logos/pleasure-beach.svg", alt: "Pleasure Beach Blackpool", height: "h-11", multiply: true },
+  { src: "/peregrine-client-logos/steri.svg", alt: "SteriPack", height: "h-[22px]", multiply: true },
+];
+---
+
+<div class:list={["mx-auto flex max-w-[1328px] flex-wrap items-center gap-x-12 gap-y-6", className]}>
+  <p class="shrink-0 text-[13px] font-medium tracking-[0.14em] text-subtle uppercase">Trusted by</p>
+  <ul class="flex flex-[1_1_600px] flex-wrap items-center justify-between gap-x-10 gap-y-6" role="list">
+    {clients.map((client) => (
+      <li>
+        <img
+          src={client.src}
+          alt={client.alt}
+          class:list={["client-logo block w-auto", client.height, client.multiply && "mix-blend-multiply"]}
+          loading="lazy"
+          decoding="async"
+        />
+      </li>
+    ))}
+  </ul>
+</div>
+
+<style>
+  .client-logo {
+    filter: grayscale(1);
+    opacity: 0.75;
+  }
+</style>
