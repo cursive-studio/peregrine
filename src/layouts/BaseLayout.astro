@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import Analytics from "@vercel/analytics/astro";
 
 interface Props {
   title?: string;
@@ -59,6 +60,7 @@ const imageUrl = new URL(image, site).href;
     <meta name="twitter:image:alt" content={imageAlt} />
 
     <link rel="preload" href="/fonts/PPNeueMontreal/PPNeueMontreal-Medium.otf" as="font" type="font/otf" crossorigin />
+    <Analytics />
   </head>
   <body class="bg-white font-sans text-ink antialiased">
     <slot />
