@@ -1,0 +1,8 @@
+worker/
+output/
+.playwright-cli/
+.wrangler/
+.astro/
+.env*
+**/.env*
+**/.dev.vars*

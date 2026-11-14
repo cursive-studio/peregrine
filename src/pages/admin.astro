@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import '../styles/certificates.css';
+---
+<BaseLayout title="Batch Management | Peregrine" description="Manage batch certificates.">
+  <meta name="robots" content="noindex, nofollow" />
+  <div class="certificate-app min-h-screen bg-[#fafaf9]">
+    <header class="flex flex-wrap items-center justify-between gap-4 border-b border-neutral-200 bg-white px-6 py-5 md:px-12">
+      <a href="/" class="text-xl font-medium">Peregrine <span class="ml-3 text-sm font-normal muted">Batch certificates</span></a>
+      <div class="flex items-center gap-5 text-sm"><a href="/liva/trace" target="_blank" rel="noopener">Customer lookup</a><button id="sign-out" hidden>Sign out</button></div>
+    </header>
+    <main class="px-6 py-14 md:px-12">
+      <section id="login-panel" class="mx-auto mt-12 max-w-sm">
+        <h1 class="mb-3 text-3xl font-medium">Admin sign in</h1>
+        <p class="mb-8 muted">Manage LIVA batch certificates.</p>
+        <form id="login-form">
+          <div class="field"><label for="password">Password</label><input id="password" type="password" name="password" required autocomplete="current-password" /></div>
+          <button type="submit" class="primary w-full">Sign in</button>
+        </form>
+        <p id="login-message" role="status" class="message"></p>
+      </section>
+      <section id="dashboard" hidden>
+        <div class="mb-10 flex flex-wrap items-end justify-between gap-6">
+          <div><h1 class="text-3xl font-medium">Batch certificates</h1><p id="batch-count" class="mt-3 muted"></p></div>
+          <button id="new-batch" class="primary">Add batch</button>
+        </div>
+        <div class="mb-5 max-w-md"><label for="search">Search batches</label><input id="search" type="search" placeholder="Batch number or product" /></div>
+        <p id="dashboard-message" role="status" class="message"></p>
+        <div class="overflow-x-auto"><table class="w-full min-w-[700px]"><thead><tr><th>Batch number</th><th>Product</th><th>Certificate</th><th>Status</th><th>Updated</th><th>Actions</th></tr></thead><tbody id="batch-rows"></tbody></table></div>
+        <p id="empty-state" hidden class="border-b border-neutral-200 py-16 text-center muted">No batches yet. Add your first batch certificate.</p>
+      </section>
+    </main>
+    <dialog id="batch-dialog" aria-labelledby="editor-title">
+      <h2 id="editor-title" class="mb-8 text-2xl font-medium">Add batch</h2>
+      <form id="batch-form">
+        <input type="hidden" name="id" />
+        <div class="field"><label for="edit-number">Batch number</label><input id="edit-number" name="batch_number" required maxlength="80" autocomplete="off" /></div>
+        <div class="field"><label for="edit-product">Product name</label><input id="edit-product" name="product_name" required maxlength="160" value="LIVA Organic Extra Virgin Olive Oil" /></div>
+        <div class="field"><label for="edit-file">Certificate (PDF, JPG, PNG, WebP or GIF; up to 10 MB)</label><input id="edit-file" name="certificate" type="file" accept="application/pdf,image/jpeg,image/png,image/webp,image/gif,.pdf,.jpg,.jpeg,.png,.webp,.gif" /><p id="current-file" class="mt-2 text-sm muted"></p></div>
+        <label class="flex! items-center gap-3"><input type="checkbox" name="published" class="h-4 w-4" /> Published on customer lookup</label>
+        <p id="editor-message" role="status" class="message"></p>
+        <div class="mt-8 flex justify-end gap-3"><button type="button" id="cancel-edit">Cancel</button><button type="submit" class="primary">Save batch</button></div>
+      </form>
+    </dialog>
+    <dialog id="delete-dialog" aria-labelledby="delete-title">
+      <h2 id="delete-title" class="text-2xl">Delete batch?</h2><p id="delete-description" class="my-6 muted"></p>
+      <p id="delete-message" role="status" class="message"></p>
+      <div class="flex justify-end gap-3"><button id="cancel-delete">Cancel</button><button id="confirm-delete" class="primary">Delete batch</button></div>
+    </dialog>
+  </div>
+</BaseLayout>
+<script src="../scripts/batch-admin.ts"></script>

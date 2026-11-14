@@ -1,0 +1,17 @@
+{
+  "$schema": "../node_modules/wrangler/config-schema.json",
+  "name": "peregrine-certificates",
+  "account_id": "045b575b86958f12f98c94eb58b453cc",
+  "main": "src/index.js",
+  "compatibility_date": "2026-11-01",
+  "vars": {
+    "ALLOWED_ORIGINS": "https://peregrinecreativegroup.com,https://www.peregrinecreativegroup.com,http://localhost:4321,http://localhost:4322,http://localhost:4323,http://127.0.0.1:4321,http://127.0.0.1:4322,http://127.0.0.1:4323"
+  },
+  "d1_databases": [{
+    "binding": "DB",
+    "database_name": "peregrine-certificates",
+    "database_id": "03bc0bcc-0998-4999-b6ae-bbbdfe94889e",
+    "migrations_dir": "migrations"
+  }],
+  "r2_buckets": [{ "binding": "CERTIFICATES", "bucket_name": "peregrine-certificates" }]
+}

@@ -16,9 +16,17 @@ pnpm-debug.log*
 # environment variables
 .env
 .env.production
+.env.local
+.dev.vars
+.wrangler/
+output/playwright/
+.playwright-cli/
 
 # macOS-specific files
 .DS_Store
 
 # jetbrains setting folder
 .idea/
+
+# Vercel project metadata
+.vercel/

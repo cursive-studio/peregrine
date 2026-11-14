@@ -2,6 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Navbar from "../components/Navbar.astro";
 import FooterContact from "../components/FooterContact.astro";
+import BatchCertificateLookup from "../components/BatchCertificateLookup.astro";
 
 const amazonUrl = "https://www.amazon.co.uk/dp/B0GQWBKKBR";
 const wholesaleUrl = "mailto:info@peregrinecreativegroup.com?subject=LIVA%20wholesale%20enquiry";
@@ -58,20 +59,20 @@ const supplyChain = [
       <div class="relative mx-auto flex w-full max-w-[1440px] flex-1 flex-col justify-end px-5 pt-32 pb-14 md:px-10 md:pb-20 lg:px-14 lg:pb-24">
         <div class="flex flex-wrap items-end justify-between gap-x-16 gap-y-10">
           <h1 class="hero-enter max-w-[12ch] flex-[1_1_640px] text-hero font-medium" data-hero-enter data-hero-delay="0">
-            Ultra-high polyphenol olive oil from Kalamata.
+            LIVA organic extra virgin olive oil.
           </h1>
           <div class="hero-enter max-w-[380px] flex-[0_1_380px]" data-hero-enter data-hero-delay="0.15">
             <p class="text-lg leading-normal text-[#e8e8e4]">
-              LIVA is an award-winning organic extra virgin olive oil, imported and distributed by Peregrine to UK retailers, restaurants and researchers.
+              Early-harvest olive oil from Kalamata, Greece, with a robust flavour and peppery finish. Available on Amazon UK, with wholesale supply through Peregrine.
             </p>
             <div class="mt-7 flex flex-wrap gap-3">
-              <a href={wholesaleUrl} class="inline-flex items-center gap-2.5 rounded-full bg-white px-6 py-[15px] text-[15px] text-ink transition-opacity hover:opacity-90">
+              <a href={amazonUrl} target="_blank" rel="noopener" class="inline-flex items-center gap-2.5 rounded-full bg-white px-6 py-[15px] text-[15px] text-ink transition-opacity hover:opacity-90">
+                Buy on Amazon
+              </a>
+              <a href={wholesaleUrl} class="inline-flex items-center gap-2.5 rounded-full border border-white/55 px-6 py-[14px] text-[15px] text-white transition-colors hover:bg-white/10">
                 Wholesale enquiries
-                <svg class="h-3.5 w-3.5" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" /></svg>
               </a>
-              <a href="#spec" class="inline-flex items-center gap-2.5 rounded-full border border-white/55 px-6 py-[14px] text-[15px] text-white transition-colors hover:bg-white/10">
-                View the spec
-              </a>
+              <a href="#batch-certificate" class="inline-flex items-center rounded-full border border-white/55 px-6 py-[14px] text-[15px] text-white transition-colors hover:bg-white/10">Find your batch certificate</a>
             </div>
           </div>
         </div>
@@ -99,6 +100,18 @@ const supplyChain = [
             Request the full spec sheet
           </a>
         </div>
+      </div>
+    </section>
+
+    <section id="batch-certificate" class="scroll-mt-24 bg-stone px-5 py-20 md:px-10 md:py-28 lg:px-14 lg:py-36" aria-labelledby="certificate-heading">
+      <div class="mx-auto max-w-[1328px]">
+        <BatchCertificateLookup>
+          <div slot="intro">
+            <h2 id="certificate-heading" class="mb-5 max-w-[18ch] text-section font-medium">Find your batch certificate.</h2>
+            <p class="max-w-lg text-lg leading-normal text-muted">Every bottle has a batch number. Enter yours to find the certificate associated with your olive oil.</p>
+          </div>
+          <p slot="help" class="mt-8 text-sm text-muted">Need help finding your batch? <a href="mailto:info@peregrinecreativegroup.com" class="underline underline-offset-4">Contact Peregrine</a></p>
+        </BatchCertificateLookup>
       </div>
     </section>
 
@@ -156,7 +169,6 @@ const supplyChain = [
           </p>
           <a href={amazonUrl} target="_blank" rel="noopener" class="mt-3 inline-flex items-center gap-2.5 self-start rounded-full bg-forest px-6 py-[15px] text-[15px] text-white transition-opacity hover:opacity-90">
             Buy on Amazon
-            <svg class="h-3.5 w-3.5" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" /></svg>
           </a>
         </div>
       </div>

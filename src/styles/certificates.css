@@ -1,0 +1,20 @@
+.certificate-app { color: #0a0a0a; letter-spacing: 0; }
+.certificate-app [hidden] { display: none !important; }
+.certificate-app button, .certificate-app .action { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 10px 20px; border: 1px solid #d8d8d4; border-radius: 4px; background: white; color: #0a0a0a; font-size: 15px; cursor: pointer; }
+.certificate-app button.primary, .certificate-app .action.primary { background: #0a0a0a; border-color: #0a0a0a; color: white; }
+.certificate-app button:hover, .certificate-app .action:hover { opacity: .75; }
+.certificate-app button:disabled { opacity: .5; cursor: wait; }
+.certificate-app label { display: block; font-size: 14px; margin-bottom: 8px; }
+.certificate-app input:not([type=checkbox]) { display: block; width: 100%; padding: 13px 14px; min-height: 48px; border: 1px solid #cdcdca; border-radius: 4px; background: white; font: inherit; }
+.certificate-app :focus-visible { outline: 2px solid #0a0a0a; outline-offset: 3px; }
+.certificate-app .message { margin-top: 16px; font-size: 15px; line-height: 1.5; }
+.certificate-app .message:empty { display: none; }
+.certificate-app .field { margin-bottom: 24px; }
+.certificate-app .muted { color: #60605b; }
+.certificate-app th { text-align: left; font-weight: 400; color: #60605b; font-size: 13px; }
+.certificate-app td, .certificate-app th { padding: 20px 16px; border-bottom: 1px solid #e5e5e1; vertical-align: top; }
+.certificate-app td:first-child, .certificate-app th:first-child { padding-left: 0; }
+.certificate-app td button { min-height: 36px; padding: 5px 12px; }
+.certificate-app dialog { margin: auto; padding: 32px; width: min(560px, calc(100% - 32px)); max-height: calc(100dvh - 32px); overflow: auto; border: 1px solid #dededa; border-radius: 6px; }
+.certificate-app dialog::backdrop { background: #0006; }
+@media(max-width: 600px) { .certificate-app dialog { padding: 24px; } }
