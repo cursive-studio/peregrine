@@ -6,10 +6,11 @@ interface Props {
 const { variant = "solid" } = Astro.props;
 const isOverlay = variant === "overlay";
 const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
+const email = "mailto:info@peregrinecreativegroup.com";
 
 const navItems = [
   { label: "Cups & Bottles", href: "/reusable-bottles" },
-  { label: "Textiles", href: "/textiles" },
+  { label: "Garments & Textiles", href: "/textiles" },
   { label: "LIVA", href: "/liva" },
   { label: "Sustainability", href: "/#green" },
 ];
@@ -20,64 +21,68 @@ const navItems = [
   class:list={["site-header fixed top-0 left-0 z-50 w-full transition-colors duration-300", !isOverlay && "is-solid"]}
   data-overlay={isOverlay ? "true" : "false"}
 >
-  <nav
-    class="mx-auto flex max-w-[1440px] items-center justify-between gap-8 px-5 py-4 md:px-10 lg:px-14"
-    aria-label="Main navigation"
-  >
-    <a href="/" class="flex shrink-0 items-center gap-3" aria-label="Peregrine Creative Group, home">
-      <img src="/peregrine-logo.png" alt="" class="nav-logo h-10 w-10" width="40" height="40" />
-      <span class="text-[15px] leading-tight font-medium tracking-[-0.01em] whitespace-nowrap">Peregrine Creative Group</span>
+  <nav class="mx-auto flex max-w-[1440px] items-center justify-between gap-8 px-5 py-4 md:px-10 md:py-5" aria-label="Main navigation">
+    <a href="/" class="flex shrink-0 items-center gap-2.5" aria-label="Peregrine Creative Group, home">
+      <img src="/peregrine-logo.png" alt="" class="nav-logo size-8" width="32" height="32" />
+      <span class="text-[17px] tracking-[-0.01em]">Peregrine</span>
     </a>
 
-    <ul class="hidden items-center gap-7 whitespace-nowrap lg:flex" role="list">
+    <ul class="hidden items-center gap-7 text-sm whitespace-nowrap lg:flex" role="list">
       {navItems.map((item) => (
         <li>
           <a
             href={item.href}
-            class="nav-link text-[15px] transition-opacity duration-200 hover:opacity-60"
+            class="nav-link opacity-85 transition-opacity duration-200 hover:opacity-100"
             aria-current={currentPath === item.href ? "page" : undefined}
           >
             {item.label}
           </a>
         </li>
       ))}
-      <li>
-        <a href="mailto:info@peregrinecreativegroup.com" class="nav-cta inline-flex rounded-full px-5 py-3 text-[15px] transition-opacity duration-200 hover:opacity-85">
-          Get in touch
-        </a>
-      </li>
     </ul>
 
-    <button
-      class="nav-link text-[15px] transition-opacity duration-200 hover:opacity-60 lg:hidden"
-      aria-label="Open menu"
-      id="mobile-menu-toggle"
-      aria-expanded="false"
-      aria-controls="mobile-menu"
-    >
-      Menu
-    </button>
+    <a href={email} class="group hidden items-center gap-2.5 text-sm lg:inline-flex">
+      <span aria-hidden="true" class="inline-flex size-6 items-center justify-center rounded-full bg-lime text-lime-ink">
+        <svg class="size-3 transition-transform duration-200 group-hover:translate-x-0.5" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4" /></svg>
+      </span>
+      Get in touch
+    </a>
+
+    <div class="flex items-center gap-2 lg:hidden">
+      <a href={email} aria-label="Get in touch" class="inline-flex size-11 items-center justify-center rounded-full bg-lime text-lime-ink">
+        <svg class="size-4" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2.5 4.5h11v7h-11z" /><path d="M2.5 4.5 8 9l5.5-4.5" /></svg>
+      </a>
+      <button
+        class="nav-menu inline-flex size-11 items-center justify-center rounded-full border"
+        aria-label="Open menu"
+        id="mobile-menu-toggle"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <svg class="size-[18px]" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 5.5h14M2 12.5h14" /></svg>
+      </button>
+    </div>
   </nav>
 </header>
 
-<div id="mobile-menu" class="fixed inset-0 z-[60] hidden flex-col bg-ink text-white">
+<div id="mobile-menu" class="fixed inset-0 z-[60] hidden flex-col bg-ink-soft text-white">
   <div class="flex items-center justify-between px-5 py-4">
-    <a href="/" class="flex items-center gap-3" aria-label="Peregrine Creative Group, home">
-      <img src="/peregrine-logo.png" alt="" class="h-10 w-10 invert" width="40" height="40" />
-      <span class="text-[15px] leading-tight font-medium tracking-[-0.01em] whitespace-nowrap">Peregrine Creative Group</span>
+    <a href="/" class="flex items-center gap-2.5" aria-label="Peregrine Creative Group, home">
+      <img src="/peregrine-logo.png" alt="" class="size-8 invert" width="32" height="32" />
+      <span class="text-[17px] tracking-[-0.01em]">Peregrine</span>
     </a>
-    <button class="text-[15px] transition-opacity duration-200 hover:opacity-60" id="mobile-menu-close" aria-label="Close menu">
-      Close
+    <button class="inline-flex size-11 items-center justify-center rounded-full border border-white/45" id="mobile-menu-close" aria-label="Close menu">
+      <svg class="size-[18px]" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 4l10 10M14 4 4 14" /></svg>
     </button>
   </div>
 
-  <nav class="flex flex-1 flex-col justify-center gap-6 px-5" aria-label="Mobile navigation">
+  <nav class="flex flex-1 flex-col justify-center gap-5 px-5" aria-label="Mobile navigation">
     {navItems.map((item) => (
-      <a href={item.href} class="text-4xl font-medium tracking-tight transition-opacity duration-200 hover:opacity-60">
+      <a href={item.href} class="text-[40px] leading-none tracking-[-0.035em] transition-opacity duration-200 hover:opacity-60">
         {item.label}
       </a>
     ))}
-    <a href="mailto:info@peregrinecreativegroup.com" class="mt-4 self-start rounded-full bg-white px-6 py-3.5 text-[15px] text-ink">Get in touch</a>
+    <a href={email} class="mt-6 inline-flex min-h-12 items-center self-start rounded-full bg-lime px-6 text-[15px] font-medium text-lime-ink">Get in touch</a>
   </nav>
 
   <div class="px-5 pb-10">
@@ -94,27 +99,26 @@ const navItems = [
   .site-header .nav-logo {
     filter: invert(1);
   }
-  .site-header .nav-cta {
-    background: #fff;
-    color: var(--color-ink);
+  .site-header .nav-menu {
+    border-color: rgb(255 255 255 / 0.45);
   }
 
   /* Solid state: after scrolling, or on pages without a dark hero */
   .site-header.is-solid {
-    color: var(--color-ink);
-    background: rgb(255 255 255 / 0.95);
+    color: var(--color-ink-soft);
+    background: rgb(255 255 255 / 0.94);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
   }
   .site-header.is-solid .nav-logo {
     filter: none;
   }
-  .site-header.is-solid .nav-cta {
-    background: var(--color-forest);
-    color: #fff;
+  .site-header.is-solid .nav-menu {
+    border-color: rgb(21 21 19 / 0.3);
   }
 
   .nav-link[aria-current="page"] {
+    opacity: 1;
     text-decoration: underline;
     text-underline-offset: 6px;
   }
@@ -131,6 +135,7 @@ const navItems = [
     menu?.classList.add("flex");
     toggle?.setAttribute("aria-expanded", "true");
     document.body.style.overflow = "hidden";
+    close?.focus();
   }
 
   function closeMenu() {
@@ -141,10 +146,16 @@ const navItems = [
   }
 
   toggle?.addEventListener("click", openMenu);
-  close?.addEventListener("click", closeMenu);
+  close?.addEventListener("click", () => {
+    closeMenu();
+    toggle?.focus();
+  });
   menu?.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeMenu));
   document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape" && menu && !menu.classList.contains("hidden")) closeMenu();
+    if (event.key === "Escape" && menu && !menu.classList.contains("hidden")) {
+      closeMenu();
+      toggle?.focus();
+    }
   });
 
   if (header?.dataset.overlay === "true") {
