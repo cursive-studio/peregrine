@@ -53,8 +53,6 @@
   --color-lime: #dde152;
   --color-lime-ink: #0f1f14;
 
-  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
-
   /* 07 refine type scale */
   --text-display: clamp(56px, 8.9vw, 128px);
   --text-display--line-height: 0.92;
