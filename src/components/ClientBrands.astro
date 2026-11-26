@@ -1,0 +1,53 @@
+---
+import PillLink from "./PillLink.astro";
+
+const divisions = [
+  {
+    id: "cups",
+    title: "Cups & Bottles",
+    copy: "Custom drinkware, reusable cups and distinctive vessels created for brands, venues and events.",
+    href: "/reusable-bottles",
+    cta: "Explore cups & bottles",
+  },
+  {
+    id: "garments",
+    title: "Garments & Textiles",
+    copy: "Garment and textile production for brands, from activewear to branded towels.",
+    href: "/textiles",
+    cta: "Explore garments & textiles",
+  },
+];
+---
+
+<section class="bg-band" aria-label="For client brands">
+  <div class="mx-auto max-w-[1440px] px-5 pt-[72px] pb-16 md:px-10 md:pt-32 md:pb-32">
+    {divisions.map((division, index) => (
+      <article
+        id={division.id}
+        class:list={[
+          "flex scroll-mt-24 flex-col gap-4 md:flex-row md:gap-12",
+          index === 0 ? "pb-10 md:pb-14" : "border-t border-line pt-10 md:pt-14",
+        ]}
+        aria-labelledby={`${division.id}-title`}
+      >
+        <div class="flex min-w-0 flex-col gap-3 md:order-1 md:flex-1 md:gap-5">
+          <h3 id={`${division.id}-title`} class="pt-2 text-[30px] leading-[1.05] font-normal tracking-[-0.03em] md:pt-0 md:text-[40px] md:leading-[1.02]">
+            {division.title}
+          </h3>
+          <p class="max-w-[460px] text-[17px] leading-[1.4] text-muted md:text-lg">{division.copy}</p>
+          <PillLink href={division.href} class="mt-1 md:mt-auto">{division.cta}</PillLink>
+        </div>
+
+        {division.id === "cups" ? (
+          <div class="flex h-60 items-end justify-center gap-0 overflow-hidden pt-2 order-first md:order-2 md:h-[280px] md:w-[520px] md:shrink-0">
+            <img src="/bottles/tango-ice-blast.webp" alt="Tango Ice Blast reusable dome-lid cup" class="block h-[90%] w-auto mix-blend-multiply" width="900" height="1500" loading="lazy" decoding="async" />
+            <img src="/bottles/fanta-twister.webp" alt="Frozen Fanta Twister custom vessel" class="-ml-3 block h-[58%] w-auto mix-blend-multiply" width="800" height="1414" loading="lazy" decoding="async" />
+            <img src="/bottles/slush-puppy-bone.webp" alt="Slush Puppie bone-shaped slush yard" class="-ml-2 block h-[44%] w-auto mix-blend-multiply" width="800" height="1200" loading="lazy" decoding="async" />
+          </div>
+        ) : (
+          <img src="/textiles/textiles-hero.webp" alt="Technical fabric swatches" class="order-first block aspect-[4/3] w-full object-cover md:order-2 md:w-[520px] md:shrink-0" width="1536" height="1024" loading="lazy" decoding="async" />
+        )}
+      </article>
+    ))}
+  </div>
+</section>

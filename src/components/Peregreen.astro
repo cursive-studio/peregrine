@@ -15,24 +15,43 @@ const values = [
 ];
 ---
 
-<section id="green" class="bg-forest px-5 py-20 text-white md:px-10 md:py-28 lg:px-14 lg:py-36" aria-labelledby="green-heading">
-  <div class="mx-auto max-w-[1328px]">
-    <div class="mb-16 flex flex-wrap justify-between gap-x-16 gap-y-8 md:mb-18">
-      <h2 id="green-heading" class="flex-[1_1_360px] text-section font-medium">
-        Pere<span class="text-leaf">Green</span>
+<section id="green" class="relative scroll-mt-20 overflow-hidden bg-ink-soft text-white" aria-labelledby="green-heading">
+  <img
+    src="/images/peregreen-meadow.jpg"
+    alt=""
+    aria-hidden="true"
+    class="absolute inset-0 h-full w-full object-cover saturate-[0.9]"
+    width="1536"
+    height="864"
+    loading="lazy"
+    decoding="async"
+  />
+  <div class="absolute inset-0 bg-[rgb(21_21_19/0.5)]"></div>
+  <div class="absolute inset-0 bg-[linear-gradient(to_bottom,rgb(21_21_19/0.55),rgb(21_21_19/0.12)_45%,rgb(21_21_19/0.72))]"></div>
+
+  <div class="relative mx-auto flex max-w-[1440px] flex-col gap-10 px-5 py-[88px] md:gap-24 md:px-10 md:py-32">
+    <div class="flex flex-col gap-10 md:flex-row md:items-end md:justify-between md:gap-16">
+      <h2 id="green-heading" class="text-[64px] leading-[0.92] font-normal tracking-[-0.04em] md:text-[96px]">
+        Pere<span class="text-lime">Green</span>
       </h2>
-      <p class="max-w-[32em] flex-[1_1_480px] text-lg leading-[1.55] text-[#d4ddd6]">
+      <p class="max-w-[520px] text-[17px] leading-[1.4] text-white/90 md:text-[21px] md:leading-[1.35]">
         Our cups and bottles are made from fully recyclable PET. Reusable and refillable formats replace disposables, and we minimise waste at every step of production. Biodegradable cups and straws are the next step.
       </p>
     </div>
 
-    <div class="grid gap-10 border-t border-[#2e4234] pt-10 md:grid-cols-3">
-      {values.map((value) => (
-        <div>
-          <h3 class="mb-3 text-xl font-medium">{value.title}</h3>
-          <p class="text-base leading-[1.55] text-[#c2cec5]">{value.copy}</p>
-        </div>
+    <ul class="grid md:grid-cols-3 md:border-t md:border-white/20" role="list">
+      {values.map((value, index) => (
+        <li
+          class:list={[
+            "flex flex-col gap-2.5 border-t border-white/20 py-6 md:gap-4 md:border-t-0 md:pt-10 md:pb-0",
+            index > 0 && "md:border-l md:pl-8",
+            index < values.length - 1 && "md:pr-8",
+          ]}
+        >
+          <h3 class="text-[26px] leading-[1.05] font-normal tracking-[-0.025em] md:text-[32px]">{value.title}</h3>
+          <p class="text-base leading-[1.45] text-white/80 md:text-[17px]">{value.copy}</p>
+        </li>
       ))}
-    </div>
+    </ul>
   </div>
 </section>

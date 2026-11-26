@@ -1,0 +1,49 @@
+---
+/**
+ * Outlined pill link with a round arrow dot — the 07 refine call-to-action.
+ * `tone` sets the outline/text colour for the surface it sits on;
+ * `dot` sets the arrow dot fill.
+ */
+interface Props {
+  href: string;
+  tone?: "ink" | "light" | "lime-ink";
+  dot?: "lime" | "ink" | "light" | "lime-ink";
+  icon?: "arrow" | "down";
+  external?: boolean;
+  class?: string;
+}
+
+const { href, tone = "ink", dot = "lime", icon = "arrow", external = false, class: className } = Astro.props;
+
+const toneClass = {
+  ink: "border-ink-soft text-ink-soft",
+  light: "border-white/55 text-white",
+  "lime-ink": "border-lime-ink text-lime-ink",
+}[tone];
+
+const dotClass = {
+  lime: "bg-lime text-lime-ink",
+  ink: "bg-ink-soft text-white",
+  light: "bg-white text-lime-ink",
+  "lime-ink": "bg-lime-ink text-lime",
+}[dot];
+---
+
+<a
+  href={href}
+  class:list={[
+    "group inline-flex min-h-11 items-center gap-2.5 self-start rounded-full border py-1.5 pr-2 pl-4 text-sm font-medium transition-opacity hover:opacity-80",
+    toneClass,
+    className,
+  ]}
+  {...external ? { target: "_blank", rel: "noopener" } : {}}
+>
+  <slot />
+  <span aria-hidden="true" class:list={["inline-flex size-7 items-center justify-center rounded-full", dotClass]}>
+    {icon === "down" ? (
+      <svg class="size-3" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8 3v10M4 9l4 4 4-4" /></svg>
+    ) : (
+      <svg class="size-3 transition-transform duration-200 group-hover:translate-x-0.5" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4" /></svg>
+    )}
+  </span>
+</a>

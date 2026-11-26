@@ -59,10 +59,11 @@ const imageUrl = new URL(image, site).href;
     <meta name="twitter:image" content={imageUrl} />
     <meta name="twitter:image:alt" content={imageAlt} />
 
+    <link rel="preload" href="/fonts/PPNeueMontreal/PPNeueMontreal-Regular.otf" as="font" type="font/otf" crossorigin />
     <link rel="preload" href="/fonts/PPNeueMontreal/PPNeueMontreal-Medium.otf" as="font" type="font/otf" crossorigin />
     <Analytics />
   </head>
-  <body class="bg-white font-sans text-ink antialiased">
+  <body class="bg-white font-sans text-ink-soft antialiased">
     <slot />
   </body>
 </html>

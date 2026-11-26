@@ -44,6 +44,31 @@
   --color-leaf: #7fd49a;
   --color-footer: #22384A;
   --color-footer-light: #2a4458;
+
+  /* 07 refine palette */
+  --color-ink-soft: #151513;
+  --color-band: #f4f4f2;
+  --color-line: #c9c8c3;
+  --color-quiet: #76766f;
+  --color-lime: #dde152;
+  --color-lime-ink: #0f1f14;
+
+  /* 07 refine type scale */
+  --text-display: clamp(56px, 8.9vw, 128px);
+  --text-display--line-height: 0.92;
+  --text-display--letter-spacing: -0.035em;
+  --text-heading: clamp(32px, 3.4vw, 48px);
+  --text-heading--line-height: 1.04;
+  --text-heading--letter-spacing: -0.03em;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 @view-transition {

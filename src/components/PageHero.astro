@@ -1,0 +1,106 @@
+---
+import PillLink from "./PillLink.astro";
+
+/**
+ * Subpage hero in the 07 refine language: blurred photo, tint,
+ * a light 80px headline and up to two calls to action.
+ * On mobile the primary action becomes a full-width button.
+ */
+interface Action {
+  label: string;
+  href: string;
+  icon?: "arrow" | "down";
+  external?: boolean;
+}
+
+interface Props {
+  title: string;
+  image: string;
+  imageWidth: number;
+  imageHeight: number;
+  objectPosition?: string;
+  primary: Action;
+  secondary?: Action;
+}
+
+const { title, image, imageWidth, imageHeight, objectPosition = "50% 50%", primary, secondary } = Astro.props;
+---
+
+<section class="relative flex min-h-[max(720px,100svh)] w-full flex-col overflow-hidden bg-[#6f6a62] text-white" aria-label="Hero">
+  <img
+    src={image}
+    alt=""
+    aria-hidden="true"
+    class="absolute -inset-10 h-[calc(100%+80px)] w-[calc(100%+80px)] max-w-none object-cover blur-[18px] saturate-[0.85]"
+    style={`object-position: ${objectPosition}`}
+    width={imageWidth}
+    height={imageHeight}
+    fetchpriority="high"
+  />
+  <div class="absolute inset-0 bg-[rgb(28_26_22/0.4)]"></div>
+
+  <div class="relative mx-auto flex w-full max-w-[1440px] flex-1 flex-col justify-between gap-12 px-5 pt-32 pb-7 md:px-10 md:pt-40 md:pb-10">
+    <h1 class="hero-enter max-w-[1000px] text-[clamp(44px,5.6vw,80px)] leading-[0.94] font-normal tracking-[-0.035em]" data-hero-enter data-hero-delay="0">
+      {title}
+    </h1>
+
+    <div class="hero-enter" data-hero-enter data-hero-delay="0.15">
+      <div class="hidden flex-wrap gap-3 md:flex">
+        <PillLink href={primary.href} tone="light" icon={primary.icon} external={primary.external}>{primary.label}</PillLink>
+        {secondary && (
+          <PillLink href={secondary.href} tone="light" dot="light" icon={secondary.icon} external={secondary.external}>{secondary.label}</PillLink>
+        )}
+      </div>
+
+      <div class="flex items-center gap-3 md:hidden">
+        <a
+          href={primary.href}
+          class="inline-flex min-h-12 flex-1 items-center justify-center rounded-full bg-white text-[15px] font-medium text-ink"
+          {...primary.external ? { target: "_blank", rel: "noopener" } : {}}
+        >
+          {primary.label}
+        </a>
+        <a href={primary.href} aria-hidden="true" tabindex="-1" class="inline-flex size-12 shrink-0 items-center justify-center rounded-full bg-lime text-lime-ink">
+          {primary.icon === "down" ? (
+            <svg class="size-4" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 3v10M4 9l4 4 4-4" /></svg>
+          ) : (
+            <svg class="size-4" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h10M9 4l4 4-4 4" /></svg>
+          )}
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { animate } from "motion";
+
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const entryEase = [0.22, 1, 0.36, 1] as const;
+
+  document.querySelectorAll<HTMLElement>("[data-hero-enter]").forEach((element) => {
+    const delay = Number(element.dataset.heroDelay ?? 0);
+
+    if (prefersReducedMotion) {
+      element.style.opacity = "1";
+      element.style.transform = "none";
+      return;
+    }
+
+    animate(element, { opacity: [0, 1], y: [28, 0] }, { duration: 0.9, delay, ease: entryEase });
+  });
+</script>
+
+<style>
+  .hero-enter {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-enter {
+      opacity: 1;
+      transform: none;
+    }
+  }
+</style>

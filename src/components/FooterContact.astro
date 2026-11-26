@@ -1,27 +1,31 @@
 ---
+const email = "info@peregrinecreativegroup.com";
+
 const links = [
   { label: "Cups & Bottles", href: "/reusable-bottles" },
-  { label: "Textiles", href: "/textiles" },
+  { label: "Garments & Textiles", href: "/textiles" },
   { label: "LIVA", href: "/liva" },
+  { label: "Sustainability", href: "/#green" },
 ];
 ---
 
-<footer id="contact" class="bg-ink px-5 pt-20 pb-8 text-white md:px-10 md:pt-28 lg:px-14" aria-label="Contact">
-  <div class="mx-auto max-w-[1328px]">
-    <h2 class="mb-6 max-w-[18ch] text-section font-medium">
-      Have a product in mind? Let's make it.
-    </h2>
-    <a href="mailto:info@peregrinecreativegroup.com" class="text-[clamp(18px,2vw,28px)] text-white underline underline-offset-[6px] transition-opacity hover:opacity-70">
-      info@peregrinecreativegroup.com
+<footer id="contact" class="scroll-mt-20 bg-white text-ink-soft" aria-label="Contact">
+  <div class="mx-auto max-w-[1440px] px-5 pt-16 pb-7 md:px-10 md:pt-[84px] md:pb-8">
+    <h2 class="text-base font-normal">Have a product in mind? Let’s make it.</h2>
+    <a href={`mailto:${email}`} class="group mt-4 inline-flex items-center gap-3 md:mt-6 md:gap-4">
+      <span class="text-xl tracking-[-0.02em] underline decoration-1 underline-offset-[6px] md:text-[32px]">{email}</span>
+      <span aria-hidden="true" class="inline-flex size-9 shrink-0 items-center justify-center rounded-full bg-ink-soft text-white md:size-11">
+        <svg class="size-3.5 transition-transform duration-200 group-hover:translate-x-0.5" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 8h10M9 4l4 4-4 4" /></svg>
+      </span>
     </a>
 
-    <div class="mt-24 flex flex-wrap justify-between gap-x-8 gap-y-4 border-t border-[#262626] pt-6 text-sm text-[#a3a3a0]">
-      <p>&copy; {new Date().getFullYear()} Peregrine Creative Group</p>
-      <ul class="flex flex-wrap gap-x-6 gap-y-2" role="list">
+    <div class="mt-12 flex flex-col gap-10 md:mt-14 md:flex-row-reverse md:items-end md:justify-between md:border-t md:border-ink-soft/20 md:pt-6">
+      <ul class="flex flex-col gap-2 text-[15px] md:gap-0.5 md:text-right md:text-sm" role="list">
         {links.map((link) => (
-          <li><a href={link.href} class="text-[#d4d4d1] transition-colors hover:text-white">{link.label}</a></li>
+          <li><a href={link.href} class="transition-opacity hover:opacity-60">{link.label}</a></li>
         ))}
       </ul>
+      <p class="border-t border-ink-soft/20 pt-5 text-[13px] text-ink-soft/75 md:border-0 md:pt-0 md:text-sm">&copy; {new Date().getFullYear()} Peregrine Creative Group</p>
     </div>
   </div>
 </footer>
